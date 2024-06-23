@@ -53,6 +53,15 @@
       {
         "isExpanded" : true,
         "isLocked" : false
+      },
+      [
+        "6825BEFF-E269-4097-A91C-47C786476E93",
+        "Root",
+        "RGBSplitMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
       }
     ]
   },
@@ -135,6 +144,15 @@
   },
   "D66134B1-3681-4A8E-AFE5-29F257229F3B" : {
     "objectMetadataList" : [
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "GridMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
