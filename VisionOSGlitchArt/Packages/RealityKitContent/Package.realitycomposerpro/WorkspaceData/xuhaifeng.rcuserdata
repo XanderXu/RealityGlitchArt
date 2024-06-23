@@ -1,0 +1,43 @@
+{
+  "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
+  "openSceneRelativePaths" : [
+    "Immersive.usda",
+    "Materials\/RGBSplitMaterial.usda",
+    "Materials\/GridMaterial.usda"
+  ],
+  "recentIdentifiers" : {
+    "6825BEFF-E269-4097-A91C-47C786476E93" : [
+
+    ]
+  },
+  "sceneCameraHistory" : {
+    "AF09ED6F-1707-48FD-8720-65B998362C09" : [
+      {
+        "date" : 740836624.592395,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071069,
+          -0.7071067,
+          0,
+          0,
+          0.7071067,
+          0.7071069,
+          0,
+          0,
+          2.6151166,
+          1.0651169,
+          1
+        ]
+      }
+    ]
+  },
+  "sceneViewportBackgroundColors" : {
+
+  },
+  "selectedSceneRelativePath" : "Materials\/RGBSplitMaterial.usda"
+}
