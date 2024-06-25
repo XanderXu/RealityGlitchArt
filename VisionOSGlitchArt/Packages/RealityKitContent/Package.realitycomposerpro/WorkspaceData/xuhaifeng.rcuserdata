@@ -1,11 +1,15 @@
 {
   "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
-    "Materials\/RGBSplitMaterial.usda",
     "Scene.usda",
-    "Immersive.usda"
+    "Immersive.usda",
+    "Materials\/RGBSplitMaterialV3.usda",
+    "Materials\/RGBSplitMaterialV2.usda"
   ],
   "recentIdentifiers" : {
+    "80D672B8-95E6-4E06-92D6-EB68A4CDF7E5" : [
+
+    ],
     "6825BEFF-E269-4097-A91C-47C786476E93" : [
 
     ],
@@ -16,6 +20,9 @@
 
     ],
     "D66134B1-3681-4A8E-AFE5-29F257229F3B" : [
+
+    ],
+    "E74508F2-6879-4F15-A25A-8DEAD9BF29FA" : [
 
     ]
   },
@@ -250,5 +257,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Immersive.usda"
+  "selectedSceneRelativePath" : "Materials\/RGBSplitMaterialV3.usda"
 }
