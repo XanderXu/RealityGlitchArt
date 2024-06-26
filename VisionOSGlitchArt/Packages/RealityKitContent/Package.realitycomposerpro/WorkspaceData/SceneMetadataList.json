@@ -53,6 +53,27 @@
       }
     ]
   },
+  "2A05187B-1CC8-482C-B249-0BA0D1EC881B" : {
+    "objectMetadataList" : [
+      [
+        "2A05187B-1CC8-482C-B249-0BA0D1EC881B",
+        "Root",
+        "RGBSplitMaterialV5"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "2A05187B-1CC8-482C-B249-0BA0D1EC881B",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "4D49CF75-51FB-496B-AAC1-8DAC743B1697" : {
     "objectMetadataList" : [
       [

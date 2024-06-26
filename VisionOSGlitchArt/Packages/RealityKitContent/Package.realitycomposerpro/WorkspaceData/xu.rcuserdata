@@ -1,15 +1,23 @@
 {
-  "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
+  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
   "openSceneRelativePaths" : [
     "Immersive.usda",
-    "Materials\/RGBSplitMaterialV4.usda",
     "Materials\/RGBSplitMaterialV5.usda"
   ],
   "recentIdentifiers" : {
     "0CC2D925-5E5B-448E-9FEF-856048816302" : [
 
     ],
+    "0F58B21C-F700-4267-8761-6FCEA44A771B" : [
+
+    ],
+    "2A05187B-1CC8-482C-B249-0BA0D1EC881B" : [
+
+    ],
     "4D49CF75-51FB-496B-AAC1-8DAC743B1697" : [
+
+    ],
+    "AF09ED6F-1707-48FD-8720-65B998362C09" : [
 
     ],
     "F6D65C5A-4349-46D3-9603-5D6A186DBC2D" : [
@@ -17,6 +25,30 @@
     ]
   },
   "sceneCameraHistory" : {
+    "2A05187B-1CC8-482C-B249-0BA0D1EC881B" : [
+      {
+        "date" : 741068244.639036,
+        "title" : "Untitled",
+        "transform" : [
+          0.99999994,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071068,
+          -0.7071066,
+          0,
+          0,
+          0.7071066,
+          0.7071068,
+          0,
+          0,
+          0.11920488,
+          0.11920488,
+          1
+        ]
+      }
+    ],
     "AF09ED6F-1707-48FD-8720-65B998362C09" : [
       {
         "date" : 741061705.30732,
