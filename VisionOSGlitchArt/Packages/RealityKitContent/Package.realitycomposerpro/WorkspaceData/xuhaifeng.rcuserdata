@@ -1,28 +1,12 @@
 {
   "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
-    "Scene.usda",
-    "Immersive.usda",
-    "Materials\/RGBSplitMaterialV3.usda",
-    "Materials\/RGBSplitMaterialV2.usda"
+    "Materials\/RGBSplitMaterial.usda",
+    "Materials\/GridMaterial.usda",
+    "Scene.usda"
   ],
   "recentIdentifiers" : {
-    "80D672B8-95E6-4E06-92D6-EB68A4CDF7E5" : [
-
-    ],
     "6825BEFF-E269-4097-A91C-47C786476E93" : [
-
-    ],
-    "06944DE4-4E01-44B5-A064-66A1F0AE904A" : [
-
-    ],
-    "AF09ED6F-1707-48FD-8720-65B998362C09" : [
-
-    ],
-    "D66134B1-3681-4A8E-AFE5-29F257229F3B" : [
-
-    ],
-    "E74508F2-6879-4F15-A25A-8DEAD9BF29FA" : [
 
     ]
   },
@@ -75,72 +59,6 @@
     ],
     "AF09ED6F-1707-48FD-8720-65B998362C09" : [
       {
-        "date" : 741018963.822722,
-        "title" : "Untitled",
-        "transform" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0.7071069,
-          -0.7071067,
-          0,
-          0,
-          0.7071067,
-          0.7071069,
-          0,
-          -0.14061666,
-          1.8852043,
-          -0.9781518,
-          1
-        ]
-      },
-      {
-        "date" : 741018960.414663,
-        "title" : "Untitled",
-        "transform" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0.7071069,
-          -0.7071067,
-          0,
-          0,
-          0.7071067,
-          0.7071069,
-          0,
-          0.2828118,
-          3.2154534,
-          -0.36078155,
-          1
-        ]
-      },
-      {
-        "date" : 741018741.152707,
-        "title" : "Untitled",
-        "transform" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0.7071069,
-          -0.7071067,
-          0,
-          0,
-          0.7071067,
-          0.7071069,
-          0,
-          0,
-          3.45243,
-          1.4061482,
-          1
-        ]
-      },
-      {
         "date" : 740836624.592395,
         "title" : "Untitled",
         "transform" : [
@@ -164,50 +82,6 @@
       }
     ],
     "D66134B1-3681-4A8E-AFE5-29F257229F3B" : [
-      {
-        "date" : 741018953.941567,
-        "title" : "Untitled",
-        "transform" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0.7071069,
-          -0.7071067,
-          0,
-          0,
-          0.7071067,
-          0.7071069,
-          0,
-          0,
-          0.41261557,
-          0.41146854,
-          1
-        ]
-      },
-      {
-        "date" : 741018024.157249,
-        "title" : "Untitled",
-        "transform" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0.7071069,
-          -0.7071067,
-          0,
-          0,
-          0.7071067,
-          0.7071069,
-          0,
-          0,
-          0.6650066,
-          0.66315794,
-          1
-        ]
-      },
       {
         "date" : 740838554.49308,
         "title" : "Untitled",
@@ -257,5 +131,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/RGBSplitMaterialV3.usda"
+  "selectedSceneRelativePath" : "Materials\/RGBSplitMaterial.usda"
 }

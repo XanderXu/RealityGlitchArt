@@ -1,0 +1,287 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.0.500.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Material "RGBSplitMaterialV4"
+    {
+        token outputs:mtlx:surface.connect = </Root/RGBSplitMaterialV4/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/RGBSplitMaterialV4/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1846.5789, -146.79793)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 2275
+
+        def Shader "UsdPreviewSurface" (
+            active = false
+        )
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/RGBSplitMaterialV4/Combine3.outputs:out>
+            float inputs:metallic
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (1591.579, -152.29793)
+            int ui:nodegraph:node:stackingOrder = 2275
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "Time"
+        {
+            uniform token info:id = "ND_time_float"
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-838.1115, 672.20966)
+            int ui:nodegraph:node:stackingOrder = 2443
+        }
+
+        def Shader "Speed"
+        {
+            uniform token info:id = "ND_constant_float"
+            float inputs:value = 10
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-835.9928, 574.7527)
+            int ui:nodegraph:node:stackingOrder = 2716
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/RGBSplitMaterialV4/Speed.outputs:out>
+            float inputs:in2.connect = </Root/RGBSplitMaterialV4/Time.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-688.86084, 631.131)
+            int ui:nodegraph:node:stackingOrder = 2573
+        }
+
+        def Shader "Texcoord"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-811.49786, 169.91075)
+            int ui:nodegraph:node:stackingOrder = 1148
+        }
+
+        def Shader "Combine3"
+        {
+            uniform token info:id = "ND_combine3_color3"
+            float inputs:in1.connect = </Root/RGBSplitMaterialV4/UsdUVTexture_1.outputs:r>
+            float inputs:in2.connect = </Root/RGBSplitMaterialV4/UsdUVTexture.outputs:g>
+            float inputs:in3.connect = </Root/RGBSplitMaterialV4/UsdUVTexture_2.outputs:b>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (1229.09, -80.34056)
+            int ui:nodegraph:node:stackingOrder = 1312
+        }
+
+        def Shader "UsdUVTexture"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            asset inputs:file = @number.jpeg@
+            float2 inputs:st.connect = </Root/RGBSplitMaterialV4/Texcoord.outputs:out>
+            string inputs:wrapT
+            float outputs:b
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            color4f outputs:rgba
+            float2 ui:nodegraph:node:pos = (628.52057, 69.72865)
+            int ui:nodegraph:node:stackingOrder = 2460
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "Multiply_4"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            float2 inputs:in1.connect = </Root/RGBSplitMaterialV4/Direction.outputs:out>
+            float inputs:in2.connect = </Root/RGBSplitMaterialV4/Multiply_8.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (490.8178, -186.60042)
+            int ui:nodegraph:node:stackingOrder = 2458
+        }
+
+        def Shader "Add"
+        {
+            uniform token info:id = "ND_add_vector2"
+            float2 inputs:in1.connect = </Root/RGBSplitMaterialV4/Texcoord.outputs:out>
+            float2 inputs:in2.connect = </Root/RGBSplitMaterialV4/Multiply_4.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (733.4959, -187.67902)
+            int ui:nodegraph:node:stackingOrder = 2456
+        }
+
+        def Shader "UsdUVTexture_1"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
+            asset inputs:file = @number.jpeg@
+            color4f inputs:scale
+            float2 inputs:st.connect = </Root/RGBSplitMaterialV4/Add.outputs:out>
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            color4f outputs:rgba
+            float2 ui:nodegraph:node:pos = (908.71826, -267.44995)
+            int ui:nodegraph:node:stackingOrder = 2187
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "Multiply_9"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            float2 inputs:in1.connect = </Root/RGBSplitMaterialV4/Direction.outputs:out>
+            float inputs:in2.connect = </Root/RGBSplitMaterialV4/Multiply_8.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (538.451, 396.1826)
+            int ui:nodegraph:node:stackingOrder = 2462
+        }
+
+        def Shader "Subtract"
+        {
+            uniform token info:id = "ND_subtract_vector2"
+            float2 inputs:in1.connect = </Root/RGBSplitMaterialV4/Texcoord.outputs:out>
+            float2 inputs:in2.connect = </Root/RGBSplitMaterialV4/Multiply_9.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (663.32227, 376.18796)
+            int ui:nodegraph:node:stackingOrder = 2140
+        }
+
+        def Shader "UsdUVTexture_2"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            asset inputs:file = @number.jpeg@
+            float2 inputs:st.connect = </Root/RGBSplitMaterialV4/Subtract.outputs:out>
+            float outputs:b
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            float2 ui:nodegraph:node:pos = (900.1655, 247.57101)
+            int ui:nodegraph:node:stackingOrder = 2232
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba"]
+        }
+
+        def Shader "Direction"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1 = 1
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-830.99243, -7.2312765)
+            int ui:nodegraph:node:stackingOrder = 1616
+        }
+
+        def Shader "Multiply_8"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/RGBSplitMaterialV4/Intensity.outputs:out>
+            float inputs:in2 = 0.001
+            float inputs:in2.connect = </Root/RGBSplitMaterialV4/RandomNoise.outputs:noise>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-225.14662, 483.27213)
+            int ui:nodegraph:node:stackingOrder = 2712
+        }
+
+        def NodeGraph "RandomNoise"
+        {
+            float2 inputs:seed = (0, 2) (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (77.511444, 43.303406)
+                        int stackingOrderInSubgraph = 2672
+                    }
+                }
+            )
+            float2 inputs:seed.connect = </Root/RGBSplitMaterialV4/Combine2.outputs:out>
+            float outputs:noise (
+                customData = {
+                    dictionary realitykit = {
+                        int stackingOrderInSubgraph = 2630
+                    }
+                }
+            )
+            float outputs:noise.connect = </Root/RGBSplitMaterialV4/RandomNoise/Fractional.outputs:out>
+            float2 ui:nodegraph:node:pos = (-377.5466, 638.29846)
+            int ui:nodegraph:node:stackingOrder = 2710
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (908.4146, 51.43164)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 2664
+
+            def Shader "Multiply_10"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/RGBSplitMaterialV4/RandomNoise/Sin.outputs:out>
+                float inputs:in2 = 43758.547
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (590.40155, 61.428284)
+                int ui:nodegraph:node:stackingOrder = 2664
+            }
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector2"
+                float2 inputs:in1.connect = </Root/RGBSplitMaterialV4/RandomNoise.inputs:seed>
+                float2 inputs:in2.connect = </Root/RGBSplitMaterialV4/RandomNoise/Combine2.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (299.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 2630
+            }
+
+            def Shader "Fractional"
+            {
+                uniform token info:id = "ND_realitykit_fractional_float"
+                float inputs:in.connect = </Root/RGBSplitMaterialV4/RandomNoise/Multiply_10.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (738.81683, 61.428284)
+                int ui:nodegraph:node:stackingOrder = 2674
+            }
+
+            def Shader "Combine2"
+            {
+                uniform token info:id = "ND_combine2_vector2"
+                float inputs:in1 = 12.9898
+                float inputs:in2 = 78.233
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (81.4158, 113.578125)
+                int ui:nodegraph:node:stackingOrder = 2672
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/RGBSplitMaterialV4/RandomNoise/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (462.96948, 56.369812)
+                int ui:nodegraph:node:stackingOrder = 2666
+            }
+        }
+
+        def Shader "Intensity"
+        {
+            uniform token info:id = "ND_constant_float"
+            float inputs:value = 0.05
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-838.9021, 434.33136)
+            int ui:nodegraph:node:stackingOrder = 2713
+        }
+
+        def Shader "Combine2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/RGBSplitMaterialV4/Multiply.outputs:out>
+            float inputs:in2 = 2
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-560.16296, 646.84436)
+            int ui:nodegraph:node:stackingOrder = 2708
+        }
+    }
+}
+
