@@ -1,0 +1,622 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.0.500.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Material "ImageBlockMaterialV2"
+    {
+        token outputs:mtlx:surface.connect = </Root/ImageBlockMaterialV2/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/ImageBlockMaterialV2/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1846.5789, -146.79793)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 2275
+
+        def Shader "UsdPreviewSurface" (
+            active = false
+        )
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/ImageBlockMaterialV2/Combine3.outputs:out>
+            float inputs:metallic
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (1591.579, -152.29793)
+            int ui:nodegraph:node:stackingOrder = 2275
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "Time"
+        {
+            uniform token info:id = "ND_time_float"
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-833.9769, 457.3205)
+            int ui:nodegraph:node:stackingOrder = 2742
+        }
+
+        def Shader "Speed"
+        {
+            uniform token info:id = "ND_constant_float"
+            float inputs:value = 10
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-829.81836, 370.9347)
+            int ui:nodegraph:node:stackingOrder = 2758
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/ImageBlockMaterialV2/Speed.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV2/Time.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-684.72626, 416.24182)
+            int ui:nodegraph:node:stackingOrder = 2742
+        }
+
+        def Shader "Texcoord"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-811.49786, 169.91075)
+            int ui:nodegraph:node:stackingOrder = 1148
+        }
+
+        def Shader "Combine3"
+        {
+            uniform token info:id = "ND_combine3_color3"
+            float inputs:in1.connect = </Root/ImageBlockMaterialV2/UsdUVTexture_1.outputs:r>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV2/UsdUVTexture.outputs:g>
+            float inputs:in3.connect = </Root/ImageBlockMaterialV2/UsdUVTexture_2.outputs:b>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (1229.09, -80.34056)
+            int ui:nodegraph:node:stackingOrder = 1312
+        }
+
+        def Shader "UsdUVTexture"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
+            asset inputs:file = @number.jpeg@
+            color4f inputs:scale
+            float2 inputs:st.connect = </Root/ImageBlockMaterialV2/Add.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
+            float outputs:b
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            color4f outputs:rgba
+            float2 ui:nodegraph:node:pos = (687.5121, 5.652763)
+            int ui:nodegraph:node:stackingOrder = 3344
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "UsdUVTexture_1"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
+            asset inputs:file = @number.jpeg@
+            color4f inputs:scale
+            float2 inputs:st.connect = </Root/ImageBlockMaterialV2/Texcoord.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            color4f outputs:rgba
+            float2 ui:nodegraph:node:pos = (908.71826, -267.44995)
+            int ui:nodegraph:node:stackingOrder = 2187
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "Multiply_9"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/Subtract_1.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV2/Multiply_5.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (533.40656, 393.88205)
+            int ui:nodegraph:node:stackingOrder = 3050
+        }
+
+        def Shader "Subtract"
+        {
+            uniform token info:id = "ND_subtract_vector2"
+            float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/Texcoord.outputs:out>
+            float2 inputs:in2.connect = </Root/ImageBlockMaterialV2/Multiply_9.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (663.32227, 376.18796)
+            int ui:nodegraph:node:stackingOrder = 2140
+        }
+
+        def Shader "UsdUVTexture_2"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            asset inputs:file = @number.jpeg@
+            float2 inputs:st.connect = </Root/ImageBlockMaterialV2/Subtract.outputs:out>
+            float outputs:b
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            float2 ui:nodegraph:node:pos = (900.1655, 190.12778)
+            int ui:nodegraph:node:stackingOrder = 3343
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba"]
+        }
+
+        def Shader "Multiply_4"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/Subtract_1.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV2/Multiply_6.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (422.01224, 164.5356)
+            int ui:nodegraph:node:stackingOrder = 3335
+        }
+
+        def Shader "Add"
+        {
+            uniform token info:id = "ND_add_vector2"
+            float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/Texcoord.outputs:out>
+            float2 inputs:in2.connect = </Root/ImageBlockMaterialV2/Multiply_4.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (494.722, 133.78802)
+            int ui:nodegraph:node:stackingOrder = 3333
+        }
+
+        def Shader "BlockSize"
+        {
+            uniform token info:id = "ND_constant_float"
+            float inputs:value = 8
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-821.93713, 271.7815)
+            int ui:nodegraph:node:stackingOrder = 2917
+        }
+
+        def Shader "Multiply_1"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/Texcoord.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV2/BlockSize.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-634.4697, 326.35876)
+            int ui:nodegraph:node:stackingOrder = 3011
+        }
+
+        def Shader "Floor"
+        {
+            uniform token info:id = "ND_floor_vector2"
+            float2 inputs:in.connect = </Root/ImageBlockMaterialV2/Multiply_1.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-515.00806, 338.45038)
+            int ui:nodegraph:node:stackingOrder = 3166
+        }
+
+        def Shader "Floor_1"
+        {
+            uniform token info:id = "ND_floor_float"
+            float inputs:in.connect = </Root/ImageBlockMaterialV2/Multiply.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-526.09674, 419.457)
+            int ui:nodegraph:node:stackingOrder = 3165
+        }
+
+        def Shader "Multiply_2"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/Floor.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV2/Floor_1.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-394.39658, 347.57327)
+            int ui:nodegraph:node:stackingOrder = 3287
+        }
+
+        def Shader "Power"
+        {
+            uniform token info:id = "ND_power_float"
+            float inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise.outputs:noise>
+            float inputs:in2 = 8
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-89.2555, 370.21213)
+            int ui:nodegraph:node:stackingOrder = 3287
+        }
+
+        def Shader "Power_1"
+        {
+            uniform token info:id = "ND_power_float"
+            float inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise.outputs:noise>
+            float inputs:in2 = 3
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-95.473145, 446.30447)
+            int ui:nodegraph:node:stackingOrder = 3287
+        }
+
+        def Shader "Multiply_3"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/ImageBlockMaterialV2/Power.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV2/Power_1.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (30.810549, 412.90433)
+            int ui:nodegraph:node:stackingOrder = 3287
+        }
+
+        def Shader "Multiply_5"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise_1.outputs:noise>
+            float inputs:in2 = 0.1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (422.77728, 449.28204)
+            int ui:nodegraph:node:stackingOrder = 3339
+        }
+
+        def Shader "Multiply_6"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise_2.outputs:noise>
+            float inputs:in2 = 0.1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (237.47499, 232.81932)
+            int ui:nodegraph:node:stackingOrder = 3225
+        }
+
+        def NodeGraph "RandomNoise"
+        {
+            float2 inputs:seed = (0, 2) (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (84.567444, -24.378967)
+                        int stackingOrderInSubgraph = 2680
+                    }
+                }
+            )
+            float2 inputs:seed.connect = </Root/ImageBlockMaterialV2/Multiply_2.outputs:out>
+            float outputs:noise (
+                customData = {
+                    dictionary realitykit = {
+                        int stackingOrderInSubgraph = 2630
+                    }
+                }
+            )
+            float outputs:noise.connect = </Root/ImageBlockMaterialV2/RandomNoise/Fractional.outputs:out>
+            float2 ui:nodegraph:node:pos = (-267.27847, 360.11633)
+            int ui:nodegraph:node:stackingOrder = 3287
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:seed"]
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (908.4146, 51.43164)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 2664
+
+            def Shader "Multiply_10"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise/Sin.outputs:out>
+                float inputs:in2 = 43758.547
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (590.40155, 61.428284)
+                int ui:nodegraph:node:stackingOrder = 2664
+            }
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector2"
+                float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise.inputs:seed>
+                float2 inputs:in2.connect = </Root/ImageBlockMaterialV2/RandomNoise/Combine2.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (299.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 2630
+            }
+
+            def Shader "Fractional"
+            {
+                uniform token info:id = "ND_realitykit_fractional_float"
+                float inputs:in.connect = </Root/ImageBlockMaterialV2/RandomNoise/Multiply_10.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (738.81683, 61.428284)
+                int ui:nodegraph:node:stackingOrder = 2674
+            }
+
+            def Shader "Combine2"
+            {
+                uniform token info:id = "ND_combine2_vector2"
+                float inputs:in1 = 12.9898
+                float inputs:in2 = 78.233
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (81.4158, 113.578125)
+                int ui:nodegraph:node:stackingOrder = 2679
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/ImageBlockMaterialV2/RandomNoise/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (462.96948, 56.369812)
+                int ui:nodegraph:node:stackingOrder = 2666
+            }
+        }
+
+        def NodeGraph "RandomNoise_1"
+        {
+            float2 inputs:seed = (7, 1) (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (77.511444, 43.303406)
+                        int stackingOrderInSubgraph = 2672
+                    }
+                }
+            )
+            float outputs:noise (
+                customData = {
+                    dictionary realitykit = {
+                        int stackingOrderInSubgraph = 2630
+                    }
+                }
+            )
+            float outputs:noise.connect = </Root/ImageBlockMaterialV2/RandomNoise_1/Fractional.outputs:out>
+            float2 ui:nodegraph:node:pos = (212.4261, 541.1184)
+            int ui:nodegraph:node:stackingOrder = 3346
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:seed"]
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (908.4146, 51.43164)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 2664
+
+            def Shader "Multiply_10"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise_1/Sin.outputs:out>
+                float inputs:in2 = 43758.547
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (590.40155, 61.428284)
+                int ui:nodegraph:node:stackingOrder = 2664
+            }
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector2"
+                float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise_1.inputs:seed>
+                float2 inputs:in2.connect = </Root/ImageBlockMaterialV2/RandomNoise_1/Combine2.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (299.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 2630
+            }
+
+            def Shader "Fractional"
+            {
+                uniform token info:id = "ND_realitykit_fractional_float"
+                float inputs:in.connect = </Root/ImageBlockMaterialV2/RandomNoise_1/Multiply_10.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (738.81683, 61.428284)
+                int ui:nodegraph:node:stackingOrder = 2674
+            }
+
+            def Shader "Combine2"
+            {
+                uniform token info:id = "ND_combine2_vector2"
+                float inputs:in1 = 12.9898
+                float inputs:in2 = 78.233
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (81.4158, 113.578125)
+                int ui:nodegraph:node:stackingOrder = 2672
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/ImageBlockMaterialV2/RandomNoise_1/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (462.96948, 56.369812)
+                int ui:nodegraph:node:stackingOrder = 2666
+            }
+        }
+
+        def NodeGraph "RandomNoise_2"
+        {
+            float2 inputs:seed = (13, 1) (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (77.511444, 43.303406)
+                        int stackingOrderInSubgraph = 2672
+                    }
+                }
+            )
+            float outputs:noise (
+                customData = {
+                    dictionary realitykit = {
+                        int stackingOrderInSubgraph = 2630
+                    }
+                }
+            )
+            float outputs:noise.connect = </Root/ImageBlockMaterialV2/RandomNoise_2/Fractional.outputs:out>
+            float2 ui:nodegraph:node:pos = (95.91581, 201.75568)
+            int ui:nodegraph:node:stackingOrder = 3345
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:seed"]
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (908.4146, 51.43164)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 2664
+
+            def Shader "Multiply_10"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise_2/Sin.outputs:out>
+                float inputs:in2 = 43758.547
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (590.40155, 61.428284)
+                int ui:nodegraph:node:stackingOrder = 2664
+            }
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector2"
+                float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise_2.inputs:seed>
+                float2 inputs:in2.connect = </Root/ImageBlockMaterialV2/RandomNoise_2/Combine2.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (299.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 2630
+            }
+
+            def Shader "Fractional"
+            {
+                uniform token info:id = "ND_realitykit_fractional_float"
+                float inputs:in.connect = </Root/ImageBlockMaterialV2/RandomNoise_2/Multiply_10.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (738.81683, 61.428284)
+                int ui:nodegraph:node:stackingOrder = 2674
+            }
+
+            def Shader "Combine2"
+            {
+                uniform token info:id = "ND_combine2_vector2"
+                float inputs:in1 = 12.9898
+                float inputs:in2 = 78.233
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (81.4158, 113.578125)
+                int ui:nodegraph:node:stackingOrder = 2672
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/ImageBlockMaterialV2/RandomNoise_2/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (462.96948, 56.369812)
+                int ui:nodegraph:node:stackingOrder = 2666
+            }
+        }
+
+        def Shader "MaxRGBSplit"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1 = 1
+            float inputs:in2 = 1
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-822.2719, 535.2884)
+            int ui:nodegraph:node:stackingOrder = 3330
+        }
+
+        def Shader "Combine2_2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/ImageBlockMaterialV2/Multiply_3.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV2/Multiply_3.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (162.21677, 406.30988)
+            int ui:nodegraph:node:stackingOrder = 3287
+        }
+
+        def Shader "Subtract_1"
+        {
+            uniform token info:id = "ND_subtract_vector2"
+            float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/Combine2_2.outputs:out>
+            float2 inputs:in2.connect = </Root/ImageBlockMaterialV2/Multiply_7.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (311.14197, 415.34274)
+            int ui:nodegraph:node:stackingOrder = 3287
+        }
+
+        def Shader "Power_2"
+        {
+            uniform token info:id = "ND_power_float"
+            float inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise_3.outputs:noise>
+            float inputs:in2 = 17
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-129.8671, 557.3924)
+            int ui:nodegraph:node:stackingOrder = 3328
+        }
+
+        def Shader "Multiply_7"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            prepend float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/MaxRGBSplit.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV2/Power_2.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-5.0848155, 514.0343)
+            int ui:nodegraph:node:stackingOrder = 3328
+        }
+
+        def NodeGraph "RandomNoise_3"
+        {
+            float2 inputs:seed = (7.23, 1) (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (84.567444, -24.378967)
+                        int stackingOrderInSubgraph = 2677
+                    }
+                }
+            )
+            float2 inputs:seed.connect = None
+            float outputs:noise (
+                customData = {
+                    dictionary realitykit = {
+                        int stackingOrderInSubgraph = 2630
+                    }
+                }
+            )
+            float outputs:noise.connect = </Root/ImageBlockMaterialV2/RandomNoise_3/Fractional.outputs:out>
+            float2 ui:nodegraph:node:pos = (-355.07758, 598.64166)
+            int ui:nodegraph:node:stackingOrder = 3328
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:seed"]
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (908.4146, 51.43164)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 2664
+
+            def Shader "Multiply_10"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise_3/Sin.outputs:out>
+                float inputs:in2 = 43758.547
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (590.40155, 61.428284)
+                int ui:nodegraph:node:stackingOrder = 2664
+            }
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector2"
+                float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/RandomNoise_3.inputs:seed>
+                float2 inputs:in2.connect = </Root/ImageBlockMaterialV2/RandomNoise_3/Combine2.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (299.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 2630
+            }
+
+            def Shader "Fractional"
+            {
+                uniform token info:id = "ND_realitykit_fractional_float"
+                float inputs:in.connect = </Root/ImageBlockMaterialV2/RandomNoise_3/Multiply_10.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (738.81683, 61.428284)
+                int ui:nodegraph:node:stackingOrder = 2674
+            }
+
+            def Shader "Combine2"
+            {
+                uniform token info:id = "ND_combine2_vector2"
+                float inputs:in1 = 12.9898
+                float inputs:in2 = 78.233
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (81.4158, 113.578125)
+                int ui:nodegraph:node:stackingOrder = 2672
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/ImageBlockMaterialV2/RandomNoise_3/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (462.96948, 56.369812)
+                int ui:nodegraph:node:stackingOrder = 2666
+            }
+        }
+    }
+}
+
