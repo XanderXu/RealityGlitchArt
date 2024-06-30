@@ -1,12 +1,13 @@
 {
-  "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
+  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
   "openSceneRelativePaths" : [
     "Materials\/RGBSplitMaterial.usda",
-    "Materials\/GridMaterial.usda",
-    "Scene.usda",
-    "Materials\/ImageBlockMaterialV4.usda"
+    "Scene.usda"
   ],
   "recentIdentifiers" : {
+    "0CC2D925-5E5B-448E-9FEF-856048816302" : [
+
+    ],
     "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1" : [
 
     ],
@@ -14,6 +15,9 @@
 
     ],
     "63893EE4-0EBE-40E3-9A8B-6E735B050C7B" : [
+
+    ],
+    "D66134B1-3681-4A8E-AFE5-29F257229F3B" : [
 
     ]
   },
@@ -186,5 +190,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/ImageBlockMaterialV4.usda"
+  "selectedSceneRelativePath" : "Materials\/RGBSplitMaterial.usda"
 }

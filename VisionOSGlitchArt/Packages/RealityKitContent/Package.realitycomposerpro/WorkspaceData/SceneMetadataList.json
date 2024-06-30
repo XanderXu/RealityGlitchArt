@@ -15,6 +15,15 @@
     "objectMetadataList" : [
       [
         "0CC2D925-5E5B-448E-9FEF-856048816302",
+        "Root222",
+        "RGBSplitMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0CC2D925-5E5B-448E-9FEF-856048816302",
         "Root",
         "RGBSplitMaterial"
       ],
@@ -57,8 +66,7 @@
     "objectMetadataList" : [
       [
         "2A05187B-1CC8-482C-B249-0BA0D1EC881B",
-        "Root",
-        "RGBSplitMaterialV5"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -66,7 +74,8 @@
       },
       [
         "2A05187B-1CC8-482C-B249-0BA0D1EC881B",
-        "Root"
+        "Root",
+        "RGBSplitMaterialV5"
       ],
       {
         "isExpanded" : true,
@@ -130,7 +139,9 @@
     "objectMetadataList" : [
       [
         "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1",
-        "Root"
+        "Root",
+        "ImageBlockMaterialV4",
+        "LineNoise"
       ],
       {
         "isExpanded" : true,
@@ -148,9 +159,7 @@
       },
       [
         "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1",
-        "Root",
-        "ImageBlockMaterialV4",
-        "LineNoise"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -204,6 +213,14 @@
     "objectMetadataList" : [
       [
         "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
         "Root",
         "ImageBlockMaterialV3",
         "LineNoise",
@@ -217,35 +234,7 @@
         "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
         "Root",
         "ImageBlockMaterialV3",
-        "RandomNoise_2"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
-        "Root",
-        "ImageBlockMaterialV3",
         "LineNoise"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
-        "Root",
-        "ImageBlockMaterialV3",
-        "RandomNoise_5"
       ],
       {
         "isExpanded" : true,
@@ -265,6 +254,26 @@
         "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
         "Root",
         "ImageBlockMaterialV3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
+        "Root",
+        "ImageBlockMaterialV3",
+        "RandomNoise_5"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
+        "Root",
+        "ImageBlockMaterialV3",
+        "RandomNoise_2"
       ],
       {
         "isExpanded" : true,
@@ -291,6 +300,7 @@
         "Root"
       ],
       {
+        "disallowsFraming" : false,
         "isExpanded" : true,
         "isLocked" : false
       },
@@ -310,7 +320,24 @@
       [
         "AF09ED6F-1707-48FD-8720-65B998362C09",
         "Root",
+        "RGBSplitMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "AF09ED6F-1707-48FD-8720-65B998362C09",
+        "Root",
         "Sphere_Left"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "AF09ED6F-1707-48FD-8720-65B998362C09",
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -329,14 +356,6 @@
         "AF09ED6F-1707-48FD-8720-65B998362C09",
         "Root",
         "GridMaterial"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "AF09ED6F-1707-48FD-8720-65B998362C09",
-        "Root"
       ],
       {
         "isExpanded" : true,
@@ -375,15 +394,6 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "GridMaterial"
       ],
       {
         "isExpanded" : true,

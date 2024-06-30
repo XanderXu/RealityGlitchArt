@@ -10,15 +10,31 @@ import RealityKit
 import RealityKitContent
 
 struct ImmersiveView: View {
-
+    @Environment(AppModel.self) private var model
+    @State private var entity: Entity? = nil
     var body: some View {
         RealityView { content in
             // Add the initial RealityKit content
             if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
                 content.add(immersiveContentEntity)
-
-                // Put skybox here.  See example in World project available at
-                // https://developer.apple.com/
+                print(immersiveContentEntity)
+                entity = immersiveContentEntity
+            }
+        }
+        .onChange(of: model.selectedMaterial) { oldValue, newValue in
+            Task {
+                do {
+                    let materialEntity = try await Entity(named: "Materials/"+newValue.rawValue, in: realityKitContentBundle)
+                    print(materialEntity)
+                    
+                } catch {
+                    print(error)
+                }
+//                if let materialEntity = try? await Entity(named: newValue.rawValue, in: realityKitContentBundle) {
+//                    
+//                    print(materialEntity)
+//                }
+                
             }
         }
     }
