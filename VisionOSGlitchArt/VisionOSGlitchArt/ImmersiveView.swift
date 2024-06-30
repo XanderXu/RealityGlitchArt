@@ -17,24 +17,29 @@ struct ImmersiveView: View {
             // Add the initial RealityKit content
             if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
                 content.add(immersiveContentEntity)
-                print(immersiveContentEntity)
+//                print(immersiveContentEntity)
                 entity = immersiveContentEntity
+                
+                immersiveContentEntity.forEachDescendant(withComponent: ModelComponent.self) { modelEntity, component in
+                    var modelComponent = component
+                    modelComponent.materials = modelComponent.materials.map {
+                        guard var material = $0 as? ShaderGraphMaterial else { return $0 }
+                        
+                        return material
+                    }
+                    print(modelEntity, modelComponent)
+                }
             }
         }
         .onChange(of: model.selectedMaterial) { oldValue, newValue in
             Task {
                 do {
-                    let materialEntity = try await Entity(named: "Materials/"+newValue.rawValue, in: realityKitContentBundle)
+                    let materialEntity = try await ShaderGraphMaterial(named: "/Root/"+newValue.rawValue, from: "Materials/"+newValue.rawValue, in: realityKitContentBundle)
                     print(materialEntity)
                     
                 } catch {
                     print(error)
                 }
-//                if let materialEntity = try? await Entity(named: newValue.rawValue, in: realityKitContentBundle) {
-//                    
-//                    print(materialEntity)
-//                }
-                
             }
         }
     }
@@ -43,4 +48,16 @@ struct ImmersiveView: View {
 #Preview(immersionStyle: .mixed) {
     ImmersiveView()
         .environment(AppModel())
+}
+public extension Entity {
+    
+    /// Recursive search of children looking for any descendants with a specific component and calling a closure with them.
+    func forEachDescendant<T: Component>(withComponent componentClass: T.Type, _ closure: (Entity, T) -> Void) {
+        for child in children {
+            if let component = child.components[componentClass] {
+                closure(child, component)
+            }
+            child.forEachDescendant(withComponent: componentClass, closure)
+        }
+    }
 }

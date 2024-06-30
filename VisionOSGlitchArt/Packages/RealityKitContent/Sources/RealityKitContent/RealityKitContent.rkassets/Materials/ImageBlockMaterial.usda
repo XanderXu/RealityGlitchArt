@@ -8,8 +8,14 @@
     upAxis = "Y"
 )
 
-def Xform "Root"
+def Xform "Root" (
+    prepend apiSchemas = ["MaterialBindingAPI"]
+)
 {
+    rel material:binding = </Root/ImageBlockMaterial> (
+        bindMaterialAs = "weakerThanDescendants"
+    )
+
     def Material "ImageBlockMaterial"
     {
         token outputs:mtlx:surface.connect = </Root/ImageBlockMaterial/PreviewSurface.outputs:out>
@@ -503,6 +509,16 @@ def Xform "Root"
                 int ui:nodegraph:node:stackingOrder = 2666
             }
         }
+    }
+
+    def Xform "Transform" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/ImageBlockMaterial> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
     }
 }
 
