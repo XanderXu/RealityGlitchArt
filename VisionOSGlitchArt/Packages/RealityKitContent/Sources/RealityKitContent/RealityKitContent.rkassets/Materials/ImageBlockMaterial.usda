@@ -510,15 +510,5 @@ def Xform "Root" (
             }
         }
     }
-
-    def Xform "Transform" (
-        active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
-    )
-    {
-        rel material:binding = </Root/ImageBlockMaterial> (
-            bindMaterialAs = "weakerThanDescendants"
-        )
-    }
 }
 
