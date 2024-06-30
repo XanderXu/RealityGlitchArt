@@ -3,14 +3,45 @@
   "openSceneRelativePaths" : [
     "Materials\/RGBSplitMaterial.usda",
     "Materials\/GridMaterial.usda",
-    "Scene.usda"
+    "Scene.usda",
+    "Materials\/ImageBlockMaterialV4.usda"
   ],
   "recentIdentifiers" : {
+    "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1" : [
+
+    ],
     "6825BEFF-E269-4097-A91C-47C786476E93" : [
+
+    ],
+    "63893EE4-0EBE-40E3-9A8B-6E735B050C7B" : [
 
     ]
   },
   "sceneCameraHistory" : {
+    "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1" : [
+      {
+        "date" : 741437444.234014,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071069,
+          -0.7071067,
+          0,
+          0,
+          0.7071067,
+          0.7071069,
+          0,
+          1.1920929e-07,
+          0.11791515,
+          0.117915034,
+          1
+        ]
+      }
+    ],
     "6825BEFF-E269-4097-A91C-47C786476E93" : [
       {
         "date" : 740838003.191764,
@@ -53,6 +84,30 @@
           -2.9411982e-09,
           0.11828317,
           0.118283205,
+          1
+        ]
+      }
+    ],
+    "63893EE4-0EBE-40E3-9A8B-6E735B050C7B" : [
+      {
+        "date" : 741437234.343277,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071069,
+          -0.7071067,
+          0,
+          0,
+          0.7071067,
+          0.7071069,
+          0,
+          1.1920929e-07,
+          0.11791515,
+          0.117915034,
           1
         ]
       }
@@ -131,5 +186,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/RGBSplitMaterial.usda"
+  "selectedSceneRelativePath" : "Materials\/ImageBlockMaterialV4.usda"
 }
