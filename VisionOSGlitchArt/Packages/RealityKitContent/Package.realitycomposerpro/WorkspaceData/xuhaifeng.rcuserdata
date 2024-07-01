@@ -1,11 +1,17 @@
 {
-  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
+  "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
     "Materials\/ImageBlockMaterial.usda",
-    "Immersive.usda"
+    "Immersive.usda",
+    "Materials\/RGBSplitMaterialV4.usda",
+    "Materials\/ImageBlockMaterialV3.usda",
+    "Materials\/ImageBlockMaterialV4.usda"
   ],
   "recentIdentifiers" : {
     "0CC2D925-5E5B-448E-9FEF-856048816302" : [
+
+    ],
+    "2AF41E44-FA50-43EC-9786-E2A1F77AC507" : [
 
     ],
     "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1" : [
@@ -21,6 +27,9 @@
 
     ],
     "D66134B1-3681-4A8E-AFE5-29F257229F3B" : [
+
+    ],
+    "F6D65C5A-4349-46D3-9603-5D6A186DBC2D" : [
 
     ]
   },
@@ -188,10 +197,56 @@
           1
         ]
       }
+    ],
+    "F6D65C5A-4349-46D3-9603-5D6A186DBC2D" : [
+      {
+        "date" : 741495114.719244,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071069,
+          -0.7071067,
+          0,
+          0,
+          0.7071067,
+          0.7071069,
+          0,
+          0,
+          0.10578172,
+          0.10578175,
+          1
+        ]
+      },
+      {
+        "date" : 741495016.913276,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071069,
+          -0.7071067,
+          0,
+          0,
+          0.7071067,
+          0.7071069,
+          0,
+          0,
+          0.105876684,
+          0.1058768,
+          1
+        ]
+      }
     ]
   },
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Immersive.usda"
+  "selectedSceneRelativePath" : "Materials\/RGBSplitMaterialV4.usda"
 }

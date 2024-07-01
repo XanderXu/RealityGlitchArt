@@ -17,7 +17,6 @@ struct ImmersiveView: View {
             // Add the initial RealityKit content
             if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
                 content.add(immersiveContentEntity)
-//                print(immersiveContentEntity)
                 entity = immersiveContentEntity
             }
         }
@@ -27,9 +26,12 @@ struct ImmersiveView: View {
                     let sgm = try await ShaderGraphMaterial(named: shaderGraphNamePrefix+newValue.rawValue, from: shaderGraphPathPrefix+newValue.rawValue, in: realityKitContentBundle)
                     entity?.forEachDescendant(withComponent: ModelComponent.self) { modelEntity, component in
                         var modelComponent = component
-                        modelComponent.materials = [sgm]
-    //                    print(modelEntity, modelComponent)
-                        modelEntity.components[ModelComponent.self] = modelComponent
+                        modelComponent.materials = modelComponent.materials.map {
+                            guard var material = $0 as? ShaderGraphMaterial else { return $0 }
+                            
+                            return sgm
+                        }
+                        modelEntity.modelComponent = modelComponent
                     }
                     
                 } catch {
@@ -54,5 +56,21 @@ public extension Entity {
             }
             child.forEachDescendant(withComponent: componentClass, closure)
         }
+    }
+    
+    var collisionComponent: CollisionComponent? {
+        get { components[CollisionComponent.self] }
+        set { components[CollisionComponent.self] = newValue }
+    }
+    
+    /// Property for getting or setting an entity's `ModelComponent`.
+    var modelComponent: ModelComponent? {
+        get { components[ModelComponent.self] }
+        set { components[ModelComponent.self] = newValue }
+    }
+    
+    var particleEmitterComponent: ParticleEmitterComponent? {
+        get { components[ParticleEmitterComponent.self] }
+        set { components[ParticleEmitterComponent.self] = newValue }
     }
 }
