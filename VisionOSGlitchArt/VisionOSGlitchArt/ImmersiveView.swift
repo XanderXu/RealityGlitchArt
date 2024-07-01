@@ -19,23 +19,18 @@ struct ImmersiveView: View {
                 content.add(immersiveContentEntity)
 //                print(immersiveContentEntity)
                 entity = immersiveContentEntity
-                
-                immersiveContentEntity.forEachDescendant(withComponent: ModelComponent.self) { modelEntity, component in
-                    var modelComponent = component
-                    modelComponent.materials = modelComponent.materials.map {
-                        guard var material = $0 as? ShaderGraphMaterial else { return $0 }
-                        
-                        return material
-                    }
-                    print(modelEntity, modelComponent)
-                }
             }
         }
         .onChange(of: model.selectedMaterial) { oldValue, newValue in
             Task {
                 do {
-                    let materialEntity = try await ShaderGraphMaterial(named: "/Root/"+newValue.rawValue, from: "Materials/"+newValue.rawValue, in: realityKitContentBundle)
-                    print(materialEntity)
+                    let sgm = try await ShaderGraphMaterial(named: shaderGraphNamePrefix+newValue.rawValue, from: shaderGraphPathPrefix+newValue.rawValue, in: realityKitContentBundle)
+                    entity?.forEachDescendant(withComponent: ModelComponent.self) { modelEntity, component in
+                        var modelComponent = component
+                        modelComponent.materials = [sgm]
+    //                    print(modelEntity, modelComponent)
+                        modelEntity.components[ModelComponent.self] = modelComponent
+                    }
                     
                 } catch {
                     print(error)

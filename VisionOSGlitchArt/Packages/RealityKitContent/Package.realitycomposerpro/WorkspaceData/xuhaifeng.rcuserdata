@@ -1,10 +1,8 @@
 {
   "advancedEditorSelectedIdentifier" : "ProjectBrowser",
   "openSceneRelativePaths" : [
-    "Materials\/RGBSplitMaterial.usda",
-    "Scene.usda",
-    "Immersive.usda",
-    "Materials\/ImageBlockMaterial.usda"
+    "Materials\/ImageBlockMaterial.usda",
+    "Immersive.usda"
   ],
   "recentIdentifiers" : {
     "0CC2D925-5E5B-448E-9FEF-856048816302" : [
@@ -195,5 +193,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/ImageBlockMaterial.usda"
+  "selectedSceneRelativePath" : "Immersive.usda"
 }
