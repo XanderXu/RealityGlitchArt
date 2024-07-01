@@ -11,6 +11,7 @@ def Xform "Root"
     def Sphere "Sphere_Right" (
         active = true
         prepend apiSchemas = ["MaterialBindingAPI"]
+        references = None
     )
     {
         rel material:binding = </Root/RGBSplitMaterial/RGBSplitMaterial> (
@@ -82,6 +83,23 @@ def Xform "Root"
         float3 xformOp:scale = (1, 1, 1)
         float3 xformOp:translate = (0.5, 1.3, -1.5)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "ImageBlockMaterial" (
+        active = true
+        prepend references = @Materials/ImageBlockMaterial.usda@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "ImageBlockMaterial"
+        {
+            over "Combine2"
+            {
+                int ui:nodegraph:node:stackingOrder = 3761
+            }
+        }
     }
 }
 

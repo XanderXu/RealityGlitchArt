@@ -15,6 +15,15 @@
     "objectMetadataList" : [
       [
         "0CC2D925-5E5B-448E-9FEF-856048816302",
+        "Root",
+        "RGBSplitMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0CC2D925-5E5B-448E-9FEF-856048816302",
         "Root222",
         "RGBSplitMaterial"
       ],
@@ -25,15 +34,6 @@
       [
         "0CC2D925-5E5B-448E-9FEF-856048816302",
         "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "0CC2D925-5E5B-448E-9FEF-856048816302",
-        "Root",
-        "RGBSplitMaterial"
       ],
       {
         "isExpanded" : true,
@@ -96,7 +96,9 @@
       },
       [
         "2AF41E44-FA50-43EC-9786-E2A1F77AC507",
-        "Root"
+        "Root",
+        "ImageBlockMaterialV2",
+        "RandomNoise"
       ],
       {
         "isExpanded" : true,
@@ -104,9 +106,7 @@
       },
       [
         "2AF41E44-FA50-43EC-9786-E2A1F77AC507",
-        "Root",
-        "ImageBlockMaterialV2",
-        "RandomNoise"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -148,27 +148,17 @@
       [
         "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1",
         "Root",
+        "ImageBlockMaterialV4"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1",
+        "Root",
         "ImageBlockMaterialV3",
         "LineNoise"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1",
-        "Root",
-        "ImageBlockMaterialV4",
-        "LineNoise"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1",
-        "Root",
-        "ImageBlockMaterialV4"
       ],
       {
         "isExpanded" : true,
@@ -204,8 +194,7 @@
     "objectMetadataList" : [
       [
         "6825BEFF-E269-4097-A91C-47C786476E93",
-        "Root",
-        "RGBSplitMaterial"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -213,7 +202,8 @@
       },
       [
         "6825BEFF-E269-4097-A91C-47C786476E93",
-        "Root"
+        "Root",
+        "RGBSplitMaterial"
       ],
       {
         "isExpanded" : true,
@@ -235,36 +225,6 @@
       },
       [
         "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
-        "Root",
-        "ImageBlockMaterialV3",
-        "RandomNoise_2"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
-        "Root",
-        "ImageBlockMaterialV3"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
-        "Root",
-        "ImageBlockMaterialV3",
-        "LineNoise",
-        "RandomNoise_1"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
         "Root"
       ],
       {
@@ -274,18 +234,7 @@
       [
         "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
         "Root",
-        "ImageBlockMaterialV3",
-        "RandomNoise_5"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "63893EE4-0EBE-40E3-9A8B-6E735B050C7B",
-        "Root",
-        "ImageBlockMaterialV3",
-        "RandomNoise_1"
+        "ImageBlockMaterialV3"
       ],
       {
         "isExpanded" : true,
@@ -310,11 +259,19 @@
       [
         "6512574B-8270-4E3F-B691-CFC4C61EBACF",
         "Root",
-        "Cube"
+        "ImageBlockMaterial"
       ],
       {
-        "disallowsFraming" : true,
-        "isExpanded" : false,
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "6512574B-8270-4E3F-B691-CFC4C61EBACF",
+        "Root"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : true,
         "isLocked" : false
       },
       [
@@ -330,25 +287,36 @@
       [
         "6512574B-8270-4E3F-B691-CFC4C61EBACF",
         "Root",
-        "ImageBlockMaterial"
+        "Cube"
       ],
       {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "6512574B-8270-4E3F-B691-CFC4C61EBACF",
-        "Root"
-      ],
-      {
-        "disallowsFraming" : false,
-        "isExpanded" : true,
+        "disallowsFraming" : true,
+        "isExpanded" : false,
         "isLocked" : false
       }
     ]
   },
   "AF09ED6F-1707-48FD-8720-65B998362C09" : {
     "objectMetadataList" : [
+      [
+        "AF09ED6F-1707-48FD-8720-65B998362C09",
+        "Root",
+        "RGBSplitMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "AF09ED6F-1707-48FD-8720-65B998362C09",
+        "Root",
+        "ImageBlockMaterial",
+        "ImageBlockMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
       [
         "AF09ED6F-1707-48FD-8720-65B998362C09",
         "Root",
@@ -370,6 +338,16 @@
       [
         "AF09ED6F-1707-48FD-8720-65B998362C09",
         "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "AF09ED6F-1707-48FD-8720-65B998362C09",
+        "Root",
+        "Sphere_Right",
+        "ImageBlockMaterial"
       ],
       {
         "isExpanded" : true,
@@ -441,7 +419,9 @@
     "objectMetadataList" : [
       [
         "F6D65C5A-4349-46D3-9603-5D6A186DBC2D",
-        "Root"
+        "Root",
+        "RGBSplitMaterialV4",
+        "RandomNoise"
       ],
       {
         "isExpanded" : true,
@@ -458,9 +438,7 @@
       },
       [
         "F6D65C5A-4349-46D3-9603-5D6A186DBC2D",
-        "Root",
-        "RGBSplitMaterialV4",
-        "RandomNoise"
+        "Root"
       ],
       {
         "isExpanded" : true,
