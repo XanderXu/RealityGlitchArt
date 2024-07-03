@@ -1,0 +1,164 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.0.500.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Material "ScreenJumpVMaterial"
+    {
+        float inputs:JumpIntensity = 0.45 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-851.5454, 441.3277)
+                    int stackingOrderInSubgraph = 3045
+                }
+            }
+        )
+        float inputs:Speed = 9.8 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-847.3788, 529.46893)
+                    int stackingOrderInSubgraph = 3046
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </Root/ScreenJumpVMaterial/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/ScreenJumpVMaterial/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1277.5038, 511.73022)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 3027
+
+        def Shader "UsdPreviewSurface" (
+            active = false
+        )
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/ScreenJumpVMaterial/UsdUVTexture_1.outputs:rgb>
+            float inputs:metallic
+            float inputs:opacity
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (1022.5039, 506.23022)
+            int ui:nodegraph:node:stackingOrder = 3027
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "Time"
+        {
+            uniform token info:id = "ND_time_float"
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-844.7153, 598.3839)
+            int ui:nodegraph:node:stackingOrder = 1542
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/ScreenJumpVMaterial.inputs:Speed>
+            float inputs:in2.connect = </Root/ScreenJumpVMaterial/Time.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-669.9318, 546.22076)
+            int ui:nodegraph:node:stackingOrder = 2757
+        }
+
+        def Shader "Texcoord"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-840.6583, 284.1583)
+            int ui:nodegraph:node:stackingOrder = 2941
+        }
+
+        def Shader "UsdUVTexture_1"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
+            asset inputs:file = @number.jpeg@
+            color4f inputs:scale
+            float2 inputs:st.connect = </Root/ScreenJumpVMaterial/Fractional.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            color4f outputs:rgba
+            float2 ui:nodegraph:node:pos = (791.7292, 307.51117)
+            int ui:nodegraph:node:stackingOrder = 3027
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba"]
+        }
+
+        def Shader "Separate2"
+        {
+            uniform token info:id = "ND_separate2_vector2"
+            float2 inputs:in.connect = </Root/ScreenJumpVMaterial/Texcoord.outputs:out>
+            float outputs:outx
+            float outputs:outy
+            float2 ui:nodegraph:node:pos = (-634.9748, 331.9371)
+            int ui:nodegraph:node:stackingOrder = 2947
+        }
+
+        def Shader "Combine2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/ScreenJumpVMaterial/Separate2.outputs:outx>
+            float inputs:in2.connect = </Root/ScreenJumpVMaterial/Mix.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (228.38455, 273.7336)
+            int ui:nodegraph:node:stackingOrder = 3042
+        }
+
+        def Shader "Add"
+        {
+            uniform token info:id = "ND_add_float"
+            float inputs:in1.connect = </Root/ScreenJumpVMaterial/Separate2.outputs:outy>
+            float inputs:in2.connect = </Root/ScreenJumpVMaterial/Multiply_1.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-225.03554, 336.8504)
+            int ui:nodegraph:node:stackingOrder = 3044
+        }
+
+        def Shader "Multiply_1"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/ScreenJumpVMaterial.inputs:JumpIntensity>
+            float inputs:in2.connect = </Root/ScreenJumpVMaterial/Multiply.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-486.51627, 513.147)
+            int ui:nodegraph:node:stackingOrder = 3035
+        }
+
+        def Shader "Mix"
+        {
+            uniform token info:id = "ND_mix_float"
+            float inputs:bg.connect = </Root/ScreenJumpVMaterial/Separate2.outputs:outy>
+            float inputs:fg.connect = </Root/ScreenJumpVMaterial/Add.outputs:out>
+            float inputs:mix.connect = </Root/ScreenJumpVMaterial.inputs:JumpIntensity>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (22.740917, 380.29987)
+            int ui:nodegraph:node:stackingOrder = 2980
+        }
+
+        def Shader "Fractional"
+        {
+            uniform token info:id = "ND_realitykit_fractional_vector2"
+            float2 inputs:in.connect = </Root/ScreenJumpVMaterial/Combine2.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (478.65637, 488.85776)
+            int ui:nodegraph:node:stackingOrder = 2978
+        }
+    }
+}
+
