@@ -1,0 +1,376 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.0.500.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Material "AnalogNoiseMaterial"
+    {
+        float inputs:Fading = 1 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (41.11308, 960.1656)
+                    int stackingOrderInSubgraph = 3952
+                }
+            }
+        )
+        float inputs:LuminanceJitterThreshold = 0.8 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-820.07544, -313.36862)
+                    int stackingOrderInSubgraph = 3796
+                }
+            }
+        )
+        float inputs:Speed = 0.5 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-847.3788, 529.46893)
+                    int stackingOrderInSubgraph = 2994
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </Root/AnalogNoiseMaterial/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/AnalogNoiseMaterial/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1999.575, 153.78412)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 3626
+
+        def Shader "UsdPreviewSurface" (
+            active = false
+        )
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/AnalogNoiseMaterial/Mix.outputs:out>
+            float inputs:metallic
+            float inputs:opacity
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (1744.5751, 148.28413)
+            int ui:nodegraph:node:stackingOrder = 3626
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "Time"
+        {
+            uniform token info:id = "ND_time_float"
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-844.7153, 598.3839)
+            int ui:nodegraph:node:stackingOrder = 1542
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/AnalogNoiseMaterial.inputs:Speed>
+            float inputs:in2.connect = </Root/AnalogNoiseMaterial/Time.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-722.36884, 553.001)
+            int ui:nodegraph:node:stackingOrder = 3047
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+        }
+
+        def Shader "Texcoord"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-840.6583, 284.1583)
+            int ui:nodegraph:node:stackingOrder = 2941
+        }
+
+        def Shader "UsdUVTexture_1"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
+            asset inputs:file = @number.jpeg@
+            color4f inputs:scale
+            float2 inputs:st.connect = </Root/AnalogNoiseMaterial/Texcoord.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            color4f outputs:rgba
+            float2 ui:nodegraph:node:pos = (-434.34238, 26.44971)
+            int ui:nodegraph:node:stackingOrder = 3950
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba"]
+        }
+
+        def Shader "Mix"
+        {
+            uniform token info:id = "ND_mix_color3"
+            color3f inputs:bg.connect = </Root/AnalogNoiseMaterial/UsdUVTexture_1.outputs:rgb>
+            color3f inputs:fg.connect = </Root/AnalogNoiseMaterial/Convert.outputs:out>
+            float inputs:mix.connect = </Root/AnalogNoiseMaterial.inputs:Fading>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (1473.6744, 232.26196)
+            int ui:nodegraph:node:stackingOrder = 3626
+        }
+
+        def Shader "Divide"
+        {
+            uniform token info:id = "ND_divide_vector2"
+            float2 inputs:in1.connect = </Root/AnalogNoiseMaterial/Texcoord.outputs:out>
+            float2 inputs:in2 = (-213, 5.53)
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-218.86401, 349.22375)
+            int ui:nodegraph:node:stackingOrder = 3888
+        }
+
+        def Shader "Combine2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/AnalogNoiseMaterial/Multiply.outputs:out>
+            float inputs:in2.connect = </Root/AnalogNoiseMaterial/Multiply.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-595.1256, 558.152)
+            int ui:nodegraph:node:stackingOrder = 3291
+        }
+
+        def Shader "Add"
+        {
+            uniform token info:id = "ND_add_vector2"
+            float2 inputs:in1.connect = </Root/AnalogNoiseMaterial/Divide.outputs:out>
+            float2 inputs:in2.connect = </Root/AnalogNoiseMaterial/Combine2.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-99.2075, 361.00668)
+            int ui:nodegraph:node:stackingOrder = 3888
+        }
+
+        def NodeGraph "RandomNoise"
+        {
+            float2 inputs:seed (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (82, 142.5)
+                        int stackingOrderInSubgraph = 3054
+                    }
+                }
+            )
+            float2 inputs:seed.connect = </Root/AnalogNoiseMaterial/Add.outputs:out>
+            float outputs:Fractional_out.connect = </Root/AnalogNoiseMaterial/RandomNoise/Fractional.outputs:out>
+            float2 ui:nodegraph:node:pos = (41.123848, 352.55737)
+            int ui:nodegraph:node:stackingOrder = 3962
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1075, 57.5)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 3058
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector2"
+                float2 inputs:in1.connect = </Root/AnalogNoiseMaterial/RandomNoise.inputs:seed>
+                float2 inputs:in2.connect = </Root/AnalogNoiseMaterial/RandomNoise/Combine22.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (306.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3052
+            }
+
+            def Shader "Fractional"
+            {
+                uniform token info:id = "ND_realitykit_fractional_float"
+                float inputs:in.connect = </Root/AnalogNoiseMaterial/RandomNoise/Multiply_10.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (841, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3052
+            }
+
+            def Shader "Multiply_10"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/AnalogNoiseMaterial/RandomNoise/Sin.outputs:out>
+                float inputs:in2 = 43758.547
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (654, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3052
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/AnalogNoiseMaterial/RandomNoise/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (507.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3052
+            }
+
+            def Shader "Combine22"
+            {
+                uniform token info:id = "ND_combine2_vector2"
+                float inputs:in1 = 12.9898
+                float inputs:in2 = 78.233
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (82, 27.5)
+                int ui:nodegraph:node:stackingOrder = 3052
+            }
+        }
+
+        def Shader "Divide_1"
+        {
+            uniform token info:id = "ND_divide_vector2"
+            float2 inputs:in1.connect = </Root/AnalogNoiseMaterial/Texcoord.outputs:out>
+            float2 inputs:in2 = (213, 5.53)
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-221.6635, 614.57245)
+            int ui:nodegraph:node:stackingOrder = 3944
+        }
+
+        def Shader "Add_1"
+        {
+            uniform token info:id = "ND_add_vector2"
+            float2 inputs:in1.connect = </Root/AnalogNoiseMaterial/Divide_1.outputs:out>
+            float2 inputs:in2.connect = </Root/AnalogNoiseMaterial/Combine2.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-101.968666, 662.9832)
+            int ui:nodegraph:node:stackingOrder = 3930
+        }
+
+        def Shader "Combine3"
+        {
+            uniform token info:id = "ND_combine3_vector3"
+            float inputs:in1.connect = </Root/AnalogNoiseMaterial/RandomNoise.outputs:Fractional_out>
+            float inputs:in2.connect = </Root/AnalogNoiseMaterial/RandomNoise_4.outputs:Fractional_out>
+            float inputs:in3.connect = </Root/AnalogNoiseMaterial/RandomNoise_5.outputs:Fractional_out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (272.94562, 500.26135)
+            int ui:nodegraph:node:stackingOrder = 3955
+        }
+
+        def Shader "Remap"
+        {
+            uniform token info:id = "ND_remap_vector3"
+            float3 inputs:in.connect = </Root/AnalogNoiseMaterial/Combine3.outputs:out>
+            float3 inputs:inlow = (-1, -1, -1)
+            float3 inputs:outhigh = (0.12, 0.12, 0.125)
+            float3 inputs:outlow = (-0.38, -0.38, -0.375)
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (503.3722, 523.7278)
+            int ui:nodegraph:node:stackingOrder = 3888
+        }
+
+        def Shader "Add_2"
+        {
+            uniform token info:id = "ND_add_vector3"
+            float3 inputs:in1.connect = </Root/AnalogNoiseMaterial/Ifgreater.outputs:out>
+            float3 inputs:in2.connect = </Root/AnalogNoiseMaterial/Remap.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (1092.4396, 124.4272)
+            int ui:nodegraph:node:stackingOrder = 3602
+        }
+
+        def Shader "Convert"
+        {
+            uniform token info:id = "ND_convert_vector3_color3"
+            float3 inputs:in.connect = </Root/AnalogNoiseMaterial/Add_2.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (1244.9796, 123.22908)
+            int ui:nodegraph:node:stackingOrder = 3602
+        }
+
+        def Shader "Convert_1"
+        {
+            uniform token info:id = "ND_convert_color3_vector3"
+            color3f inputs:in.connect = </Root/AnalogNoiseMaterial/UsdUVTexture_1.outputs:rgb>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-28.786415, 183.17067)
+            int ui:nodegraph:node:stackingOrder = 3794
+        }
+
+        def Shader "Ifgreater"
+        {
+            uniform token info:id = "ND_ifgreater_vector3"
+            float3 inputs:in1.connect = </Root/AnalogNoiseMaterial/Convert_2.outputs:out>
+            float3 inputs:in2.connect = </Root/AnalogNoiseMaterial/Convert_1.outputs:out>
+            float inputs:value1.connect = </Root/AnalogNoiseMaterial/RandomNoise_6.outputs:Fractional_out>
+            prepend float inputs:value2.connect = </Root/AnalogNoiseMaterial.inputs:LuminanceJitterThreshold>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (908.0828, 54.791077)
+            int ui:nodegraph:node:stackingOrder = 3583
+        }
+
+        def Shader "DotProduct"
+        {
+            uniform token info:id = "ND_dotproduct_vector3"
+            float3 inputs:in1.connect = </Root/AnalogNoiseMaterial/Convert_1.outputs:out>
+            float3 inputs:in2 = (0.22, 0.707, 0.071)
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (307.34006, 70.67073)
+            int ui:nodegraph:node:stackingOrder = 3816
+        }
+
+        def Shader "Convert_2"
+        {
+            uniform token info:id = "ND_convert_float_vector3"
+            prepend float inputs:in.connect = </Root/AnalogNoiseMaterial/DotProduct.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (496.28558, 73.040245)
+            int ui:nodegraph:node:stackingOrder = 3816
+        }
+
+        def Shader "Add_3"
+        {
+            uniform token info:id = "ND_add_vector2"
+            float2 inputs:in1.connect = </Root/AnalogNoiseMaterial/Divide_2.outputs:out>
+            float2 inputs:in2.connect = </Root/AnalogNoiseMaterial/Combine2.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-105.44016, 471.93314)
+            int ui:nodegraph:node:stackingOrder = 3888
+        }
+
+        def Shader "Divide_2"
+        {
+            uniform token info:id = "ND_divide_vector2"
+            float2 inputs:in1.connect = </Root/AnalogNoiseMaterial/Texcoord.outputs:out>
+            float2 inputs:in2 = (213, -5.53)
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-231.72664, 460.9152)
+            int ui:nodegraph:node:stackingOrder = 3947
+        }
+
+        def "RandomNoise_4" (
+            active = true
+            instanceable = true
+            prepend references = </Root/AnalogNoiseMaterial/RandomNoise>
+        )
+        {
+            float2 inputs:seed.connect = </Root/AnalogNoiseMaterial/Add_3.outputs:out>
+            float2 ui:nodegraph:node:pos = (36.999077, 495.69888)
+            int ui:nodegraph:node:stackingOrder = 3967
+        }
+
+        def "RandomNoise_5" (
+            active = true
+            instanceable = true
+            prepend references = </Root/AnalogNoiseMaterial/RandomNoise>
+        )
+        {
+            float2 inputs:seed.connect = </Root/AnalogNoiseMaterial/Add_1.outputs:out>
+            float2 ui:nodegraph:node:pos = (37.56745, 663.8739)
+            int ui:nodegraph:node:stackingOrder = 3972
+        }
+
+        def "RandomNoise_6" (
+            active = true
+            instanceable = true
+            prepend references = </Root/AnalogNoiseMaterial/RandomNoise>
+        )
+        {
+            float2 inputs:seed.connect = </Root/AnalogNoiseMaterial/Combine2.outputs:out>
+            float2 ui:nodegraph:node:pos = (184.20679, -208.24648)
+            int ui:nodegraph:node:stackingOrder = 3976
+        }
+    }
+}
+

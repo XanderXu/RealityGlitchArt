@@ -1,0 +1,329 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.0.500.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Material "TileJitterVMaterial"
+    {
+        float inputs:Amount = 0.023 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-840.0758, 118.28761)
+                    int stackingOrderInSubgraph = 2936
+                }
+            }
+        )
+        float inputs:Frequency = 3 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-846.32526, 685.587)
+                    int stackingOrderInSubgraph = 1896
+                }
+            }
+        )
+        float inputs:Speed = 0.05 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-847.3788, 529.46893)
+                    int stackingOrderInSubgraph = 2960
+                }
+            }
+        )
+        float inputs:Threshold = 0.52 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-840.8839, 189.92332)
+                    int stackingOrderInSubgraph = 2939
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </Root/TileJitterVMaterial/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/TileJitterVMaterial/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1502.8391, 259.638)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 2832
+
+        def Shader "UsdPreviewSurface" (
+            active = false
+        )
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/TileJitterVMaterial/UsdUVTexture_1.outputs:rgb>
+            float inputs:metallic
+            float inputs:opacity
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (1247.8392, 254.13802)
+            int ui:nodegraph:node:stackingOrder = 2832
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "Time"
+        {
+            uniform token info:id = "ND_time_float"
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-844.7153, 598.3839)
+            int ui:nodegraph:node:stackingOrder = 1542
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/TileJitterVMaterial.inputs:Speed>
+            float inputs:in2.connect = </Root/TileJitterVMaterial/Time.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-669.9318, 546.22076)
+            int ui:nodegraph:node:stackingOrder = 2757
+        }
+
+        def Shader "Remap"
+        {
+            uniform token info:id = "ND_remap_float"
+            float inputs:in.connect = </Root/TileJitterVMaterial/Cos.outputs:out>
+            float inputs:inhigh
+            float inputs:inlow = -1
+            float inputs:outhigh
+            float inputs:outlow
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-405.81775, 706.3852)
+            int ui:nodegraph:node:stackingOrder = 2883
+        }
+
+        def Shader "Texcoord"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-840.6583, 284.1583)
+            int ui:nodegraph:node:stackingOrder = 2941
+        }
+
+        def Shader "UsdUVTexture_1"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
+            asset inputs:file = @number.jpeg@
+            color4f inputs:scale
+            float2 inputs:st.connect = </Root/TileJitterVMaterial/Fractional.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            color4f outputs:rgba
+            float2 ui:nodegraph:node:pos = (1017.0645, 55.418953)
+            int ui:nodegraph:node:stackingOrder = 2832
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba"]
+        }
+
+        def Shader "Cos"
+        {
+            uniform token info:id = "ND_cos_float"
+            float inputs:in.connect = </Root/TileJitterVMaterial/Multiply_2.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-576.6536, 665.5007)
+            int ui:nodegraph:node:stackingOrder = 1726
+        }
+
+        def Shader "Separate2"
+        {
+            uniform token info:id = "ND_separate2_vector2"
+            float2 inputs:in.connect = </Root/TileJitterVMaterial/Texcoord.outputs:out>
+            float outputs:outx
+            float outputs:outy
+            float2 ui:nodegraph:node:pos = (-634.9748, 331.9371)
+            int ui:nodegraph:node:stackingOrder = 2947
+        }
+
+        def Shader "Multiply_2"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/TileJitterVMaterial/Time.outputs:out>
+            float inputs:in2.connect = </Root/TileJitterVMaterial.inputs:Frequency>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-700.5414, 669.34174)
+            int ui:nodegraph:node:stackingOrder = 1726
+        }
+
+        def NodeGraph "RandomNoise"
+        {
+            float2 inputs:seed (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (82, 142.5)
+                        int stackingOrderInSubgraph = 3054
+                    }
+                }
+            )
+            float2 inputs:seed.connect = </Root/TileJitterVMaterial/Combine2.outputs:out>
+            float outputs:Fractional_out.connect = </Root/TileJitterVMaterial/RandomNoise/Fractional.outputs:out>
+            float2 ui:nodegraph:node:pos = (-341.89407, 481.16733)
+            int ui:nodegraph:node:stackingOrder = 2951
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1075, 57.5)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 3058
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector2"
+                float2 inputs:in1.connect = </Root/TileJitterVMaterial/RandomNoise.inputs:seed>
+                float2 inputs:in2.connect = </Root/TileJitterVMaterial/RandomNoise/Combine22.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (306.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3052
+            }
+
+            def Shader "Fractional"
+            {
+                uniform token info:id = "ND_realitykit_fractional_float"
+                float inputs:in.connect = </Root/TileJitterVMaterial/RandomNoise/Multiply_10.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (841, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3052
+            }
+
+            def Shader "Multiply_10"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/TileJitterVMaterial/RandomNoise/Sin.outputs:out>
+                float inputs:in2 = 43758.547
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (654, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3052
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/TileJitterVMaterial/RandomNoise/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (507.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3052
+            }
+
+            def Shader "Combine22"
+            {
+                uniform token info:id = "ND_combine2_vector2"
+                float inputs:in1 = 12.9898
+                float inputs:in2 = 78.233
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (82, 27.5)
+                int ui:nodegraph:node:stackingOrder = 3052
+            }
+        }
+
+        def Shader "Combine2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/TileJitterVMaterial/Separate2.outputs:outx>
+            float inputs:in2.connect = </Root/TileJitterVMaterial/Multiply.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-514.54285, 492.4809)
+            int ui:nodegraph:node:stackingOrder = 2949
+        }
+
+        def Shader "Remap_1"
+        {
+            uniform token info:id = "ND_remap_float"
+            float inputs:in.connect = </Root/TileJitterVMaterial/RandomNoise.outputs:Fractional_out>
+            float inputs:inlow = -1
+            float inputs:outhigh
+            float inputs:outlow = -3
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-189.68227, 534.4283)
+            int ui:nodegraph:node:stackingOrder = 2953
+        }
+
+        def Shader "Absval"
+        {
+            uniform token info:id = "ND_absval_float"
+            float inputs:in.connect = </Root/TileJitterVMaterial/Remap_1.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-8.42017, 533.0596)
+            int ui:nodegraph:node:stackingOrder = 2955
+        }
+
+        def Shader "Step"
+        {
+            uniform token info:id = "ND_realitykit_step_float"
+            float inputs:edge.connect = </Root/TileJitterVMaterial/Absval.outputs:out>
+            float inputs:in.connect = </Root/TileJitterVMaterial.inputs:Threshold>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (147.06529, 462.30286)
+            int ui:nodegraph:node:stackingOrder = 2957
+        }
+
+        def Shader "Multiply_1"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/TileJitterVMaterial.inputs:Amount>
+            float inputs:in2.connect = </Root/TileJitterVMaterial/Step.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (309.75836, 425.15613)
+            int ui:nodegraph:node:stackingOrder = 2959
+        }
+
+        def Shader "Multiply_3"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/TileJitterVMaterial/Multiply_1.outputs:out>
+            float inputs:in2.connect = </Root/TileJitterVMaterial/Remap.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (363.91455, 557.17175)
+            int ui:nodegraph:node:stackingOrder = 2983
+        }
+
+        def Shader "Multiply_4"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/TileJitterVMaterial/Remap_1.outputs:out>
+            float inputs:in2.connect = </Root/TileJitterVMaterial/Multiply_3.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (448.11374, 521.4713)
+            int ui:nodegraph:node:stackingOrder = 2993
+        }
+
+        def Shader "Combine2_1"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = None
+            float inputs:in2.connect = </Root/TileJitterVMaterial/Multiply_4.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (560.7811, 361.54825)
+            int ui:nodegraph:node:stackingOrder = 2991
+        }
+
+        def Shader "Add"
+        {
+            uniform token info:id = "ND_add_vector2"
+            float2 inputs:in1.connect = </Root/TileJitterVMaterial/Texcoord.outputs:out>
+            float2 inputs:in2.connect = </Root/TileJitterVMaterial/Combine2_1.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (674.35614, 271.85324)
+            int ui:nodegraph:node:stackingOrder = 2989
+        }
+
+        def Shader "Fractional"
+        {
+            uniform token info:id = "ND_realitykit_fractional_vector2"
+            float2 inputs:in.connect = </Root/TileJitterVMaterial/Add.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (775.17883, 172.95776)
+            int ui:nodegraph:node:stackingOrder = 2986
+        }
+    }
+}
+

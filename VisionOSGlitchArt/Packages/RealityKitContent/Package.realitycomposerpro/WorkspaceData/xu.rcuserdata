@@ -2,10 +2,13 @@
   "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
     "Immersive.usda",
-    "Materials\/TileJitterHMaterial.usda",
-    "Materials\/TileJitterVMaterial.usda"
+    "Materials\/AnalogNoiseMaterial.usda",
+    "Materials\/ScanLineHMaterial.usda"
   ],
   "recentIdentifiers" : {
+    "0A96A8FD-F0F9-4C32-8EE1-BD9CBF83B3DD" : [
+
+    ],
     "0CC2D925-5E5B-448E-9FEF-856048816302" : [
 
     ],
@@ -24,6 +27,9 @@
     "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1" : [
 
     ],
+    "9B9C5BF9-A6D3-4ACE-8139-CEED55847879" : [
+
+    ],
     "18ACC391-AAA9-4ED4-9F71-6E94EC15AAD7" : [
 
     ],
@@ -31,6 +37,9 @@
 
     ],
     "419DF270-FCAB-4ECB-A4B5-A7A54757C0FA" : [
+
+    ],
+    "7402BF05-3E84-4788-9382-6BFD12259136" : [
 
     ],
     "63893EE4-0EBE-40E3-9A8B-6E735B050C7B" : [
@@ -268,5 +277,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/TileJitterVMaterial.usda"
+  "selectedSceneRelativePath" : "Materials\/AnalogNoiseMaterial.usda"
 }
