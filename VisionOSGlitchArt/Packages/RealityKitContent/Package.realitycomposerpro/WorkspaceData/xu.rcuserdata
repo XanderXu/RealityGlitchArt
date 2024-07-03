@@ -2,7 +2,8 @@
   "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
     "Immersive.usda",
-    "Materials\/LineBlockHMaterial.usda"
+    "Materials\/TileJitterHMaterial.usda",
+    "Materials\/TileJitterVMaterial.usda"
   ],
   "recentIdentifiers" : {
     "0CC2D925-5E5B-448E-9FEF-856048816302" : [
@@ -26,6 +27,9 @@
     "18ACC391-AAA9-4ED4-9F71-6E94EC15AAD7" : [
 
     ],
+    "91E338E4-CF6D-43FA-A377-181C93E64763" : [
+
+    ],
     "419DF270-FCAB-4ECB-A4B5-A7A54757C0FA" : [
 
     ],
@@ -33,6 +37,9 @@
 
     ],
     "6512574B-8270-4E3F-B691-CFC4C61EBACF" : [
+
+    ],
+    "58608263-E13E-4148-8A2D-2220873D46DE" : [
 
     ],
     "AF09ED6F-1707-48FD-8720-65B998362C09" : [
@@ -261,5 +268,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/LineBlockHMaterial.usda"
+  "selectedSceneRelativePath" : "Materials\/TileJitterVMaterial.usda"
 }

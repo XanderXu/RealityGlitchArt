@@ -219,6 +219,27 @@
       }
     ]
   },
+  "91E338E4-CF6D-43FA-A377-181C93E64763" : {
+    "objectMetadataList" : [
+      [
+        "91E338E4-CF6D-43FA-A377-181C93E64763",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "91E338E4-CF6D-43FA-A377-181C93E64763",
+        "Root",
+        "TileJitterHMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "419DF270-FCAB-4ECB-A4B5-A7A54757C0FA" : {
     "objectMetadataList" : [
       [
@@ -352,6 +373,18 @@
       {
         "disallowsFraming" : true,
         "isExpanded" : false,
+        "isLocked" : false
+      }
+    ]
+  },
+  "58608263-E13E-4148-8A2D-2220873D46DE" : {
+    "objectMetadataList" : [
+      [
+        "58608263-E13E-4148-8A2D-2220873D46DE",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
         "isLocked" : false
       }
     ]
