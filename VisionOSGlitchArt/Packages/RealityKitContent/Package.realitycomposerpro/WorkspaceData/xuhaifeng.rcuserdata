@@ -2,8 +2,7 @@
   "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
     "Immersive.usda",
-    "Materials\/ScreenShakeHMaterial.usda",
-    "Materials\/ScreenShakeVMaterial.usda"
+    "Materials\/ScreenJumpVMaterial.usda"
   ],
   "recentIdentifiers" : {
     "0CC2D925-5E5B-448E-9FEF-856048816302" : [
@@ -27,6 +26,9 @@
     "33E713D2-F9F9-4E4F-A411-B36DA8201C8C" : [
 
     ],
+    "91E338E4-CF6D-43FA-A377-181C93E64763" : [
+
+    ],
     "92E8A5D1-9576-4063-8D34-9C91F5F0D60D" : [
 
     ],
@@ -37,6 +39,9 @@
 
     ],
     "6512574B-8270-4E3F-B691-CFC4C61EBACF" : [
+
+    ],
+    "58608263-E13E-4148-8A2D-2220873D46DE" : [
 
     ],
     "AF09ED6F-1707-48FD-8720-65B998362C09" : [
@@ -51,7 +56,13 @@
     "D66134B1-3681-4A8E-AFE5-29F257229F3B" : [
 
     ],
+    "DFF1A9A7-09BA-4067-9AA6-D503B6BAC0FE" : [
+
+    ],
     "F6D65C5A-4349-46D3-9603-5D6A186DBC2D" : [
+
+    ],
+    "FFA8D1A5-2E8D-485F-AB4E-4543EB1740F3" : [
 
     ]
   },
@@ -510,6 +521,28 @@
     ],
     "D66134B1-3681-4A8E-AFE5-29F257229F3B" : [
       {
+        "date" : 741708821.921194,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.7071067,
+          0,
+          0,
+          0.7071067,
+          0.7071069,
+          0,
+          0,
+          0.3291992,
+          0.32919928,
+          1
+        ]
+      },
+      {
         "date" : 740838554.49308,
         "title" : "Untitled",
         "transform" : [
@@ -604,5 +637,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/ScreenShakeVMaterial.usda"
+  "selectedSceneRelativePath" : "Materials\/ScreenJumpVMaterial.usda"
 }

@@ -12,7 +12,7 @@ def Xform "Root"
 {
     def Material "ScreenJumpVMaterial"
     {
-        float inputs:JumpIntensity = 0.45 (
+        float inputs:JumpIntensity = 0.35 (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-851.5454, 441.3277)
@@ -120,16 +120,6 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 3042
         }
 
-        def Shader "Add"
-        {
-            uniform token info:id = "ND_add_float"
-            float inputs:in1.connect = </Root/ScreenJumpVMaterial/Separate2.outputs:outy>
-            float inputs:in2.connect = </Root/ScreenJumpVMaterial/Multiply_1.outputs:out>
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-225.03554, 336.8504)
-            int ui:nodegraph:node:stackingOrder = 3044
-        }
-
         def Shader "Multiply_1"
         {
             uniform token info:id = "ND_multiply_float"
@@ -144,7 +134,7 @@ def Xform "Root"
         {
             uniform token info:id = "ND_mix_float"
             float inputs:bg.connect = </Root/ScreenJumpVMaterial/Separate2.outputs:outy>
-            float inputs:fg.connect = </Root/ScreenJumpVMaterial/Add.outputs:out>
+            float inputs:fg.connect = </Root/ScreenJumpVMaterial/Subtract.outputs:out>
             float inputs:mix.connect = </Root/ScreenJumpVMaterial.inputs:JumpIntensity>
             float outputs:out
             float2 ui:nodegraph:node:pos = (22.740917, 380.29987)
@@ -156,8 +146,18 @@ def Xform "Root"
             uniform token info:id = "ND_realitykit_fractional_vector2"
             float2 inputs:in.connect = </Root/ScreenJumpVMaterial/Combine2.outputs:out>
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (478.65637, 488.85776)
-            int ui:nodegraph:node:stackingOrder = 2978
+            float2 ui:nodegraph:node:pos = (487.2458, 348.15063)
+            int ui:nodegraph:node:stackingOrder = 3046
+        }
+
+        def Shader "Subtract"
+        {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1.connect = </Root/ScreenJumpVMaterial/Separate2.outputs:outy>
+            float inputs:in2.connect = </Root/ScreenJumpVMaterial/Multiply_1.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-120.70322, 350.50812)
+            int ui:nodegraph:node:stackingOrder = 3049
         }
     }
 }

@@ -37,5 +37,20 @@ enum GlitchMaterial: String, CaseIterable, Identifiable {
     case ImageBlockMaterialV3
     case ImageBlockMaterialV4
     
+    case LineBlockHMaterial
+    case LineBlockVMaterial
     
+    case AnalogNoiseMaterial
+    
+    case TileJitterHMaterial
+    case TileJitterVMaterial
+    
+    case ScanLineJitterHMaterial
+    case ScanLineJitterVMaterial
+    
+    case ScreenJumpHMaterial
+    case ScreenJumpVMaterial
+    
+    case ScreenShakeHMaterial
+    case ScreenShakeVMaterial
 }

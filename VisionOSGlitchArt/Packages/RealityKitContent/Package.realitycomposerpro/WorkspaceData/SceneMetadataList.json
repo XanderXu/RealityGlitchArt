@@ -307,15 +307,6 @@
     "objectMetadataList" : [
       [
         "91E338E4-CF6D-43FA-A377-181C93E64763",
-        "Root",
-        "TileJitterHMaterial"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "91E338E4-CF6D-43FA-A377-181C93E64763",
         "Root"
       ],
       {
@@ -737,6 +728,18 @@
       }
     ]
   },
+  "DFF1A9A7-09BA-4067-9AA6-D503B6BAC0FE" : {
+    "objectMetadataList" : [
+      [
+        "DFF1A9A7-09BA-4067-9AA6-D503B6BAC0FE",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "F6D65C5A-4349-46D3-9603-5D6A186DBC2D" : {
     "objectMetadataList" : [
       [
@@ -760,6 +763,18 @@
       },
       [
         "F6D65C5A-4349-46D3-9603-5D6A186DBC2D",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "FFA8D1A5-2E8D-485F-AB4E-4543EB1740F3" : {
+    "objectMetadataList" : [
+      [
+        "FFA8D1A5-2E8D-485F-AB4E-4543EB1740F3",
         "Root"
       ],
       {

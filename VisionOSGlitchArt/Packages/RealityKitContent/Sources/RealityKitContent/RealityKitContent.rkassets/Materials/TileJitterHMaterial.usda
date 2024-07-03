@@ -20,11 +20,11 @@ def Xform "Root"
                 }
             }
         )
-        float2 inputs:Direction = (0, 1) (
+        float2 inputs:Direction = (1, 0) (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-844.325, 318.7113)
-                    int stackingOrderInSubgraph = 1887
+                    int stackingOrderInSubgraph = 1895
                 }
             }
         )
@@ -159,7 +159,7 @@ def Xform "Root"
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/TileJitterHMaterial.inputs:SplittingNumber>
-            float inputs:in2.connect = </Root/TileJitterHMaterial/Separate2.outputs:outx>
+            float inputs:in2.connect = </Root/TileJitterHMaterial/Separate2.outputs:outy>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-352.8201, 200.25984)
             int ui:nodegraph:node:stackingOrder = 1845
@@ -181,7 +181,7 @@ def Xform "Root"
             float2 inputs:in1.connect = </Root/TileJitterHMaterial/Add_1.outputs:out>
             float2 inputs:in2.connect = </Root/TileJitterHMaterial/Texcoord.outputs:out>
             float inputs:value1
-            prepend float inputs:value2.connect = </Root/TileJitterHMaterial/Modulo.outputs:out>
+            float inputs:value2.connect = </Root/TileJitterHMaterial/Modulo.outputs:out>
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (91.33603, 341.97974)
             int ui:nodegraph:node:stackingOrder = 1885
@@ -229,7 +229,7 @@ def Xform "Root"
         def Shader "Multiply_6"
         {
             uniform token info:id = "ND_multiply_vector2FA"
-            prepend float2 inputs:in1.connect = </Root/TileJitterHMaterial.inputs:Direction>
+            float2 inputs:in1.connect = </Root/TileJitterHMaterial.inputs:Direction>
             float inputs:in2.connect = </Root/TileJitterHMaterial/Multiply_5.outputs:out>
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (-217.91948, 471.36124)
