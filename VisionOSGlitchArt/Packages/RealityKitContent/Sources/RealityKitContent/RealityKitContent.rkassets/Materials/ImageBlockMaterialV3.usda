@@ -13,6 +13,54 @@ def Xform "Root"
     def Material "ImageBlockMaterialV3"
     {
         reorder nameChildren = ["UsdPreviewSurface", "PreviewSurface", "Time", "RandomNoise_4", "Speed", "Multiply", "Texcoord", "Combine3", "UsdUVTexture", "UsdUVTexture_1", "Multiply_9", "Subtract", "UsdUVTexture_2", "Multiply_4", "Add", "Multiply_5", "Multiply_6", "RandomNoise_1", "RandomNoise_2", "RGBSplitIntensity", "BlockLayer1_Intensity", "Amount", "Fade", "BlockLayer1_UV", "RandomNoise_5", "Power_4", "Multiply_11", "Multiply_12", "Subtract_2", "Combine2", "Mix", "LineNoise"]
+        float inputs:Amount = 1 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-917.5831, 234.82942)
+                    int stackingOrderInSubgraph = 4626
+                }
+            }
+        )
+        float inputs:BlockLayer1_Intensity = 8 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-896.1319, -158.47736)
+                    int stackingOrderInSubgraph = 4628
+                }
+            }
+        )
+        float2 inputs:BlockLayer1_UV = (4, 16) (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-903.6789, -79.3932)
+                    int stackingOrderInSubgraph = 4626
+                }
+            }
+        )
+        float inputs:Fade = 1 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-892.4779, -413.27115)
+                    int stackingOrderInSubgraph = 4626
+                }
+            }
+        )
+        float inputs:RGBSplitIntensity = 2 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-901.8016, 397.04462)
+                    int stackingOrderInSubgraph = 4628
+                }
+            }
+        )
+        float inputs:Speed = 0.5 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-916.9854, 36.121525)
+                    int stackingOrderInSubgraph = 4626
+                }
+            }
+        )
         token outputs:mtlx:surface.connect = </Root/ImageBlockMaterialV3/PreviewSurface.outputs:out>
         token outputs:realitykit:vertex
         token outputs:surface.connect = </Root/ImageBlockMaterialV3/UsdPreviewSurface.outputs:surface>
@@ -47,19 +95,10 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 4353
         }
 
-        def Shader "Speed"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 0.5
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-917.12714, 47.476574)
-            int ui:nodegraph:node:stackingOrder = 4351
-        }
-
         def Shader "Multiply"
         {
             uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/ImageBlockMaterialV3/Speed.outputs:out>
+            float inputs:in1.connect = </Root/ImageBlockMaterialV3.inputs:Speed>
             float inputs:in2.connect = </Root/ImageBlockMaterialV3/Time.outputs:out>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-749.748, 77.52829)
@@ -100,8 +139,8 @@ def Xform "Root"
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (687.5121, 5.652763)
-            int ui:nodegraph:node:stackingOrder = 3344
+            float2 ui:nodegraph:node:pos = (693.45685, -188.25813)
+            int ui:nodegraph:node:stackingOrder = 4624
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
         }
 
@@ -119,8 +158,8 @@ def Xform "Root"
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (908.71826, -267.44995)
-            int ui:nodegraph:node:stackingOrder = 4300
+            float2 ui:nodegraph:node:pos = (918.89264, -392.14685)
+            int ui:nodegraph:node:stackingOrder = 4622
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba"]
         }
 
@@ -198,53 +237,6 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 4432
         }
 
-        def Shader "RGBSplitIntensity"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 2
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-907.4686, 438.60742)
-            int ui:nodegraph:node:stackingOrder = 4597
-        }
-
-        def Shader "BlockLayer1_Intensity"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 8
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-891.2913, -140.43445)
-            int ui:nodegraph:node:stackingOrder = 4445
-        }
-
-        def Shader "Amount"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 1
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-913.24274, 214.40953)
-            int ui:nodegraph:node:stackingOrder = 4595
-        }
-
-        def Shader "Fade"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 1
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-897.6814, -407.33215)
-            int ui:nodegraph:node:stackingOrder = 4599
-        }
-
-        def Shader "BlockLayer1_UV"
-        {
-            uniform token info:id = "ND_combine2_vector2"
-            float inputs:in1 = 4
-            float inputs:in2 = 16
-            float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-900.1455, -75.16551)
-            int ui:nodegraph:node:stackingOrder = 4311
-            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
-        }
-
         def Shader "Power_4"
         {
             uniform token info:id = "ND_power_float"
@@ -259,7 +251,7 @@ def Xform "Root"
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/ImageBlockMaterialV3/Power_4.outputs:out>
-            float inputs:in2.connect = </Root/ImageBlockMaterialV3/RGBSplitIntensity.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV3.inputs:RGBSplitIntensity>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-87.31237, 325.68872)
             int ui:nodegraph:node:stackingOrder = 4588
@@ -269,7 +261,7 @@ def Xform "Root"
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/ImageBlockMaterialV3/LineNoise.outputs:Power_3_out>
-            float inputs:in2.connect = </Root/ImageBlockMaterialV3/Amount.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV3.inputs:Amount>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-110.24895, 197.19035)
             int ui:nodegraph:node:stackingOrder = 4583
@@ -301,7 +293,7 @@ def Xform "Root"
             color3f inputs:bg.connect = </Root/ImageBlockMaterialV3/UsdUVTexture_1.outputs:rgb>
             color3f inputs:fg.connect = </Root/ImageBlockMaterialV3/Combine3.outputs:out>
             float inputs:mix = 1
-            float inputs:mix.connect = </Root/ImageBlockMaterialV3/Fade.outputs:out>
+            float inputs:mix.connect = </Root/ImageBlockMaterialV3.inputs:Fade>
             color3f outputs:out
             float2 ui:nodegraph:node:pos = (1394.2902, -65.9599)
             int ui:nodegraph:node:stackingOrder = 4435
@@ -317,7 +309,7 @@ def Xform "Root"
                     }
                 }
             )
-            prepend float inputs:BlockLayer_Instensity.connect = </Root/ImageBlockMaterialV3/BlockLayer1_Intensity.outputs:out>
+            float inputs:BlockLayer_Instensity.connect = </Root/ImageBlockMaterialV3.inputs:BlockLayer1_Intensity>
             float2 inputs:BlockLayer_UV (
                 customData = {
                     dictionary realitykit = {
@@ -326,7 +318,7 @@ def Xform "Root"
                     }
                 }
             )
-            prepend float2 inputs:BlockLayer_UV.connect = </Root/ImageBlockMaterialV3/BlockLayer1_UV.outputs:out>
+            float2 inputs:BlockLayer_UV.connect = </Root/ImageBlockMaterialV3.inputs:BlockLayer1_UV>
             float inputs:Time (
                 customData = {
                     dictionary realitykit = {
@@ -338,7 +330,7 @@ def Xform "Root"
             prepend float inputs:Time.connect = </Root/ImageBlockMaterialV3/Multiply.outputs:out>
             float outputs:Power_3_out.connect = </Root/ImageBlockMaterialV3/LineNoise/Power_3.outputs:out>
             float2 ui:nodegraph:node:pos = (-556.71735, 46.728138)
-            int ui:nodegraph:node:stackingOrder = 4619
+            int ui:nodegraph:node:stackingOrder = 4620
             float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1133.5, 143.375)
             int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 4526
 
@@ -540,8 +532,8 @@ def Xform "Root"
         )
         {
             float2 inputs:seed.connect = </Root/ImageBlockMaterialV3/ConstantFloat2_2.outputs:out>
-            float2 ui:nodegraph:node:pos = (-468.9733, 307.61078)
-            int ui:nodegraph:node:stackingOrder = 4616
+            float2 ui:nodegraph:node:pos = (-469.47324, 286.86884)
+            int ui:nodegraph:node:stackingOrder = 4626
         }
     }
 }

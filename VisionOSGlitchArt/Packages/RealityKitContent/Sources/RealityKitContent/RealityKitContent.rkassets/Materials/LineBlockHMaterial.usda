@@ -13,6 +13,54 @@ def Xform "Root"
     def Material "LineBlockHMaterial"
     {
         reorder nameChildren = ["RandomNoise", "Swizzle", "Multiply_2", "Add_1", "Trunc1_1", "Multiply_3", "Multiply_5", "UsdPreviewSurface", "PreviewSurface", "Time", "Fading", "Amount", "Speed", "Multiply", "Texcoord", "Combine3", "Mix_1", "UsdUVTexture", "Multiply_4", "Add", "UsdUVTexture_1", "Multiply_9", "Subtract", "UsdUVTexture_2", "LinesWidth", "Frequency", "Offset", "Multiply_10", "Cos", "Remap", "Multiply_1", "Trunc1", "Trunc2"]
+        float inputs:Amount = 0.5 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-442.00128, 851.4127)
+                    int stackingOrderInSubgraph = 5724
+                }
+            }
+        )
+        float inputs:Fading = 0.5 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-839.938, -239.54773)
+                    int stackingOrderInSubgraph = 5724
+                }
+            }
+        )
+        float inputs:Frequency = 3 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-846.5885, 696.3826)
+                    int stackingOrderInSubgraph = 5724
+                }
+            }
+        )
+        float inputs:LinesWidth = 1 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-838.24115, 305.5244)
+                    int stackingOrderInSubgraph = 5724
+                }
+            }
+        )
+        float inputs:Offset = 1 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-116.46481, 872.63745)
+                    int stackingOrderInSubgraph = 5725
+                }
+            }
+        )
+        float inputs:Speed = 0.8 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-841.5223, 468.66553)
+                    int stackingOrderInSubgraph = 5724
+                }
+            }
+        )
         token outputs:mtlx:surface.connect = </Root/LineBlockHMaterial/PreviewSurface.outputs:out>
         token outputs:realitykit:vertex
         token outputs:surface.connect = </Root/LineBlockHMaterial/UsdPreviewSurface.outputs:surface>
@@ -52,37 +100,10 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 1542
         }
 
-        def Shader "Fading"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 0.5
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-832.7491, -170.07413)
-            int ui:nodegraph:node:stackingOrder = 5386
-        }
-
-        def Shader "Amount"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 0.5
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-571.9469, 867.27747)
-            int ui:nodegraph:node:stackingOrder = 5427
-        }
-
-        def Shader "Speed"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 0.8
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-844.40546, 537.13995)
-            int ui:nodegraph:node:stackingOrder = 4701
-        }
-
         def Shader "Multiply"
         {
             uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/LineBlockHMaterial/Speed.outputs:out>
+            float inputs:in1.connect = </Root/LineBlockHMaterial.inputs:Speed>
             float inputs:in2.connect = </Root/LineBlockHMaterial/Time.outputs:out>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-660.8254, 545.04083)
@@ -106,7 +127,7 @@ def Xform "Root"
             )
             color3f inputs:fg.connect = </Root/LineBlockHMaterial/yuv2rgb.outputs:Combine3_1_out>
             float inputs:mix = 1
-            float inputs:mix.connect = </Root/LineBlockHMaterial/Fading.outputs:out>
+            float inputs:mix.connect = </Root/LineBlockHMaterial.inputs:Fading>
             color3f outputs:out
             float2 ui:nodegraph:node:pos = (3563.4795, 210.98212)
             int ui:nodegraph:node:stackingOrder = 5626
@@ -147,38 +168,11 @@ def Xform "Root"
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba"]
         }
 
-        def Shader "LinesWidth"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 1
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-830.8245, 302.5955)
-            int ui:nodegraph:node:stackingOrder = 1623
-        }
-
-        def Shader "Frequency"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 3
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-856.109, 726.7737)
-            int ui:nodegraph:node:stackingOrder = 4702
-        }
-
-        def Shader "Offset"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 1
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-252.70944, 932.35925)
-            int ui:nodegraph:node:stackingOrder = 4704
-        }
-
         def Shader "Multiply_10"
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/LineBlockHMaterial/Time.outputs:out>
-            float inputs:in2.connect = </Root/LineBlockHMaterial/Frequency.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockHMaterial.inputs:Frequency>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-725.3129, 679.308)
             int ui:nodegraph:node:stackingOrder = 1834
@@ -461,7 +455,7 @@ def Xform "Root"
         def Shader "Multiply_6"
         {
             uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/LineBlockHMaterial/LinesWidth.outputs:out>
+            float inputs:in1.connect = </Root/LineBlockHMaterial.inputs:LinesWidth>
             float inputs:in2 = 8
             float outputs:out
             float2 ui:nodegraph:node:pos = (-678.60724, 325.48315)
@@ -627,7 +621,7 @@ def Xform "Root"
         {
             uniform token info:id = "ND_subtract_float"
             float inputs:in1.connect = </Root/LineBlockHMaterial/Abs.outputs:out>
-            float inputs:in2.connect = </Root/LineBlockHMaterial/Amount.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockHMaterial.inputs:Amount>
             float outputs:out
             float2 ui:nodegraph:node:pos = (1564.0934, 625.3299)
             int ui:nodegraph:node:stackingOrder = 5426
@@ -658,7 +652,7 @@ def Xform "Root"
             uniform token info:id = "ND_mix_float"
             float inputs:bg
             float inputs:fg.connect = </Root/LineBlockHMaterial/Multiply_11.outputs:out>
-            float inputs:mix.connect = </Root/LineBlockHMaterial/Offset.outputs:out>
+            float inputs:mix.connect = </Root/LineBlockHMaterial.inputs:Offset>
             float outputs:out
             float2 ui:nodegraph:node:pos = (2047.9127, 736.7801)
             int ui:nodegraph:node:stackingOrder = 5210

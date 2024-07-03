@@ -12,6 +12,30 @@ def Xform "Root"
 {
     def Material "ImageBlockMaterialV2"
     {
+        float inputs:BlockSize = 8 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-822.7309, 207.57309)
+                    int stackingOrderInSubgraph = 3382
+                }
+            }
+        )
+        float2 inputs:MaxRGBSplit = (1, 1) (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-838.8853, 535.15137)
+                    int stackingOrderInSubgraph = 3382
+                }
+            }
+        )
+        float inputs:Speed = 10 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-823.28656, 354.12317)
+                    int stackingOrderInSubgraph = 3382
+                }
+            }
+        )
         token outputs:mtlx:surface.connect = </Root/ImageBlockMaterialV2/PreviewSurface.outputs:out>
         token outputs:realitykit:vertex
         token outputs:surface.connect = </Root/ImageBlockMaterialV2/UsdPreviewSurface.outputs:surface>
@@ -46,19 +70,10 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 2742
         }
 
-        def Shader "Speed"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 10
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-829.81836, 370.9347)
-            int ui:nodegraph:node:stackingOrder = 2758
-        }
-
         def Shader "Multiply"
         {
             uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/ImageBlockMaterialV2/Speed.outputs:out>
+            float inputs:in1.connect = </Root/ImageBlockMaterialV2.inputs:Speed>
             float inputs:in2.connect = </Root/ImageBlockMaterialV2/Time.outputs:out>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-684.72626, 416.24182)
@@ -69,8 +84,8 @@ def Xform "Root"
         {
             uniform token info:id = "ND_texcoord_vector2"
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-811.49786, 169.91075)
-            int ui:nodegraph:node:stackingOrder = 1148
+            float2 ui:nodegraph:node:pos = (-819.5869, -53.668587)
+            int ui:nodegraph:node:stackingOrder = 3380
         }
 
         def Shader "Combine3"
@@ -177,20 +192,11 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 3333
         }
 
-        def Shader "BlockSize"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 8
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-821.93713, 271.7815)
-            int ui:nodegraph:node:stackingOrder = 2917
-        }
-
         def Shader "Multiply_1"
         {
             uniform token info:id = "ND_multiply_vector2FA"
             float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/Texcoord.outputs:out>
-            float inputs:in2.connect = </Root/ImageBlockMaterialV2/BlockSize.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV2.inputs:BlockSize>
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (-634.4697, 326.35876)
             int ui:nodegraph:node:stackingOrder = 3011
@@ -331,11 +337,11 @@ def Xform "Root"
             def Shader "Combine2"
             {
                 uniform token info:id = "ND_combine2_vector2"
-                float inputs:in1 = 12.9898
-                float inputs:in2 = 78.233
+                float inputs:in1 = 17.13
+                float inputs:in2 = 3.71
                 float2 outputs:out
                 float2 ui:nodegraph:node:pos = (81.4158, 113.578125)
-                int ui:nodegraph:node:stackingOrder = 2679
+                int ui:nodegraph:node:stackingOrder = 2680
             }
 
             def Shader "Sin"
@@ -346,16 +352,6 @@ def Xform "Root"
                 float2 ui:nodegraph:node:pos = (462.96948, 56.369812)
                 int ui:nodegraph:node:stackingOrder = 2666
             }
-        }
-
-        def Shader "MaxRGBSplit"
-        {
-            uniform token info:id = "ND_combine2_vector2"
-            float inputs:in1 = 1
-            float inputs:in2 = 1
-            float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-822.2719, 535.2884)
-            int ui:nodegraph:node:stackingOrder = 3330
         }
 
         def Shader "Combine2_2"
@@ -391,7 +387,7 @@ def Xform "Root"
         def Shader "Multiply_7"
         {
             uniform token info:id = "ND_multiply_vector2FA"
-            prepend float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/MaxRGBSplit.outputs:out>
+            float2 inputs:in1.connect = </Root/ImageBlockMaterialV2.inputs:MaxRGBSplit>
             float inputs:in2.connect = </Root/ImageBlockMaterialV2/Power_2.outputs:out>
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (-5.0848155, 514.0343)
@@ -455,7 +451,7 @@ def Xform "Root"
         {
             float2 inputs:seed.connect = </Root/ImageBlockMaterialV2/ConstantFloat2_2.outputs:out>
             float2 ui:nodegraph:node:pos = (-360.587, 592.2474)
-            int ui:nodegraph:node:stackingOrder = 3378
+            int ui:nodegraph:node:stackingOrder = 3383
         }
     }
 }

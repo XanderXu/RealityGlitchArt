@@ -2,7 +2,7 @@
   "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
     "Immersive.usda",
-    "Materials\/LineBlockVMaterial.usda"
+    "Materials\/LineBlockHMaterial.usda"
   ],
   "recentIdentifiers" : {
     "0CC2D925-5E5B-448E-9FEF-856048816302" : [
@@ -20,6 +20,15 @@
     "4D49CF75-51FB-496B-AAC1-8DAC743B1697" : [
 
     ],
+    "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1" : [
+
+    ],
+    "18ACC391-AAA9-4ED4-9F71-6E94EC15AAD7" : [
+
+    ],
+    "419DF270-FCAB-4ECB-A4B5-A7A54757C0FA" : [
+
+    ],
     "63893EE4-0EBE-40E3-9A8B-6E735B050C7B" : [
 
     ],
@@ -30,6 +39,9 @@
 
     ],
     "D38E17BA-8481-45B0-9517-5F0C15D0FCBB" : [
+
+    ],
+    "DFBF8934-6CF3-46D8-BFBC-157A2926796D" : [
 
     ],
     "F6D65C5A-4349-46D3-9603-5D6A186DBC2D" : [
@@ -85,7 +97,143 @@
         ]
       }
     ],
+    "63893EE4-0EBE-40E3-9A8B-6E735B050C7B" : [
+      {
+        "date" : 741673360.998545,
+        "title" : "Untitled",
+        "transform" : [
+          0.99999994,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071068,
+          -0.7071066,
+          0,
+          0,
+          0.7071066,
+          0.7071068,
+          0,
+          1.19209275e-07,
+          0.15746856,
+          0.15746868,
+          1
+        ]
+      }
+    ],
+    "6512574B-8270-4E3F-B691-CFC4C61EBACF" : [
+      {
+        "date" : 741678243.36278,
+        "title" : "Untitled",
+        "transform" : [
+          0.99999994,
+          0,
+          -0,
+          0,
+          -0,
+          0.707107,
+          -0.7071065,
+          0,
+          0,
+          0.7071065,
+          0.707107,
+          0,
+          1.4901161e-08,
+          0.15746845,
+          0.15746854,
+          1
+        ]
+      },
+      {
+        "date" : 741673284.829749,
+        "title" : "Untitled",
+        "transform" : [
+          0.99999994,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071069,
+          -0.70710653,
+          0,
+          0,
+          0.70710653,
+          0.7071069,
+          0,
+          1.1175871e-08,
+          0.1574685,
+          0.15746857,
+          1
+        ]
+      },
+      {
+        "date" : 741673277.68662,
+        "title" : "Untitled",
+        "transform" : [
+          0.99999994,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071068,
+          -0.7071066,
+          0,
+          0,
+          0.7071066,
+          0.7071068,
+          0,
+          1.19209275e-07,
+          0.15746856,
+          0.15746868,
+          1
+        ]
+      }
+    ],
     "AF09ED6F-1707-48FD-8720-65B998362C09" : [
+      {
+        "date" : 741668730.517361,
+        "title" : "Untitled",
+        "transform" : [
+          0.99999994,
+          0,
+          0,
+          0,
+          0,
+          0.7071068,
+          -0.7071067,
+          0,
+          0,
+          0.7071067,
+          0.7071068,
+          0,
+          0.016516238,
+          1.8952513,
+          -0.90925217,
+          1
+        ]
+      },
+      {
+        "date" : 741668728.450104,
+        "title" : "Untitled",
+        "transform" : [
+          0.99999994,
+          0,
+          0,
+          0,
+          0,
+          0.7071068,
+          -0.7071067,
+          0,
+          0,
+          0.7071067,
+          0.7071068,
+          0,
+          0.3725933,
+          2.1294668,
+          -1.1434685,
+          1
+        ]
+      },
       {
         "date" : 741061705.30732,
         "title" : "Untitled",
@@ -113,5 +261,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/LineBlockVMaterial.usda"
+  "selectedSceneRelativePath" : "Materials\/LineBlockHMaterial.usda"
 }

@@ -13,6 +13,54 @@ def Xform "Root"
     def Material "LineBlockVMaterial"
     {
         reorder nameChildren = ["RandomNoise", "Swizzle", "Multiply_2", "Add_1", "Trunc1_1", "Multiply_3", "Multiply_5", "UsdPreviewSurface", "PreviewSurface", "Time", "Fading", "Amount", "Speed", "Multiply", "Texcoord", "Combine3", "Mix_1", "UsdUVTexture", "Multiply_4", "Add", "UsdUVTexture_1", "Multiply_9", "Subtract", "UsdUVTexture_2", "LinesWidth", "Frequency", "Offset", "Multiply_10", "Cos", "Remap", "Multiply_1", "Trunc1", "Trunc2"]
+        float inputs:Amount = 0.5 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-523.31616, 693.0917)
+                    int stackingOrderInSubgraph = 5789
+                }
+            }
+        )
+        float inputs:Fading = 0.5 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-856.9007, -262.585)
+                    int stackingOrderInSubgraph = 5726
+                }
+            }
+        )
+        float inputs:Frequency = 3 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-918.1748, 516.5013)
+                    int stackingOrderInSubgraph = 5789
+                }
+            }
+        )
+        float inputs:LinesWidth = 1 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-894.84216, 64.133095)
+                    int stackingOrderInSubgraph = 5786
+                }
+            }
+        )
+        float inputs:Offset = 1 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-59.66443, 703.6269)
+                    int stackingOrderInSubgraph = 5789
+                }
+            }
+        )
+        float inputs:Speed = 0.8 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-911.4306, 347.83563)
+                    int stackingOrderInSubgraph = 5786
+                }
+            }
+        )
         token outputs:mtlx:surface.connect = </Root/LineBlockVMaterial/PreviewSurface.outputs:out>
         token outputs:realitykit:vertex
         token outputs:surface.connect = </Root/LineBlockVMaterial/UsdPreviewSurface.outputs:surface>
@@ -48,45 +96,18 @@ def Xform "Root"
         {
             uniform token info:id = "ND_time_float"
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-844.7153, 598.3839)
-            int ui:nodegraph:node:stackingOrder = 1542
-        }
-
-        def Shader "Fading"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 0.5
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-832.7491, -170.07413)
-            int ui:nodegraph:node:stackingOrder = 5386
-        }
-
-        def Shader "Amount"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 0.5
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-571.9469, 867.27747)
-            int ui:nodegraph:node:stackingOrder = 5427
-        }
-
-        def Shader "Speed"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 0.8
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-844.40546, 537.13995)
-            int ui:nodegraph:node:stackingOrder = 4701
+            float2 ui:nodegraph:node:pos = (-907.919, 431.68665)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Multiply"
         {
             uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/LineBlockVMaterial/Speed.outputs:out>
+            float inputs:in1.connect = </Root/LineBlockVMaterial.inputs:Speed>
             float inputs:in2.connect = </Root/LineBlockVMaterial/Time.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-660.8254, 545.04083)
-            int ui:nodegraph:node:stackingOrder = 1807
+            float2 ui:nodegraph:node:pos = (-724.0291, 378.34357)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Texcoord"
@@ -106,7 +127,7 @@ def Xform "Root"
             )
             color3f inputs:fg.connect = </Root/LineBlockVMaterial/yuv2rgb.outputs:Combine3_1_out>
             float inputs:mix = 1
-            float inputs:mix.connect = </Root/LineBlockVMaterial/Fading.outputs:out>
+            float inputs:mix.connect = </Root/LineBlockVMaterial.inputs:Fading>
             color3f outputs:out
             float2 ui:nodegraph:node:pos = (3563.4795, 210.98212)
             int ui:nodegraph:node:stackingOrder = 5626
@@ -147,41 +168,14 @@ def Xform "Root"
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba"]
         }
 
-        def Shader "LinesWidth"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 1
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-830.8245, 302.5955)
-            int ui:nodegraph:node:stackingOrder = 1623
-        }
-
-        def Shader "Frequency"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 3
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-856.109, 726.7737)
-            int ui:nodegraph:node:stackingOrder = 4702
-        }
-
-        def Shader "Offset"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 1
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-252.70944, 932.35925)
-            int ui:nodegraph:node:stackingOrder = 4704
-        }
-
         def Shader "Multiply_10"
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/LineBlockVMaterial/Time.outputs:out>
-            float inputs:in2.connect = </Root/LineBlockVMaterial/Frequency.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial.inputs:Frequency>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-725.3129, 679.308)
-            int ui:nodegraph:node:stackingOrder = 1834
+            float2 ui:nodegraph:node:pos = (-788.51666, 512.6107)
+            int ui:nodegraph:node:stackingOrder = 5787
         }
 
         def Shader "Cos"
@@ -189,8 +183,8 @@ def Xform "Root"
             uniform token info:id = "ND_cos_float"
             float inputs:in.connect = </Root/LineBlockVMaterial/Multiply_10.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-629.56476, 680.06036)
-            int ui:nodegraph:node:stackingOrder = 1836
+            float2 ui:nodegraph:node:pos = (-692.7685, 513.3631)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Remap"
@@ -199,8 +193,8 @@ def Xform "Root"
             float inputs:in.connect = </Root/LineBlockVMaterial/Cos.outputs:out>
             float inputs:inlow = -1
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-491.36685, 695.48145)
-            int ui:nodegraph:node:stackingOrder = 1838
+            float2 ui:nodegraph:node:pos = (-554.5706, 528.7842)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Multiply_1"
@@ -209,8 +203,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/LineBlockVMaterial/Multiply.outputs:out>
             float inputs:in2.connect = </Root/LineBlockVMaterial/Remap.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-378.1408, 609.396)
-            int ui:nodegraph:node:stackingOrder = 5441
+            float2 ui:nodegraph:node:pos = (-441.34454, 442.69873)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def NodeGraph "Trunc1"
@@ -240,8 +234,8 @@ def Xform "Root"
                 }
             )
             float outputs:trunc.connect = </Root/LineBlockVMaterial/Trunc1/Divide.outputs:out>
-            float2 ui:nodegraph:node:pos = (-263.21622, 542.23486)
-            int ui:nodegraph:node:stackingOrder = 5439
+            float2 ui:nodegraph:node:pos = (-326.41995, 375.5376)
+            int ui:nodegraph:node:stackingOrder = 5786
             float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (689.34375, 34.67578)
             int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 1987
 
@@ -296,8 +290,8 @@ def Xform "Root"
             )
             float2 inputs:x.connect = </Root/LineBlockVMaterial/Swizzle.outputs:out>
             float2 outputs:trunc.connect = </Root/LineBlockVMaterial/Trunc2/Divide.outputs:out>
-            float2 ui:nodegraph:node:pos = (-233.46703, 169.84343)
-            int ui:nodegraph:node:stackingOrder = 5494
+            float2 ui:nodegraph:node:pos = (-296.67078, 3.1461718)
+            int ui:nodegraph:node:stackingOrder = 5786
             float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (689.34375, 34.67578)
             int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 1994
 
@@ -343,8 +337,8 @@ def Xform "Root"
             )
             float2 inputs:seed.connect = </Root/LineBlockVMaterial/Add_1.outputs:out>
             float outputs:Fractional_out.connect = </Root/LineBlockVMaterial/RandomNoise/Fractional.outputs:out>
-            float2 ui:nodegraph:node:pos = (36.64621, 334.7025)
-            int ui:nodegraph:node:stackingOrder = 4715
+            float2 ui:nodegraph:node:pos = (-26.557533, 168.00526)
+            int ui:nodegraph:node:stackingOrder = 5786
             float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1075, 57.5)
 
             def Shader "Combine2"
@@ -402,8 +396,8 @@ def Xform "Root"
             string inputs:channels = "xx"
             prepend float2 inputs:in.connect = </Root/LineBlockVMaterial/Texcoord.outputs:out>
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-558.1707, 112.55664)
-            int ui:nodegraph:node:stackingOrder = 5724
+            float2 ui:nodegraph:node:pos = (-621.37445, -54.140617)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Multiply_2"
@@ -412,8 +406,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/LineBlockVMaterial/Trunc1.outputs:trunc>
             float inputs:in2 = 100
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-126.12011, 535.65393)
-            int ui:nodegraph:node:stackingOrder = 5443
+            float2 ui:nodegraph:node:pos = (-189.32385, 368.95667)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Add_1"
@@ -422,8 +416,8 @@ def Xform "Root"
             prepend float2 inputs:in1.connect = </Root/LineBlockVMaterial/Trunc2.outputs:trunc>
             float inputs:in2.connect = </Root/LineBlockVMaterial/Multiply_2.outputs:out>
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-80.65984, 338.05768)
-            int ui:nodegraph:node:stackingOrder = 3694
+            float2 ui:nodegraph:node:pos = (-143.86359, 171.36043)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Multiply_3"
@@ -432,8 +426,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/LineBlockVMaterial/RandomNoise.outputs:Fractional_out>
             float inputs:in2 = 24
             float outputs:out
-            float2 ui:nodegraph:node:pos = (158.62907, 383.08014)
-            int ui:nodegraph:node:stackingOrder = 3771
+            float2 ui:nodegraph:node:pos = (95.42533, 216.38289)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def "Trunc1_1" (
@@ -444,8 +438,8 @@ def Xform "Root"
         {
             float inputs:numLevels.connect = </Root/LineBlockVMaterial/Multiply_3.outputs:out>
             float inputs:x.connect = </Root/LineBlockVMaterial/Multiply.outputs:out>
-            float2 ui:nodegraph:node:pos = (281.9135, 382.56934)
-            int ui:nodegraph:node:stackingOrder = 4753
+            float2 ui:nodegraph:node:pos = (218.70976, 215.87209)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Multiply_5"
@@ -454,18 +448,18 @@ def Xform "Root"
             float inputs:in1.connect = </Root/LineBlockVMaterial/Trunc1_1.outputs:trunc>
             float inputs:in2 = 6
             float outputs:out
-            float2 ui:nodegraph:node:pos = (388.7352, 448.71713)
-            int ui:nodegraph:node:stackingOrder = 4753
+            float2 ui:nodegraph:node:pos = (325.53146, 282.01987)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Multiply_6"
         {
             uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/LineBlockVMaterial/LinesWidth.outputs:out>
+            float inputs:in1.connect = </Root/LineBlockVMaterial.inputs:LinesWidth>
             float inputs:in2 = 8
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-678.60724, 325.48315)
-            int ui:nodegraph:node:stackingOrder = 3716
+            float2 ui:nodegraph:node:pos = (-741.811, 158.7859)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Combine2"
@@ -474,8 +468,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/LineBlockVMaterial/Multiply_6.outputs:out>
             float inputs:in2.connect = </Root/LineBlockVMaterial/Multiply_6.outputs:out>
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-514.2247, 350.23688)
-            int ui:nodegraph:node:stackingOrder = 3720
+            float2 ui:nodegraph:node:pos = (-577.4284, 183.53963)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Add_2"
@@ -484,8 +478,8 @@ def Xform "Root"
             float2 inputs:in1.connect = </Root/LineBlockVMaterial/Swizzle.outputs:out>
             float2 inputs:in2.connect = </Root/LineBlockVMaterial/Combine2_1.outputs:out>
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (623.70667, 320.55478)
-            int ui:nodegraph:node:stackingOrder = 4755
+            float2 ui:nodegraph:node:pos = (560.5029, 153.85753)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Combine2_1"
@@ -494,8 +488,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/LineBlockVMaterial/Multiply_5.outputs:out>
             float inputs:in2.connect = </Root/LineBlockVMaterial/Multiply_5.outputs:out>
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (536.77747, 400.14862)
-            int ui:nodegraph:node:stackingOrder = 4756
+            float2 ui:nodegraph:node:pos = (473.57373, 233.45137)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def "Trunc2_1" (
@@ -506,8 +500,8 @@ def Xform "Root"
         {
             float2 inputs:numLevels.connect = </Root/LineBlockVMaterial/Combine2.outputs:out>
             float2 inputs:x.connect = </Root/LineBlockVMaterial/Add_2.outputs:out>
-            float2 ui:nodegraph:node:pos = (748.8943, 529.77594)
-            int ui:nodegraph:node:stackingOrder = 5445
+            float2 ui:nodegraph:node:pos = (685.69055, 363.07867)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def "RandomNoise_1" (
@@ -517,8 +511,8 @@ def Xform "Root"
         )
         {
             float2 inputs:seed.connect = </Root/LineBlockVMaterial/Trunc2_1.outputs:trunc>
-            float2 ui:nodegraph:node:pos = (939.4765, 526.8941)
-            int ui:nodegraph:node:stackingOrder = 4769
+            float2 ui:nodegraph:node:pos = (876.27277, 360.19684)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Multiply_7"
@@ -527,8 +521,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/LineBlockVMaterial/RandomNoise_1.outputs:Fractional_out>
             float inputs:in2 = 0.5
             float outputs:out
-            float2 ui:nodegraph:node:pos = (1066.3186, 559.11334)
-            int ui:nodegraph:node:stackingOrder = 4773
+            float2 ui:nodegraph:node:pos = (1003.11487, 392.41608)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def "Trunc2_2" (
@@ -539,8 +533,8 @@ def Xform "Root"
         {
             float2 inputs:numLevels.connect = </Root/LineBlockVMaterial/ConstantFloat2.outputs:out>
             float2 inputs:x.connect = </Root/LineBlockVMaterial/Add_2.outputs:out>
-            float2 ui:nodegraph:node:pos = (798.8427, 361.45444)
-            int ui:nodegraph:node:stackingOrder = 4763
+            float2 ui:nodegraph:node:pos = (735.639, 194.75719)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Multiply_8"
@@ -549,8 +543,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/LineBlockVMaterial/RandomNoise_2.outputs:Fractional_out>
             float inputs:in2 = 0.5
             float outputs:out
-            float2 ui:nodegraph:node:pos = (1085.3048, 464.99268)
-            int ui:nodegraph:node:stackingOrder = 4771
+            float2 ui:nodegraph:node:pos = (1022.1011, 298.2954)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def "RandomNoise_2" (
@@ -560,8 +554,8 @@ def Xform "Root"
         )
         {
             float2 inputs:seed.connect = </Root/LineBlockVMaterial/Trunc2_2.outputs:trunc>
-            float2 ui:nodegraph:node:pos = (970.6553, 390.6031)
-            int ui:nodegraph:node:stackingOrder = 4765
+            float2 ui:nodegraph:node:pos = (907.45154, 223.90584)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "ConstantFloat2"
@@ -569,8 +563,8 @@ def Xform "Root"
             uniform token info:id = "ND_constant_vector2"
             float2 inputs:value = (7, 7)
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (572.1629, 234.97588)
-            int ui:nodegraph:node:stackingOrder = 4760
+            float2 ui:nodegraph:node:pos = (508.95917, 68.27862)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Add_3"
@@ -579,8 +573,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/LineBlockVMaterial/Multiply_8.outputs:out>
             float inputs:in2.connect = </Root/LineBlockVMaterial/Multiply_7.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (1164.5692, 536.2703)
-            int ui:nodegraph:node:stackingOrder = 4775
+            float2 ui:nodegraph:node:pos = (1101.3655, 369.57306)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Remap_1"
@@ -590,8 +584,8 @@ def Xform "Root"
             float inputs:outhigh
             float inputs:outlow = -1
             float outputs:out
-            float2 ui:nodegraph:node:pos = (1284.4073, 559.4548)
-            int ui:nodegraph:node:stackingOrder = 4781
+            float2 ui:nodegraph:node:pos = (1221.2036, 392.7575)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Sign"
@@ -599,8 +593,8 @@ def Xform "Root"
             uniform token info:id = "ND_sign_float"
             float inputs:in.connect = </Root/LineBlockVMaterial/Remap_1.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (1431.686, 704.3526)
-            int ui:nodegraph:node:stackingOrder = 5421
+            float2 ui:nodegraph:node:pos = (1368.4823, 537.65533)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Clamp"
@@ -610,8 +604,8 @@ def Xform "Root"
             float inputs:in.connect = </Root/LineBlockVMaterial/Divide.outputs:out>
             float inputs:low = 0
             float outputs:out
-            float2 ui:nodegraph:node:pos = (1765.8629, 512.92377)
-            int ui:nodegraph:node:stackingOrder = 5428
+            float2 ui:nodegraph:node:pos = (1702.6592, 346.2265)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Abs"
@@ -619,18 +613,18 @@ def Xform "Root"
             uniform token info:id = "ND_absval_float"
             float inputs:in.connect = </Root/LineBlockVMaterial/Remap_1.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (1431.4308, 601.0765)
-            int ui:nodegraph:node:stackingOrder = 3928
+            float2 ui:nodegraph:node:pos = (1368.227, 434.3792)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Subtract_1"
         {
             uniform token info:id = "ND_subtract_float"
             float inputs:in1.connect = </Root/LineBlockVMaterial/Abs.outputs:out>
-            float inputs:in2.connect = </Root/LineBlockVMaterial/Amount.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial.inputs:Amount>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (1564.0934, 625.3299)
-            int ui:nodegraph:node:stackingOrder = 5426
+            float2 ui:nodegraph:node:pos = (1500.8896, 458.63263)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Divide"
@@ -639,8 +633,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/LineBlockVMaterial/Subtract_1.outputs:out>
             float inputs:in2 = 0.4
             float outputs:out
-            float2 ui:nodegraph:node:pos = (1664.4138, 640.4293)
-            int ui:nodegraph:node:stackingOrder = 5419
+            float2 ui:nodegraph:node:pos = (1601.2101, 473.73206)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Multiply_11"
@@ -649,8 +643,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/LineBlockVMaterial/Clamp.outputs:out>
             float inputs:in2.connect = </Root/LineBlockVMaterial/Sign.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (1863.205, 684.705)
-            int ui:nodegraph:node:stackingOrder = 3940
+            float2 ui:nodegraph:node:pos = (1800.0012, 518.00775)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Mix"
@@ -658,10 +652,10 @@ def Xform "Root"
             uniform token info:id = "ND_mix_float"
             float inputs:bg
             float inputs:fg.connect = </Root/LineBlockVMaterial/Multiply_11.outputs:out>
-            float inputs:mix.connect = </Root/LineBlockVMaterial/Offset.outputs:out>
+            float inputs:mix.connect = </Root/LineBlockVMaterial.inputs:Offset>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (2047.9127, 736.7801)
-            int ui:nodegraph:node:stackingOrder = 5210
+            float2 ui:nodegraph:node:pos = (1984.709, 570.0828)
+            int ui:nodegraph:node:stackingOrder = 5786
         }
 
         def Shader "Clamp_1"

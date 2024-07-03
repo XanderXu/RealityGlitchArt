@@ -12,6 +12,38 @@ def Xform "Root"
 {
     def Material "RGBSplitMaterialV3"
     {
+        float inputs:Amount = 30 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-849.92236, 459.6799)
+                    int stackingOrderInSubgraph = 2579
+                }
+            }
+        )
+        float2 inputs:Direction = (1, 0) (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-825.64136, 54.587997)
+                    int stackingOrderInSubgraph = 2581
+                }
+            }
+        )
+        float inputs:Frenquency = 30 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-849.24396, 317.17944)
+                    int stackingOrderInSubgraph = 2579
+                }
+            }
+        )
+        float inputs:Speed = 15 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-845.5274, 591.4588)
+                    int stackingOrderInSubgraph = 2580
+                }
+            }
+        )
         token outputs:mtlx:surface.connect = </Root/RGBSplitMaterialV3/PreviewSurface.outputs:out>
         token outputs:realitykit:vertex
         token outputs:surface.connect = </Root/RGBSplitMaterialV3/UsdPreviewSurface.outputs:surface>
@@ -46,28 +78,10 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 2443
         }
 
-        def Shader "Amount"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 30
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-838.9021, 434.33136)
-            int ui:nodegraph:node:stackingOrder = 2570
-        }
-
-        def Shader "Speed"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 15
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-837.8017, 610.9657)
-            int ui:nodegraph:node:stackingOrder = 2571
-        }
-
         def Shader "Multiply"
         {
             uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/RGBSplitMaterialV3/Speed.outputs:out>
+            float inputs:in1.connect = </Root/RGBSplitMaterialV3.inputs:Speed>
             float inputs:in2.connect = </Root/RGBSplitMaterialV3/Time.outputs:out>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-688.86084, 631.131)
@@ -151,7 +165,7 @@ def Xform "Root"
         def Shader "Multiply_4"
         {
             uniform token info:id = "ND_multiply_vector2FA"
-            float2 inputs:in1.connect = </Root/RGBSplitMaterialV3/Direction.outputs:out>
+            float2 inputs:in1.connect = </Root/RGBSplitMaterialV3.inputs:Direction>
             float inputs:in2.connect = </Root/RGBSplitMaterialV3/Multiply_2.outputs:out>
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (490.8178, -186.60042)
@@ -188,7 +202,7 @@ def Xform "Root"
         def Shader "Multiply_9"
         {
             uniform token info:id = "ND_multiply_vector2FA"
-            float2 inputs:in1.connect = </Root/RGBSplitMaterialV3/Direction.outputs:out>
+            float2 inputs:in1.connect = </Root/RGBSplitMaterialV3.inputs:Direction>
             float inputs:in2.connect = </Root/RGBSplitMaterialV3/Multiply_5.outputs:out>
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (538.451, 396.1826)
@@ -217,24 +231,6 @@ def Xform "Root"
             float2 ui:nodegraph:node:pos = (900.1655, 247.57101)
             int ui:nodegraph:node:stackingOrder = 2232
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba"]
-        }
-
-        def Shader "Direction"
-        {
-            uniform token info:id = "ND_combine2_vector2"
-            float inputs:in1 = 1
-            float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-830.99243, -7.2312765)
-            int ui:nodegraph:node:stackingOrder = 1616
-        }
-
-        def Shader "Frequency"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 3
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-844.0298, 319.23306)
-            int ui:nodegraph:node:stackingOrder = 2579
         }
 
         def Shader "Multiply_2"
@@ -271,7 +267,7 @@ def Xform "Root"
         def Shader "Multiply_7"
         {
             uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/RGBSplitMaterialV3/Frequency.outputs:out>
+            float inputs:in1.connect = </Root/RGBSplitMaterialV3.inputs:Frenquency>
             float inputs:in2.connect = </Root/RGBSplitMaterialV3/Time.outputs:out>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-713.18066, 340.38956)
@@ -301,7 +297,7 @@ def Xform "Root"
         def Shader "Multiply_8"
         {
             uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/RGBSplitMaterialV3/Amount.outputs:out>
+            float inputs:in1.connect = </Root/RGBSplitMaterialV3.inputs:Amount>
             float inputs:in2 = 0.001
             float outputs:out
             float2 ui:nodegraph:node:pos = (-644.9153, 460.00702)
