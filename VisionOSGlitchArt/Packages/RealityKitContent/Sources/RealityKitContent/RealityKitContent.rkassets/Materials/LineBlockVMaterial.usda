@@ -1,0 +1,1056 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.0.500.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Material "LineBlockVMaterial"
+    {
+        reorder nameChildren = ["RandomNoise", "Swizzle", "Multiply_2", "Add_1", "Trunc1_1", "Multiply_3", "Multiply_5", "UsdPreviewSurface", "PreviewSurface", "Time", "Fading", "Amount", "Speed", "Multiply", "Texcoord", "Combine3", "Mix_1", "UsdUVTexture", "Multiply_4", "Add", "UsdUVTexture_1", "Multiply_9", "Subtract", "UsdUVTexture_2", "LinesWidth", "Frequency", "Offset", "Multiply_10", "Cos", "Remap", "Multiply_1", "Trunc1", "Trunc2"]
+        token outputs:mtlx:surface.connect = </Root/LineBlockVMaterial/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/LineBlockVMaterial/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (4146.062, 307.133)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 5662
+
+        def Shader "UsdPreviewSurface" (
+            active = false
+        )
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor = (0, 0, 0) (
+                colorSpace = "srgb_texture"
+            )
+            color3f inputs:diffuseColor.connect = </Root/LineBlockVMaterial/Mix_1.outputs:out>
+            float inputs:metallic
+            float3 inputs:normal
+            float inputs:opacity
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (3920.9631, 229.6737)
+            int ui:nodegraph:node:stackingOrder = 5662
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "Time"
+        {
+            uniform token info:id = "ND_time_float"
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-844.7153, 598.3839)
+            int ui:nodegraph:node:stackingOrder = 1542
+        }
+
+        def Shader "Fading"
+        {
+            uniform token info:id = "ND_constant_float"
+            float inputs:value = 0.5
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-832.7491, -170.07413)
+            int ui:nodegraph:node:stackingOrder = 5386
+        }
+
+        def Shader "Amount"
+        {
+            uniform token info:id = "ND_constant_float"
+            float inputs:value = 0.5
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-571.9469, 867.27747)
+            int ui:nodegraph:node:stackingOrder = 5427
+        }
+
+        def Shader "Speed"
+        {
+            uniform token info:id = "ND_constant_float"
+            float inputs:value = 0.8
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-844.40546, 537.13995)
+            int ui:nodegraph:node:stackingOrder = 4701
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Speed.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Time.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-660.8254, 545.04083)
+            int ui:nodegraph:node:stackingOrder = 1807
+        }
+
+        def Shader "Texcoord"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-789.052, -431.61288)
+            int ui:nodegraph:node:stackingOrder = 4229
+        }
+
+        def Shader "Mix_1"
+        {
+            uniform token info:id = "ND_mix_color3"
+            color3f inputs:bg.connect = </Root/LineBlockVMaterial/UsdUVTexture.outputs:rgb>
+            color3f inputs:fg = (0.999996, 1, 1) (
+                colorSpace = "srgb_texture"
+            )
+            color3f inputs:fg.connect = </Root/LineBlockVMaterial/yuv2rgb.outputs:Combine3_1_out>
+            float inputs:mix = 1
+            float inputs:mix.connect = </Root/LineBlockVMaterial/Fading.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (3563.4795, 210.98212)
+            int ui:nodegraph:node:stackingOrder = 5626
+        }
+
+        def Shader "UsdUVTexture"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            asset inputs:file = @number.jpeg@
+            float2 inputs:st.connect = </Root/LineBlockVMaterial/Texcoord.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
+            float outputs:b
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            color4f outputs:rgba
+            float2 ui:nodegraph:node:pos = (3175.1853, -82.277954)
+            int ui:nodegraph:node:stackingOrder = 5624
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba", "outputs:rgba"]
+        }
+
+        def Shader "UsdUVTexture_2"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            asset inputs:file = @number.jpeg@
+            color4f inputs:scale
+            float2 inputs:st.connect = </Root/LineBlockVMaterial/Clamp_1.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
+            float outputs:b
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            color4f outputs:rgba
+            float2 ui:nodegraph:node:pos = (2101.5037, -903.9315)
+            int ui:nodegraph:node:stackingOrder = 5710
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba"]
+        }
+
+        def Shader "LinesWidth"
+        {
+            uniform token info:id = "ND_constant_float"
+            float inputs:value = 1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-830.8245, 302.5955)
+            int ui:nodegraph:node:stackingOrder = 1623
+        }
+
+        def Shader "Frequency"
+        {
+            uniform token info:id = "ND_constant_float"
+            float inputs:value = 3
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-856.109, 726.7737)
+            int ui:nodegraph:node:stackingOrder = 4702
+        }
+
+        def Shader "Offset"
+        {
+            uniform token info:id = "ND_constant_float"
+            float inputs:value = 1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-252.70944, 932.35925)
+            int ui:nodegraph:node:stackingOrder = 4704
+        }
+
+        def Shader "Multiply_10"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Time.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Frequency.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-725.3129, 679.308)
+            int ui:nodegraph:node:stackingOrder = 1834
+        }
+
+        def Shader "Cos"
+        {
+            uniform token info:id = "ND_cos_float"
+            float inputs:in.connect = </Root/LineBlockVMaterial/Multiply_10.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-629.56476, 680.06036)
+            int ui:nodegraph:node:stackingOrder = 1836
+        }
+
+        def Shader "Remap"
+        {
+            uniform token info:id = "ND_remap_float"
+            float inputs:in.connect = </Root/LineBlockVMaterial/Cos.outputs:out>
+            float inputs:inlow = -1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-491.36685, 695.48145)
+            int ui:nodegraph:node:stackingOrder = 1838
+        }
+
+        def Shader "Multiply_1"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Multiply.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Remap.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-378.1408, 609.396)
+            int ui:nodegraph:node:stackingOrder = 5441
+        }
+
+        def NodeGraph "Trunc1"
+        {
+            float inputs:numLevels = 4 (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (84.18359, 64.39453)
+                        int stackingOrderInSubgraph = 1987
+                    }
+                }
+            )
+            float inputs:x (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (82.74609, -1.2695312)
+                        int stackingOrderInSubgraph = 2015
+                    }
+                }
+            )
+            prepend float inputs:x.connect = </Root/LineBlockVMaterial/Multiply_1.outputs:out>
+            float outputs:trunc (
+                customData = {
+                    dictionary realitykit = {
+                        int stackingOrderInSubgraph = 1989
+                    }
+                }
+            )
+            float outputs:trunc.connect = </Root/LineBlockVMaterial/Trunc1/Divide.outputs:out>
+            float2 ui:nodegraph:node:pos = (-263.21622, 542.23486)
+            int ui:nodegraph:node:stackingOrder = 5439
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (689.34375, 34.67578)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 1987
+
+            def Shader "Divide"
+            {
+                uniform token info:id = "ND_divide_float"
+                float inputs:in1.connect = </Root/LineBlockVMaterial/Trunc1/Floor.outputs:out>
+                float inputs:in2.connect = </Root/LineBlockVMaterial/Trunc1.inputs:numLevels>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (562.75, 33)
+                int ui:nodegraph:node:stackingOrder = 1985
+            }
+
+            def Shader "Floor"
+            {
+                uniform token info:id = "ND_floor_float"
+                float inputs:in.connect = </Root/LineBlockVMaterial/Trunc1/Multiply_2.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (413.16016, 16.386719)
+                int ui:nodegraph:node:stackingOrder = 2013
+            }
+
+            def Shader "Multiply_2"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/LineBlockVMaterial/Trunc1.inputs:x>
+                float inputs:in2 = 4
+                float inputs:in2.connect = </Root/LineBlockVMaterial/Trunc1.inputs:numLevels>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (266.41016, 16.386719)
+                int ui:nodegraph:node:stackingOrder = 2013
+            }
+        }
+
+        def NodeGraph "Trunc2"
+        {
+            float2 inputs:numLevels = (8, 8) (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (79.75391, 34.222656)
+                        int stackingOrderInSubgraph = 2034
+                    }
+                }
+            )
+            float2 inputs:x = (0, 0) (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (85.66797, -40.589844)
+                        int stackingOrderInSubgraph = 2039
+                    }
+                }
+            )
+            float2 inputs:x.connect = </Root/LineBlockVMaterial/Swizzle.outputs:out>
+            float2 outputs:trunc.connect = </Root/LineBlockVMaterial/Trunc2/Divide.outputs:out>
+            float2 ui:nodegraph:node:pos = (-233.46703, 169.84343)
+            int ui:nodegraph:node:stackingOrder = 5494
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (689.34375, 34.67578)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 1994
+
+            def Shader "Multiply_2"
+            {
+                uniform token info:id = "ND_multiply_vector2"
+                float2 inputs:in1.connect = </Root/LineBlockVMaterial/Trunc2.inputs:x>
+                float2 inputs:in2.connect = </Root/LineBlockVMaterial/Trunc2.inputs:numLevels>
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (280.3164, -36.753906)
+                int ui:nodegraph:node:stackingOrder = 2033
+            }
+
+            def Shader "Floor"
+            {
+                uniform token info:id = "ND_floor_vector2"
+                float2 inputs:in.connect = </Root/LineBlockVMaterial/Trunc2/Multiply_2.outputs:out>
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (427.0664, -36.753906)
+                int ui:nodegraph:node:stackingOrder = 2033
+            }
+
+            def Shader "Divide"
+            {
+                uniform token info:id = "ND_divide_vector2"
+                float2 inputs:in1.connect = </Root/LineBlockVMaterial/Trunc2/Floor.outputs:out>
+                float2 inputs:in2.connect = </Root/LineBlockVMaterial/Trunc2.inputs:numLevels>
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (562.75, 33)
+                int ui:nodegraph:node:stackingOrder = 1986
+            }
+        }
+
+        def NodeGraph "RandomNoise"
+        {
+            float2 inputs:seed (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (82, 142.5)
+                        int stackingOrderInSubgraph = 3842
+                    }
+                }
+            )
+            float2 inputs:seed.connect = </Root/LineBlockVMaterial/Add_1.outputs:out>
+            float outputs:Fractional_out.connect = </Root/LineBlockVMaterial/RandomNoise/Fractional.outputs:out>
+            float2 ui:nodegraph:node:pos = (36.64621, 334.7025)
+            int ui:nodegraph:node:stackingOrder = 4715
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1075, 57.5)
+
+            def Shader "Combine2"
+            {
+                uniform token info:id = "ND_combine2_vector2"
+                float inputs:in1 = 12.9898
+                float inputs:in2 = 78.233
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (82, 27.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/LineBlockVMaterial/RandomNoise/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (507.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector2"
+                float2 inputs:in1.connect = </Root/LineBlockVMaterial/RandomNoise.inputs:seed>
+                float2 inputs:in2.connect = </Root/LineBlockVMaterial/RandomNoise/Combine2.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (306.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+
+            def Shader "Multiply_10"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/LineBlockVMaterial/RandomNoise/Sin.outputs:out>
+                float inputs:in2 = 43758.547
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (654, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+
+            def Shader "Fractional"
+            {
+                uniform token info:id = "ND_realitykit_fractional_float"
+                float inputs:in.connect = </Root/LineBlockVMaterial/RandomNoise/Multiply_10.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (841, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+        }
+
+        def Shader "Swizzle"
+        {
+            uniform token info:id = "ND_swizzle_vector2_vector2"
+            string inputs:channels = "xx"
+            prepend float2 inputs:in.connect = </Root/LineBlockVMaterial/Texcoord.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-558.1707, 112.55664)
+            int ui:nodegraph:node:stackingOrder = 5724
+        }
+
+        def Shader "Multiply_2"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Trunc1.outputs:trunc>
+            float inputs:in2 = 100
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-126.12011, 535.65393)
+            int ui:nodegraph:node:stackingOrder = 5443
+        }
+
+        def Shader "Add_1"
+        {
+            uniform token info:id = "ND_add_vector2FA"
+            prepend float2 inputs:in1.connect = </Root/LineBlockVMaterial/Trunc2.outputs:trunc>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Multiply_2.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-80.65984, 338.05768)
+            int ui:nodegraph:node:stackingOrder = 3694
+        }
+
+        def Shader "Multiply_3"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/RandomNoise.outputs:Fractional_out>
+            float inputs:in2 = 24
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (158.62907, 383.08014)
+            int ui:nodegraph:node:stackingOrder = 3771
+        }
+
+        def "Trunc1_1" (
+            active = true
+            instanceable = true
+            references = </Root/LineBlockVMaterial/Trunc1>
+        )
+        {
+            float inputs:numLevels.connect = </Root/LineBlockVMaterial/Multiply_3.outputs:out>
+            float inputs:x.connect = </Root/LineBlockVMaterial/Multiply.outputs:out>
+            float2 ui:nodegraph:node:pos = (281.9135, 382.56934)
+            int ui:nodegraph:node:stackingOrder = 4753
+        }
+
+        def Shader "Multiply_5"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Trunc1_1.outputs:trunc>
+            float inputs:in2 = 6
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (388.7352, 448.71713)
+            int ui:nodegraph:node:stackingOrder = 4753
+        }
+
+        def Shader "Multiply_6"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/LinesWidth.outputs:out>
+            float inputs:in2 = 8
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-678.60724, 325.48315)
+            int ui:nodegraph:node:stackingOrder = 3716
+        }
+
+        def Shader "Combine2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Multiply_6.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Multiply_6.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-514.2247, 350.23688)
+            int ui:nodegraph:node:stackingOrder = 3720
+        }
+
+        def Shader "Add_2"
+        {
+            uniform token info:id = "ND_add_vector2"
+            float2 inputs:in1.connect = </Root/LineBlockVMaterial/Swizzle.outputs:out>
+            float2 inputs:in2.connect = </Root/LineBlockVMaterial/Combine2_1.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (623.70667, 320.55478)
+            int ui:nodegraph:node:stackingOrder = 4755
+        }
+
+        def Shader "Combine2_1"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Multiply_5.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Multiply_5.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (536.77747, 400.14862)
+            int ui:nodegraph:node:stackingOrder = 4756
+        }
+
+        def "Trunc2_1" (
+            active = true
+            instanceable = true
+            references = </Root/LineBlockVMaterial/Trunc2>
+        )
+        {
+            float2 inputs:numLevels.connect = </Root/LineBlockVMaterial/Combine2.outputs:out>
+            float2 inputs:x.connect = </Root/LineBlockVMaterial/Add_2.outputs:out>
+            float2 ui:nodegraph:node:pos = (748.8943, 529.77594)
+            int ui:nodegraph:node:stackingOrder = 5445
+        }
+
+        def "RandomNoise_1" (
+            active = true
+            instanceable = true
+            references = </Root/LineBlockVMaterial/RandomNoise>
+        )
+        {
+            float2 inputs:seed.connect = </Root/LineBlockVMaterial/Trunc2_1.outputs:trunc>
+            float2 ui:nodegraph:node:pos = (939.4765, 526.8941)
+            int ui:nodegraph:node:stackingOrder = 4769
+        }
+
+        def Shader "Multiply_7"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/RandomNoise_1.outputs:Fractional_out>
+            float inputs:in2 = 0.5
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1066.3186, 559.11334)
+            int ui:nodegraph:node:stackingOrder = 4773
+        }
+
+        def "Trunc2_2" (
+            active = true
+            instanceable = true
+            references = </Root/LineBlockVMaterial/Trunc2>
+        )
+        {
+            float2 inputs:numLevels.connect = </Root/LineBlockVMaterial/ConstantFloat2.outputs:out>
+            float2 inputs:x.connect = </Root/LineBlockVMaterial/Add_2.outputs:out>
+            float2 ui:nodegraph:node:pos = (798.8427, 361.45444)
+            int ui:nodegraph:node:stackingOrder = 4763
+        }
+
+        def Shader "Multiply_8"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/RandomNoise_2.outputs:Fractional_out>
+            float inputs:in2 = 0.5
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1085.3048, 464.99268)
+            int ui:nodegraph:node:stackingOrder = 4771
+        }
+
+        def "RandomNoise_2" (
+            active = true
+            instanceable = true
+            references = </Root/LineBlockVMaterial/RandomNoise>
+        )
+        {
+            float2 inputs:seed.connect = </Root/LineBlockVMaterial/Trunc2_2.outputs:trunc>
+            float2 ui:nodegraph:node:pos = (970.6553, 390.6031)
+            int ui:nodegraph:node:stackingOrder = 4765
+        }
+
+        def Shader "ConstantFloat2"
+        {
+            uniform token info:id = "ND_constant_vector2"
+            float2 inputs:value = (7, 7)
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (572.1629, 234.97588)
+            int ui:nodegraph:node:stackingOrder = 4760
+        }
+
+        def Shader "Add_3"
+        {
+            uniform token info:id = "ND_add_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Multiply_8.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Multiply_7.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1164.5692, 536.2703)
+            int ui:nodegraph:node:stackingOrder = 4775
+        }
+
+        def Shader "Remap_1"
+        {
+            uniform token info:id = "ND_remap_float"
+            float inputs:in.connect = </Root/LineBlockVMaterial/Add_3.outputs:out>
+            float inputs:outhigh
+            float inputs:outlow = -1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1284.4073, 559.4548)
+            int ui:nodegraph:node:stackingOrder = 4781
+        }
+
+        def Shader "Sign"
+        {
+            uniform token info:id = "ND_sign_float"
+            float inputs:in.connect = </Root/LineBlockVMaterial/Remap_1.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1431.686, 704.3526)
+            int ui:nodegraph:node:stackingOrder = 5421
+        }
+
+        def Shader "Clamp"
+        {
+            uniform token info:id = "ND_clamp_float"
+            float inputs:high = 1
+            float inputs:in.connect = </Root/LineBlockVMaterial/Divide.outputs:out>
+            float inputs:low = 0
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1765.8629, 512.92377)
+            int ui:nodegraph:node:stackingOrder = 5428
+        }
+
+        def Shader "Abs"
+        {
+            uniform token info:id = "ND_absval_float"
+            float inputs:in.connect = </Root/LineBlockVMaterial/Remap_1.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1431.4308, 601.0765)
+            int ui:nodegraph:node:stackingOrder = 3928
+        }
+
+        def Shader "Subtract_1"
+        {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Abs.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Amount.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1564.0934, 625.3299)
+            int ui:nodegraph:node:stackingOrder = 5426
+        }
+
+        def Shader "Divide"
+        {
+            uniform token info:id = "ND_divide_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Subtract_1.outputs:out>
+            float inputs:in2 = 0.4
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1664.4138, 640.4293)
+            int ui:nodegraph:node:stackingOrder = 5419
+        }
+
+        def Shader "Multiply_11"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Clamp.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Sign.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1863.205, 684.705)
+            int ui:nodegraph:node:stackingOrder = 3940
+        }
+
+        def Shader "Mix"
+        {
+            uniform token info:id = "ND_mix_float"
+            float inputs:bg
+            float inputs:fg.connect = </Root/LineBlockVMaterial/Multiply_11.outputs:out>
+            float inputs:mix.connect = </Root/LineBlockVMaterial/Offset.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2047.9127, 736.7801)
+            int ui:nodegraph:node:stackingOrder = 5210
+        }
+
+        def Shader "Clamp_1"
+        {
+            uniform token info:id = "ND_clamp_vector2"
+            float2 inputs:high
+            float2 inputs:in.connect = </Root/LineBlockVMaterial/Add.outputs:out>
+            float2 inputs:low
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (1891.3014, -807.28326)
+            int ui:nodegraph:node:stackingOrder = 5710
+        }
+
+        def Shader "Add"
+        {
+            uniform token info:id = "ND_add_vector2"
+            float2 inputs:in1.connect = </Root/LineBlockVMaterial/Texcoord.outputs:out>
+            float2 inputs:in2.connect = </Root/LineBlockVMaterial/Combine2_2.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (1771.3517, -795.1839)
+            int ui:nodegraph:node:stackingOrder = 5710
+        }
+
+        def Shader "Multiply_4"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Mix.outputs:out>
+            float inputs:in2 = 0.5
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1794.3441, -446.6698)
+            int ui:nodegraph:node:stackingOrder = 5584
+        }
+
+        def Shader "Combine2_2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = None
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Multiply_4.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (1703.8702, -663.6724)
+            int ui:nodegraph:node:stackingOrder = 5710
+        }
+
+        def Shader "Convert"
+        {
+            uniform token info:id = "ND_convert_color3_vector3"
+            color3f inputs:in.connect = </Root/LineBlockVMaterial/UsdUVTexture_2.outputs:rgb>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (2297.1436, -707.3226)
+            int ui:nodegraph:node:stackingOrder = 5710
+        }
+
+        def NodeGraph "rgb2yuv"
+        {
+            float3 inputs:rgb (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (56.913326, 84.68141)
+                        int stackingOrderInSubgraph = 4671
+                    }
+                }
+            )
+            prepend float3 inputs:rgb.connect = </Root/LineBlockVMaterial/Convert.outputs:out>
+            float3 outputs:yuv (
+                customData = {
+                    dictionary realitykit = {
+                        int stackingOrderInSubgraph = 4539
+                    }
+                }
+            )
+            float3 outputs:yuv.connect = </Root/LineBlockVMaterial/rgb2yuv/Combine3.outputs:out>
+            float2 ui:nodegraph:node:pos = (2444.2222, -722.3255)
+            int ui:nodegraph:node:stackingOrder = 5710
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:yuv"]
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (718.3784, 96.24289)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 4541
+
+            def Shader "DotProduct_1"
+            {
+                uniform token info:id = "ND_dotproduct_vector3"
+                float3 inputs:in1.connect = </Root/LineBlockVMaterial/rgb2yuv.inputs:rgb>
+                float3 inputs:in2 = (-0.14713, -0.28886, 0.436)
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (317.9071, 85.81631)
+                int ui:nodegraph:node:stackingOrder = 4646
+            }
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector3"
+                float3 inputs:in1.connect = </Root/LineBlockVMaterial/rgb2yuv.inputs:rgb>
+                float3 inputs:in2 = (0.299, 0.587, 0.114)
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (321.1323, -8.096558)
+                int ui:nodegraph:node:stackingOrder = 4669
+            }
+
+            def Shader "DotProduct_2"
+            {
+                uniform token info:id = "ND_dotproduct_vector3"
+                float3 inputs:in1.connect = </Root/LineBlockVMaterial/rgb2yuv.inputs:rgb>
+                float3 inputs:in2 = (0.615, -0.51499, -0.10001)
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (329.5, 169.78297)
+                int ui:nodegraph:node:stackingOrder = 4621
+            }
+
+            def Shader "Combine3"
+            {
+                uniform token info:id = "ND_combine3_vector3"
+                prepend float inputs:in1.connect = </Root/LineBlockVMaterial/rgb2yuv/DotProduct.outputs:out>
+                prepend float inputs:in2.connect = </Root/LineBlockVMaterial/rgb2yuv/DotProduct_1.outputs:out>
+                prepend float inputs:in3.connect = </Root/LineBlockVMaterial/rgb2yuv/DotProduct_2.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (552, 115)
+                int ui:nodegraph:node:stackingOrder = 4537
+            }
+        }
+
+        def Shader "Separate3"
+        {
+            uniform token info:id = "ND_separate3_vector3"
+            float3 inputs:in.connect = </Root/LineBlockVMaterial/rgb2yuv.outputs:yuv>
+            float outputs:outx
+            float outputs:outy
+            float outputs:outz
+            float2 ui:nodegraph:node:pos = (2656.4565, -696.10223)
+            int ui:nodegraph:node:stackingOrder = 5584
+        }
+
+        def Scope "Group" (
+            kind = "group"
+        )
+        {
+            string ui:group:annotation = "blockLine_random"
+            string ui:group:annotationDescription = ""
+            string[] ui:group:members = ["p:Mix"]
+        }
+
+        def Shader "Abs_1"
+        {
+            uniform token info:id = "ND_absval_float"
+            float inputs:in.connect = </Root/LineBlockVMaterial/Mix.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2355.5352, -561.59454)
+            int ui:nodegraph:node:stackingOrder = 5584
+        }
+
+        def Shader "Subtract"
+        {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1 = 0.5
+            float inputs:in1.connect = None
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Mix.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2309.124, -444.23065)
+            int ui:nodegraph:node:stackingOrder = 5584
+        }
+
+        def Shader "Clamp_2"
+        {
+            uniform token info:id = "ND_clamp_float"
+            float inputs:high
+            float inputs:in.connect = </Root/LineBlockVMaterial/Subtract.outputs:out>
+            float inputs:low
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2402.9866, -441.4913)
+            int ui:nodegraph:node:stackingOrder = 5584
+        }
+
+        def Shader "Multiply_9"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Abs_1.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Clamp_2.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2498.8218, -557.494)
+            int ui:nodegraph:node:stackingOrder = 5584
+        }
+
+        def Shader "Divide_1"
+        {
+            uniform token info:id = "ND_divide_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Separate3.outputs:outy>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Oneminus.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2922.6868, -696.7501)
+            int ui:nodegraph:node:stackingOrder = 5584
+        }
+
+        def Shader "Multiply_12"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Multiply_9.outputs:out>
+            float inputs:in2 = 3
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2578.806, -567.13855)
+            int ui:nodegraph:node:stackingOrder = 5584
+        }
+
+        def Shader "Oneminus"
+        {
+            uniform token info:id = "ND_realitykit_oneminus_float"
+            float inputs:in.connect = </Root/LineBlockVMaterial/Multiply_12.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2668.962, -612.8529)
+            int ui:nodegraph:node:stackingOrder = 5584
+        }
+
+        def Shader "Combine3"
+        {
+            uniform token info:id = "ND_combine3_color3"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Separate3.outputs:outx>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Divide_1.outputs:out>
+            float inputs:in3.connect = </Root/LineBlockVMaterial/Add_4.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (3101.2622, -733.13196)
+            int ui:nodegraph:node:stackingOrder = 5712
+        }
+
+        def Shader "Add_4"
+        {
+            uniform token info:id = "ND_add_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Separate3.outputs:outz>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Multiply_14.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2920.2976, -585.69666)
+            int ui:nodegraph:node:stackingOrder = 5714
+        }
+
+        def Shader "Multiply_13"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Mix.outputs:out>
+            float inputs:in2 = 0.125
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2520.943, -265.02542)
+            int ui:nodegraph:node:stackingOrder = 5722
+        }
+
+        def Shader "Clamp_3"
+        {
+            uniform token info:id = "ND_clamp_float"
+            float inputs:high
+            float inputs:in.connect = </Root/LineBlockVMaterial/Subtract_2.outputs:out>
+            float inputs:low
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2678.5396, -254.43378)
+            int ui:nodegraph:node:stackingOrder = 5718
+        }
+
+        def Shader "Subtract_2"
+        {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Mix.outputs:out>
+            float inputs:in2 = 0.5
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2527.5474, -184.95923)
+            int ui:nodegraph:node:stackingOrder = 5720
+        }
+
+        def Shader "Multiply_14"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/LineBlockVMaterial/Multiply_13.outputs:out>
+            float inputs:in2.connect = </Root/LineBlockVMaterial/Clamp_3.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2794.1545, -471.32336)
+            int ui:nodegraph:node:stackingOrder = 5716
+        }
+
+        def NodeGraph "yuv2rgb"
+        {
+            color3f inputs:yuv (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (81.75, 206)
+                        int stackingOrderInSubgraph = 4913
+                    }
+                }
+            )
+            color3f inputs:yuv.connect = </Root/LineBlockVMaterial/Combine3.outputs:out>
+            prepend color3f outputs:Combine3_1_out.connect = </Root/LineBlockVMaterial/yuv2rgb/Combine3_1.outputs:out>
+            float2 ui:nodegraph:node:pos = (3281.198, -770.2112)
+            int ui:nodegraph:node:stackingOrder = 5584
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1380.6204, 187.57407)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 4915
+
+            def Shader "Add_6"
+            {
+                uniform token info:id = "ND_add_float"
+                float inputs:in1.connect = </Root/LineBlockVMaterial/yuv2rgb/Separate3_1.outputs:outr>
+                float inputs:in2.connect = </Root/LineBlockVMaterial/yuv2rgb/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (981.94916, 179.4975)
+                int ui:nodegraph:node:stackingOrder = 4929
+            }
+
+            def Shader "Multiply_15"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/LineBlockVMaterial/yuv2rgb/Separate3_1.outputs:outb>
+                float inputs:in2 = 1.13983
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (779.1804, 92.0035)
+                int ui:nodegraph:node:stackingOrder = 4921
+            }
+
+            def Shader "Add_5"
+            {
+                uniform token info:id = "ND_add_float"
+                float inputs:in1.connect = </Root/LineBlockVMaterial/yuv2rgb/Separate3_1.outputs:outr>
+                float inputs:in2.connect = </Root/LineBlockVMaterial/yuv2rgb/Multiply_15.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (881.8341, 46.649982)
+                int ui:nodegraph:node:stackingOrder = 4919
+            }
+
+            def Shader "Combine3_1"
+            {
+                uniform token info:id = "ND_combine3_color3"
+                float inputs:in1.connect = </Root/LineBlockVMaterial/yuv2rgb/Add_5.outputs:out>
+                float inputs:in2.connect = </Root/LineBlockVMaterial/yuv2rgb/Add_6.outputs:out>
+                float inputs:in3.connect = </Root/LineBlockVMaterial/yuv2rgb/Add_7.outputs:out>
+                color3f outputs:out
+                float2 ui:nodegraph:node:pos = (1145.5, 205.5)
+                int ui:nodegraph:node:stackingOrder = 4911
+            }
+
+            def Shader "Multiply_16"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/LineBlockVMaterial/yuv2rgb/Separate3_1.outputs:outg>
+                float inputs:in2 = 2.03211
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (656.19147, 364.65982)
+                int ui:nodegraph:node:stackingOrder = 4942
+            }
+
+            def Shader "Separate3_1"
+            {
+                uniform token info:id = "ND_separate3_color3"
+                color3f inputs:in.connect = </Root/LineBlockVMaterial/yuv2rgb.inputs:yuv>
+                float outputs:outb
+                float outputs:outg
+                float outputs:outr
+                float2 ui:nodegraph:node:pos = (304.25, 206)
+                int ui:nodegraph:node:stackingOrder = 4911
+            }
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector2"
+                float2 inputs:in1 = (-0.39465, -0.5806)
+                float2 inputs:in2.connect = </Root/LineBlockVMaterial/yuv2rgb/Combine2_3.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (852.8371, 207.69339)
+                int ui:nodegraph:node:stackingOrder = 4946
+            }
+
+            def Shader "Add_7"
+            {
+                uniform token info:id = "ND_add_float"
+                float inputs:in1.connect = </Root/LineBlockVMaterial/yuv2rgb/Separate3_1.outputs:outr>
+                float inputs:in2.connect = </Root/LineBlockVMaterial/yuv2rgb/Multiply_16.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (804.0692, 356.11627)
+                int ui:nodegraph:node:stackingOrder = 4944
+            }
+
+            def Shader "Combine2_3"
+            {
+                uniform token info:id = "ND_combine2_vector2"
+                float inputs:in1.connect = </Root/LineBlockVMaterial/yuv2rgb/Separate3_1.outputs:outg>
+                float inputs:in2.connect = </Root/LineBlockVMaterial/yuv2rgb/Separate3_1.outputs:outb>
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (640.1415, 224.12553)
+                int ui:nodegraph:node:stackingOrder = 4934
+            }
+        }
+
+        def Scope "Group2" (
+            kind = "group"
+        )
+        {
+            string ui:group:annotation = "uv_randomTrunc"
+            string ui:group:annotationDescription = ""
+            string[] ui:group:members = ["p:Multiply_5", "p:Trunc1_1"]
+        }
+    }
+}
+
