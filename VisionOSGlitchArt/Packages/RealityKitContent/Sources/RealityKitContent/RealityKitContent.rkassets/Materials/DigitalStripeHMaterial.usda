@@ -12,27 +12,43 @@ def Xform "Root"
 {
     def Material "DigitalStripeHMaterial"
     {
-        float inputs:JumpIntensity = 0.35 (
+        float inputs:Intensity = 0.25 (
             customData = {
                 dictionary realitykit = {
-                    float2 positionInSubgraph = (-851.5454, 441.3277)
-                    int stackingOrderInSubgraph = 3033
+                    float2 positionInSubgraph = (-825.55695, 478.33588)
+                    int stackingOrderInSubgraph = 3514
                 }
             }
         )
-        float inputs:Speed = 8 (
+        int inputs:NeedStripColorAdjust = 0 (
             customData = {
                 dictionary realitykit = {
-                    float2 positionInSubgraph = (-847.3788, 529.46893)
-                    int stackingOrderInSubgraph = 2951
+                    float2 positionInSubgraph = (-817.1054, -262.07205)
+                    int stackingOrderInSubgraph = 3356
+                }
+            }
+        )
+        float3 inputs:StripColorAdjustColor = (0.1, 0.4, 0.1) (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (134.2865, 828.2642)
+                    int stackingOrderInSubgraph = 3688
+                }
+            }
+        )
+        float inputs:StripColorAdjustIntensity = 0.2 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-338.77252, 736.51526)
+                    int stackingOrderInSubgraph = 3894
                 }
             }
         )
         token outputs:mtlx:surface.connect = </Root/DigitalStripeHMaterial/PreviewSurface.outputs:out>
         token outputs:realitykit:vertex
         token outputs:surface.connect = </Root/DigitalStripeHMaterial/UsdPreviewSurface.outputs:surface>
-        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1277.5038, 511.73022)
-        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 3027
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (2086.922, 293.9515)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 3712
 
         def Shader "UsdPreviewSurface" (
             active = false
@@ -45,40 +61,22 @@ def Xform "Root"
         def Shader "PreviewSurface"
         {
             uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
-            color3f inputs:diffuseColor.connect = </Root/DigitalStripeHMaterial/UsdUVTexture_1.outputs:rgb>
+            color3f inputs:diffuseColor.connect = </Root/DigitalStripeHMaterial/IfEqual.outputs:out>
             float inputs:metallic
             float inputs:opacity
             float inputs:roughness
             token outputs:out
-            float2 ui:nodegraph:node:pos = (1022.5039, 506.23022)
-            int ui:nodegraph:node:stackingOrder = 3027
+            float2 ui:nodegraph:node:pos = (1831.9222, 288.4515)
+            int ui:nodegraph:node:stackingOrder = 3712
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
-        }
-
-        def Shader "Time"
-        {
-            uniform token info:id = "ND_time_float"
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-844.7153, 598.3839)
-            int ui:nodegraph:node:stackingOrder = 1542
-        }
-
-        def Shader "Multiply"
-        {
-            uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/DigitalStripeHMaterial.inputs:Speed>
-            float inputs:in2.connect = </Root/DigitalStripeHMaterial/Time.outputs:out>
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-669.9318, 546.22076)
-            int ui:nodegraph:node:stackingOrder = 2757
         }
 
         def Shader "Texcoord"
         {
             uniform token info:id = "ND_texcoord_vector2"
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-840.6583, 284.1583)
-            int ui:nodegraph:node:stackingOrder = 3039
+            float2 ui:nodegraph:node:pos = (-974.7528, 304.8573)
+            int ui:nodegraph:node:stackingOrder = 3879
         }
 
         def Shader "UsdUVTexture_1"
@@ -89,75 +87,410 @@ def Xform "Root"
             asset inputs:file = @number.jpeg@
             color4f inputs:scale
             float2 inputs:st.connect = </Root/DigitalStripeHMaterial/Fractional.outputs:out>
-            string inputs:wrapS
-            string inputs:wrapT
+            string inputs:wrapS = "clamp"
+            string inputs:wrapT = "clamp"
             float outputs:g
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (791.7292, 307.51117)
-            int ui:nodegraph:node:stackingOrder = 3027
-            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba"]
+            float2 ui:nodegraph:node:pos = (765.5365, 216.51042)
+            int ui:nodegraph:node:stackingOrder = 3887
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba"]
         }
 
-        def Shader "Separate2"
+        def Shader "UsdUVTexture"
         {
-            uniform token info:id = "ND_separate2_vector2"
-            float2 inputs:in.connect = </Root/DigitalStripeHMaterial/Texcoord.outputs:out>
-            float outputs:outx
-            float outputs:outy
-            float2 ui:nodegraph:node:pos = (-634.9748, 331.9371)
-            int ui:nodegraph:node:stackingOrder = 2947
+            uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:fallback
+            asset inputs:file = @X-StripeNoise1024.png@
+            color4f inputs:scale
+            float2 inputs:st.connect = </Root/DigitalStripeHMaterial/Add_1.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
+            float outputs:a
+            float outputs:b
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            float2 ui:nodegraph:node:pos = (-448.85925, 27.127754)
+            int ui:nodegraph:node:stackingOrder = 3889
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "inputs:scale", "inputs:bias"]
         }
 
-        def Shader "Combine2"
+        def Shader "Absval"
         {
-            uniform token info:id = "ND_combine2_vector2"
-            float inputs:in1.connect = </Root/DigitalStripeHMaterial/Mix.outputs:out>
-            float inputs:in2.connect = </Root/DigitalStripeHMaterial/Separate2.outputs:outy>
-            float2 outputs:out
-            float2 ui:nodegraph:node:pos = (216.94586, 525.9011)
-            int ui:nodegraph:node:stackingOrder = 3029
+            uniform token info:id = "ND_absval_float"
+            float inputs:in.connect = </Root/DigitalStripeHMaterial/UsdUVTexture.outputs:r>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-228.65598, 122.87278)
+            int ui:nodegraph:node:stackingOrder = 3546
+        }
+
+        def Shader "Power"
+        {
+            uniform token info:id = "ND_power_float"
+            float inputs:in1.connect = </Root/DigitalStripeHMaterial/Absval.outputs:out>
+            float inputs:in2 = 3
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-59.666077, 115.633385)
+            int ui:nodegraph:node:stackingOrder = 3546
         }
 
         def Shader "Add"
         {
-            uniform token info:id = "ND_add_float"
-            float inputs:in1.connect = </Root/DigitalStripeHMaterial/Separate2.outputs:outx>
+            uniform token info:id = "ND_add_vector2"
+            float2 inputs:in1.connect = </Root/DigitalStripeHMaterial/Multiply_2.outputs:out>
+            float2 inputs:in2.connect = </Root/DigitalStripeHMaterial/Texcoord.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (350.23004, 465.52063)
+            int ui:nodegraph:node:stackingOrder = 3608
+        }
+
+        def Shader "Subtract"
+        {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1 = 1.001
+            float inputs:in1.connect = None
             float inputs:in2.connect = </Root/DigitalStripeHMaterial/Multiply_1.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-260.79404, 307.44937)
-            int ui:nodegraph:node:stackingOrder = 2982
+            float2 ui:nodegraph:node:pos = (-509.2822, 485.4691)
+            int ui:nodegraph:node:stackingOrder = 3514
         }
 
         def Shader "Multiply_1"
         {
             uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/DigitalStripeHMaterial.inputs:JumpIntensity>
-            float inputs:in2.connect = </Root/DigitalStripeHMaterial/Multiply.outputs:out>
+            float inputs:in1.connect = </Root/DigitalStripeHMaterial.inputs:Intensity>
+            float inputs:in2 = 1.001
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-486.51627, 513.147)
-            int ui:nodegraph:node:stackingOrder = 3035
+            float2 ui:nodegraph:node:pos = (-636.283, 493.5355)
+            int ui:nodegraph:node:stackingOrder = 3514
+        }
+
+        def Shader "Step"
+        {
+            uniform token info:id = "ND_realitykit_step_float"
+            float inputs:edge.connect = </Root/DigitalStripeHMaterial/Power.outputs:out>
+            float inputs:in.connect = </Root/DigitalStripeHMaterial/Subtract.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (152.60939, 128.21231)
+            int ui:nodegraph:node:stackingOrder = 3463
+        }
+
+        def Shader "Combine2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/DigitalStripeHMaterial/UsdUVTexture.outputs:g>
+            float inputs:in2.connect = </Root/DigitalStripeHMaterial/UsdUVTexture.outputs:b>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-6.6994314, 307.95218)
+            int ui:nodegraph:node:stackingOrder = 3684
+        }
+
+        def Shader "Multiply_2"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            prepend float2 inputs:in1.connect = </Root/DigitalStripeHMaterial/Combine2.outputs:out>
+            float inputs:in2.connect = </Root/DigitalStripeHMaterial/Step.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (297.01227, 367.34195)
+            int ui:nodegraph:node:stackingOrder = 3403
+        }
+
+        def Shader "Step_1"
+        {
+            uniform token info:id = "ND_realitykit_step_float"
+            float inputs:edge.connect = </Root/DigitalStripeHMaterial/Power_1.outputs:out>
+            float inputs:in.connect = </Root/DigitalStripeHMaterial/Subtract.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (114.91955, 553.5845)
+            int ui:nodegraph:node:stackingOrder = 3595
+        }
+
+        def Shader "Power_1"
+        {
+            uniform token info:id = "ND_power_float"
+            float inputs:in1.connect = </Root/DigitalStripeHMaterial/Absval_1.outputs:out>
+            float inputs:in2 = 3
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-72.51711, 597.79236)
+            int ui:nodegraph:node:stackingOrder = 3582
+        }
+
+        def Shader "Absval_1"
+        {
+            uniform token info:id = "ND_absval_float"
+            float inputs:in.connect = </Root/DigitalStripeHMaterial/UsdUVTexture.outputs:a>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-261.8326, 617.8878)
+            int ui:nodegraph:node:stackingOrder = 3590
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/DigitalStripeHMaterial/Step_1.outputs:out>
+            float inputs:in2.connect = </Root/DigitalStripeHMaterial.inputs:StripColorAdjustIntensity>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (322.49377, 616.5692)
+            int ui:nodegraph:node:stackingOrder = 3598
         }
 
         def Shader "Mix"
         {
-            uniform token info:id = "ND_mix_float"
-            float inputs:bg.connect = </Root/DigitalStripeHMaterial/Separate2.outputs:outx>
-            float inputs:fg.connect = </Root/DigitalStripeHMaterial/Add.outputs:out>
-            float inputs:mix.connect = </Root/DigitalStripeHMaterial.inputs:JumpIntensity>
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (22.740917, 380.29987)
-            int ui:nodegraph:node:stackingOrder = 2980
+            uniform token info:id = "ND_mix_vector3"
+            float3 inputs:bg.connect = </Root/DigitalStripeHMaterial/Convert.outputs:out>
+            float3 inputs:fg.connect = </Root/DigitalStripeHMaterial.inputs:StripColorAdjustColor>
+            float inputs:mix.connect = </Root/DigitalStripeHMaterial/Multiply.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (1213.7526, 475.5927)
+            int ui:nodegraph:node:stackingOrder = 3748
+        }
+
+        def Shader "IfEqual"
+        {
+            uniform token info:id = "ND_ifequal_color3I"
+            color3f inputs:in1.connect = </Root/DigitalStripeHMaterial/UsdUVTexture_1.outputs:rgb>
+            color3f inputs:in2.connect = </Root/DigitalStripeHMaterial/Convert_1.outputs:out>
+            prepend int inputs:value1.connect = </Root/DigitalStripeHMaterial.inputs:NeedStripColorAdjust>
+            int inputs:value2
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (1568.7064, 81.17734)
+            int ui:nodegraph:node:stackingOrder = 3712
+        }
+
+        def Shader "Convert"
+        {
+            uniform token info:id = "ND_convert_color3_vector3"
+            color3f inputs:in.connect = </Root/DigitalStripeHMaterial/UsdUVTexture_1.outputs:rgb>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (969.93884, 452.61066)
+            int ui:nodegraph:node:stackingOrder = 3753
+        }
+
+        def Shader "Convert_1"
+        {
+            uniform token info:id = "ND_convert_vector3_color3"
+            float3 inputs:in.connect = </Root/DigitalStripeHMaterial/Mix.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (1408.0847, 304.6379)
+            int ui:nodegraph:node:stackingOrder = 3712
         }
 
         def Shader "Fractional"
         {
             uniform token info:id = "ND_realitykit_fractional_vector2"
-            float2 inputs:in.connect = </Root/DigitalStripeHMaterial/Combine2.outputs:out>
+            float2 inputs:in.connect = </Root/DigitalStripeHMaterial/Add.outputs:out>
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (478.65637, 488.85776)
-            int ui:nodegraph:node:stackingOrder = 2978
+            float2 ui:nodegraph:node:pos = (503.39383, 467.8496)
+            int ui:nodegraph:node:stackingOrder = 3679
+        }
+
+        def Shader "Time"
+        {
+            uniform token info:id = "ND_time_float"
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-1590.3748, 1.0091796)
+            int ui:nodegraph:node:stackingOrder = 3873
+        }
+
+        def NodeGraph "RandomNoise"
+        {
+            float2 inputs:seed (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (82.2493, 15.840637)
+                        int stackingOrderInSubgraph = 3846
+                    }
+                }
+            )
+            float2 inputs:seed.connect = </Root/DigitalStripeHMaterial/Combine2_1.outputs:out>
+            float outputs:Fractional_out.connect = </Root/DigitalStripeHMaterial/RandomNoise/Fractional.outputs:out>
+            float2 ui:nodegraph:node:pos = (-983.21484, -51.366108)
+            int ui:nodegraph:node:stackingOrder = 3825
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1075, 57.5)
+
+            def Shader "Combine2"
+            {
+                uniform token info:id = "ND_combine2_vector2"
+                float inputs:in1 = 17.13
+                float inputs:in2 = 3.71
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (86.64514, 99.550476)
+                int ui:nodegraph:node:stackingOrder = 3848
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/DigitalStripeHMaterial/RandomNoise/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (507.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector2"
+                float2 inputs:in1.connect = </Root/DigitalStripeHMaterial/RandomNoise.inputs:seed>
+                float2 inputs:in2.connect = </Root/DigitalStripeHMaterial/RandomNoise/Combine2.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (306.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+
+            def Shader "Multiply_10"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/DigitalStripeHMaterial/RandomNoise/Sin.outputs:out>
+                float inputs:in2 = 43758.547
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (654, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+
+            def Shader "Fractional"
+            {
+                uniform token info:id = "ND_realitykit_fractional_float"
+                float inputs:in.connect = </Root/DigitalStripeHMaterial/RandomNoise/Multiply_10.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (841, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+        }
+
+        def Shader "Combine2_1"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/DigitalStripeHMaterial/Floor.outputs:out>
+            float inputs:in2 = 2
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-1147.6133, -38.9004)
+            int ui:nodegraph:node:stackingOrder = 3825
+        }
+
+        def Shader "Combine2_2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/DigitalStripeHMaterial/Floor.outputs:out>
+            float inputs:in2 = 5
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-1153.6632, 83.8905)
+            int ui:nodegraph:node:stackingOrder = 3825
+        }
+
+        def NodeGraph "RandomNoise_1"
+        {
+            float2 inputs:seed (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (82.2493, 15.840637)
+                        int stackingOrderInSubgraph = 3846
+                    }
+                }
+            )
+            float2 inputs:seed.connect = </Root/DigitalStripeHMaterial/Combine2_2.outputs:out>
+            float outputs:Fractional_out.connect = </Root/DigitalStripeHMaterial/RandomNoise_1/Fractional.outputs:out>
+            float2 ui:nodegraph:node:pos = (-975.22003, 87.50739)
+            int ui:nodegraph:node:stackingOrder = 3825
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1075, 57.5)
+
+            def Shader "Combine2"
+            {
+                uniform token info:id = "ND_combine2_vector2"
+                float inputs:in1 = 17.13
+                float inputs:in2 = 3.71
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (86.64514, 99.550476)
+                int ui:nodegraph:node:stackingOrder = 3848
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </Root/DigitalStripeHMaterial/RandomNoise_1/DotProduct.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (507.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+
+            def Shader "DotProduct"
+            {
+                uniform token info:id = "ND_dotproduct_vector2"
+                float2 inputs:in1.connect = </Root/DigitalStripeHMaterial/RandomNoise_1.inputs:seed>
+                float2 inputs:in2.connect = </Root/DigitalStripeHMaterial/RandomNoise_1/Combine2.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (306.25, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+
+            def Shader "Multiply_10"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </Root/DigitalStripeHMaterial/RandomNoise_1/Sin.outputs:out>
+                float inputs:in2 = 43758.547
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (654, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+
+            def Shader "Fractional"
+            {
+                uniform token info:id = "ND_realitykit_fractional_float"
+                float inputs:in.connect = </Root/DigitalStripeHMaterial/RandomNoise_1/Multiply_10.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (841, 57.5)
+                int ui:nodegraph:node:stackingOrder = 3840
+            }
+        }
+
+        def Shader "Combine2_3"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/DigitalStripeHMaterial/RandomNoise.outputs:Fractional_out>
+            float inputs:in2.connect = </Root/DigitalStripeHMaterial/RandomNoise_1.outputs:Fractional_out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-789.2679, 10.080843)
+            int ui:nodegraph:node:stackingOrder = 3831
+        }
+
+        def Shader "Add_1"
+        {
+            uniform token info:id = "ND_add_vector2"
+            float2 inputs:in1.connect = </Root/DigitalStripeHMaterial/Combine2_3.outputs:out>
+            float2 inputs:in2.connect = </Root/DigitalStripeHMaterial/Multiply_3.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-635.93567, 100.604195)
+            int ui:nodegraph:node:stackingOrder = 3836
+        }
+
+        def Shader "Multiply_3"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            prepend float2 inputs:in1.connect = </Root/DigitalStripeHMaterial/Texcoord.outputs:out>
+            float inputs:in2 = 0.002
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-767.2523, 236.15063)
+            int ui:nodegraph:node:stackingOrder = 3891
+        }
+
+        def Shader "Multiply_4"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/DigitalStripeHMaterial/Time.outputs:out>
+            float inputs:in2 = 2
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-1443.1519, -10.812324)
+            int ui:nodegraph:node:stackingOrder = 3892
+        }
+
+        def Shader "Floor"
+        {
+            uniform token info:id = "ND_floor_float"
+            float inputs:in.connect = </Root/DigitalStripeHMaterial/Multiply_4.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-1334.5286, -7.3032446)
+            int ui:nodegraph:node:stackingOrder = 3870
         }
     }
 }
