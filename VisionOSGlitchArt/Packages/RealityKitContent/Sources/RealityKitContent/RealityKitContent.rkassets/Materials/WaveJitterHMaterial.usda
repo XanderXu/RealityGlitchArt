@@ -1,0 +1,469 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.0.500.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Material "WaveJitterHMaterial"
+    {
+        float inputs:Amount = 1 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-824.02216, 782.2529)
+                    int stackingOrderInSubgraph = 2970
+                }
+            }
+        )
+        float inputs:Frenquency = 5 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-863.3904, 612.8235)
+                    int stackingOrderInSubgraph = 2973
+                }
+            }
+        )
+        float2 inputs:Resolution = (480, 640) (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-824.64056, 142.36981)
+                    int stackingOrderInSubgraph = 3206
+                }
+            }
+        )
+        float inputs:RGBSplitIntensity = 20 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-828.0167, 921.8442)
+                    int stackingOrderInSubgraph = 3426
+                }
+            }
+        )
+        float inputs:Speed = 0.25 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-840.80237, 351.8726)
+                    int stackingOrderInSubgraph = 2831
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </Root/WaveJitterHMaterial/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/WaveJitterHMaterial/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1846.5789, 125.04263)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 3591
+
+        def Shader "UsdPreviewSurface" (
+            active = false
+        )
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/WaveJitterHMaterial/Combine3.outputs:out>
+            float inputs:metallic
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (1591.579, 119.54263)
+            int ui:nodegraph:node:stackingOrder = 3591
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "Time"
+        {
+            uniform token info:id = "ND_time_float"
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-833.3865, 432.62344)
+            int ui:nodegraph:node:stackingOrder = 2831
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial.inputs:Speed>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Time.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-684.1358, 391.54477)
+            int ui:nodegraph:node:stackingOrder = 2831
+        }
+
+        def Shader "Multiply_1"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Multiply.outputs:out>
+            float inputs:in2 = 20
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-568.0075, 350.0623)
+            int ui:nodegraph:node:stackingOrder = 2831
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:in2"]
+        }
+
+        def Shader "Multiply_3"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Multiply.outputs:out>
+            float inputs:in2 = 10
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-562.11914, 408.09567)
+            int ui:nodegraph:node:stackingOrder = 2831
+        }
+
+        def Shader "Texcoord"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-813.8926, -89.76108)
+            int ui:nodegraph:node:stackingOrder = 3202
+        }
+
+        def Shader "Combine3"
+        {
+            uniform token info:id = "ND_combine3_color3"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/UsdUVTexture_2.outputs:r>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/UsdUVTexture.outputs:g>
+            float inputs:in3.connect = </Root/WaveJitterHMaterial/UsdUVTexture_2.outputs:b>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (1229.09, 191.5)
+            int ui:nodegraph:node:stackingOrder = 3591
+        }
+
+        def Shader "UsdUVTexture"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            asset inputs:file = @number.jpeg@
+            color4f inputs:scale
+            float2 inputs:st.connect = </Root/WaveJitterHMaterial/Combine2_2.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
+            float outputs:b
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            color4f outputs:rgba
+            float2 ui:nodegraph:node:pos = (959.98413, -206.34384)
+            int ui:nodegraph:node:stackingOrder = 3615
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def Shader "UsdUVTexture_2"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
+            asset inputs:file = @number.jpeg@
+            color4f inputs:scale
+            float2 inputs:st.connect = </Root/WaveJitterHMaterial/Combine2_3.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
+            float outputs:b
+            float outputs:g
+            float outputs:r
+            color3f outputs:rgb
+            float2 ui:nodegraph:node:pos = (950.0751, 389.75543)
+            int ui:nodegraph:node:stackingOrder = 3591
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba"]
+        }
+
+        def Shader "Multiply_7"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Time.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial.inputs:Frenquency>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-685.372, 580.15607)
+            int ui:nodegraph:node:stackingOrder = 2975
+        }
+
+        def Shader "Cos"
+        {
+            uniform token info:id = "ND_cos_float"
+            float inputs:in.connect = </Root/WaveJitterHMaterial/Multiply_7.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-588.37213, 578.1322)
+            int ui:nodegraph:node:stackingOrder = 2970
+        }
+
+        def Shader "Remap"
+        {
+            uniform token info:id = "ND_remap_float"
+            float inputs:in.connect = </Root/WaveJitterHMaterial/Cos.outputs:out>
+            float inputs:inlow = -1
+            float inputs:outhigh
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-393.83594, 638.41675)
+            int ui:nodegraph:node:stackingOrder = 3285
+        }
+
+        def Shader "Multiply_8"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial.inputs:Amount>
+            float inputs:in2 = 32
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-541.2612, 755.4928)
+            int ui:nodegraph:node:stackingOrder = 2970
+        }
+
+        def Shader "Multiply_10"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial.inputs:Amount>
+            float inputs:in2 = 4
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-545.8491, 809.82965)
+            int ui:nodegraph:node:stackingOrder = 2970
+        }
+
+        def Shader "Multiply_2"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Remap.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Multiply_8.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-214.43675, 735.48376)
+            int ui:nodegraph:node:stackingOrder = 3320
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+        }
+
+        def Shader "Multiply_5"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Remap.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Multiply_10.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-224.98619, 799.3894)
+            int ui:nodegraph:node:stackingOrder = 3320
+        }
+
+        def Shader "Separate2"
+        {
+            uniform token info:id = "ND_separate2_vector2"
+            float2 inputs:in.connect = </Root/WaveJitterHMaterial/Texcoord.outputs:out>
+            float outputs:outx
+            float outputs:outy
+            float2 ui:nodegraph:node:pos = (-625.616, -86.12021)
+            int ui:nodegraph:node:stackingOrder = 3202
+        }
+
+        def Shader "Multiply_6"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Multiply_9.outputs:out>
+            float inputs:in2 = 0.01
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-366.16208, 312.4942)
+            int ui:nodegraph:node:stackingOrder = 3383
+        }
+
+        def Shader "Multiply_11"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Multiply_9.outputs:out>
+            float inputs:in2 = 0.02
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-378.15344, 419.30032)
+            int ui:nodegraph:node:stackingOrder = 3285
+        }
+
+        def Shader "Combine2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Multiply_6.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Multiply_1.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-246.44199, 326.49625)
+            int ui:nodegraph:node:stackingOrder = 3383
+        }
+
+        def Shader "Noise2D"
+        {
+            uniform token info:id = "ND_noise2d_float"
+            float inputs:amplitude
+            float inputs:pivot
+            float2 inputs:texcoord.connect = </Root/WaveJitterHMaterial/Combine2.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-67.09189, 283.81116)
+            int ui:nodegraph:node:stackingOrder = 3364
+        }
+
+        def Shader "Combine2_1"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Multiply_11.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Multiply_3.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-247.7533, 455.6221)
+            int ui:nodegraph:node:stackingOrder = 3285
+        }
+
+        def Shader "Noise2D_1"
+        {
+            uniform token info:id = "ND_noise2d_float"
+            float2 inputs:texcoord.connect = </Root/WaveJitterHMaterial/Combine2_1.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-62.779026, 450.87192)
+            int ui:nodegraph:node:stackingOrder = 3285
+        }
+
+        def Shader "Multiply_12"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Noise2D.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Multiply_2.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (92.4585, 493.9623)
+            int ui:nodegraph:node:stackingOrder = 3359
+        }
+
+        def Shader "Multiply_13"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Noise2D_1.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Multiply_5.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (88.5077, 548.46326)
+            int ui:nodegraph:node:stackingOrder = 3357
+        }
+
+        def Shader "Multiply_4"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Multiply_12.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Multiply_13.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (174.60793, 532.7053)
+            int ui:nodegraph:node:stackingOrder = 3619
+        }
+
+        def Shader "Divide"
+        {
+            uniform token info:id = "ND_divide_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Multiply_4.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Separate2_1.outputs:outx>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (222.96454, 280.82733)
+            int ui:nodegraph:node:stackingOrder = 3394
+        }
+
+        def Shader "Separate2_1"
+        {
+            uniform token info:id = "ND_separate2_vector2"
+            float2 inputs:in.connect = </Root/WaveJitterHMaterial.inputs:Resolution>
+            float outputs:outx
+            float outputs:outy
+            float2 ui:nodegraph:node:pos = (-629.76166, 144.4187)
+            int ui:nodegraph:node:stackingOrder = 3204
+        }
+
+        def Shader "Add"
+        {
+            uniform token info:id = "ND_add_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Separate2.outputs:outx>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Divide.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (346.48587, -143.29784)
+            int ui:nodegraph:node:stackingOrder = 3618
+        }
+
+        def Shader "Combine2_2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Add.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Separate2.outputs:outy>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (753.2432, -38.23512)
+            int ui:nodegraph:node:stackingOrder = 3615
+        }
+
+        def Shader "Multiply_9"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Separate2.outputs:outy>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Separate2_1.outputs:outy>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-437.12592, 226.27745)
+            int ui:nodegraph:node:stackingOrder = 3516
+        }
+
+        def Shader "Combine2_3"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Add_1.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Separate2.outputs:outy>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (723.49023, 355.09048)
+            int ui:nodegraph:node:stackingOrder = 3594
+        }
+
+        def Shader "Add_1"
+        {
+            uniform token info:id = "ND_add_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Add.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Multiply_15.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (514.27057, 226.70828)
+            int ui:nodegraph:node:stackingOrder = 3596
+        }
+
+        def Shader "Multiply_14"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial.inputs:RGBSplitIntensity>
+            float inputs:in2 = 50
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-591.5366, 924.63885)
+            int ui:nodegraph:node:stackingOrder = 3426
+        }
+
+        def Shader "Add_2"
+        {
+            uniform token info:id = "ND_add_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Remap_1.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Multiply_14.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-8.651911, 892.42224)
+            int ui:nodegraph:node:stackingOrder = 3455
+        }
+
+        def Shader "Divide_1"
+        {
+            uniform token info:id = "ND_divide_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Divide.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Separate2_1.outputs:outx>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (297.75464, 360.79645)
+            int ui:nodegraph:node:stackingOrder = 3460
+        }
+
+        def Shader "Remap_1"
+        {
+            uniform token info:id = "ND_remap_float"
+            float inputs:in.connect = </Root/WaveJitterHMaterial/Remap.outputs:out>
+            float inputs:outhigh = 21
+            float inputs:outlow = 1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-217.72574, 608.33386)
+            int ui:nodegraph:node:stackingOrder = 3439
+        }
+
+        def Shader "Multiply_15"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/WaveJitterHMaterial/Divide_1.outputs:out>
+            float inputs:in2.connect = </Root/WaveJitterHMaterial/Add_2.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (380.86172, 388.2644)
+            int ui:nodegraph:node:stackingOrder = 3508
+        }
+    }
+}
+

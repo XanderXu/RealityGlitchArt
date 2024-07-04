@@ -15,6 +15,7 @@
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/LineBlockHMaterial.usda" : "18ACC391-AAA9-4ED4-9F71-6E94EC15AAD7",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/LineBlockMaterialHorizontal.usda" : "CF1A7027-DE10-408F-BB8A-46AA0543861E",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/LineBlockVMaterial.usda" : "D38E17BA-8481-45B0-9517-5F0C15D0FCBB",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/NoiseTestMaterial.usda" : "559FAA8C-CDBD-47A8-9E7F-45A5E3142935",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/RGBSplitMaterial.usda" : "0CC2D925-5E5B-448E-9FEF-856048816302",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/RGBSplitMaterialV2.usda" : "419DF270-FCAB-4ECB-A4B5-A7A54757C0FA",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/RGBSplitMaterialV3.usda" : "DFBF8934-6CF3-46D8-BFBC-157A2926796D",
@@ -33,6 +34,8 @@
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/TileJitterHMaterial222.usda" : "29008550-735D-4EAF-8357-D539EBBE19E8",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/TileJitterVMaterial.usda" : "58608263-E13E-4148-8A2D-2220873D46DE",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/Untitled%20Scene.usda" : "6825BEFF-E269-4097-A91C-47C786476E93",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/WaveJitterHMaterial.usda" : "FE3A3A42-4B1A-49E9-892B-FCFFA607076C",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/WaveJitterVMaterial.usda" : "A4141BD4-E6A7-4ABD-AC69-CF92A675FB38",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "D66134B1-3681-4A8E-AFE5-29F257229F3B"
   }
 }
