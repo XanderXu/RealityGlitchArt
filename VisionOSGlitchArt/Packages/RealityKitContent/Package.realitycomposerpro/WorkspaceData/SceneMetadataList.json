@@ -773,6 +773,27 @@
       }
     ]
   },
+  "EBDD8BAD-269F-4FF4-AFEF-B85CFD33B6CA" : {
+    "objectMetadataList" : [
+      [
+        "EBDD8BAD-269F-4FF4-AFEF-B85CFD33B6CA",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "EBDD8BAD-269F-4FF4-AFEF-B85CFD33B6CA",
+        "Root",
+        "DigitalStripeHMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "F6D65C5A-4349-46D3-9603-5D6A186DBC2D" : {
     "objectMetadataList" : [
       [

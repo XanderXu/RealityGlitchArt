@@ -51,8 +51,8 @@ enum GlitchMaterial: String, CaseIterable, Identifiable {
     case TileJitterHMaterial
     case TileJitterVMaterial
     
-    case WaveJitterHMaterial//todo
-    case WaveJitterVMaterial//todo
+    case WaveJitterHMaterial
+    case WaveJitterVMaterial
     
     case ScreenJumpHMaterial
     case ScreenJumpVMaterial

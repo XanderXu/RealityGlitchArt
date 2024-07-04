@@ -2,10 +2,9 @@
   "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
     "Immersive.usda",
-    "Materials\/RGBSplitMaterialV3.usda",
-    "Materials\/NoiseTestMaterial.usda",
-    "Materials\/WaveJitterHMaterial.usda",
-    "Materials\/WaveJitterVMaterial.usda"
+    "Materials\/RGBSplitMaterial.usda",
+    "Materials\/ImageBlockMaterial.usda",
+    "Materials\/DigitalStripeHMaterial.usda"
   ],
   "recentIdentifiers" : {
     "0A96A8FD-F0F9-4C32-8EE1-BD9CBF83B3DD" : [
@@ -33,6 +32,9 @@
 
     ],
     "18ACC391-AAA9-4ED4-9F71-6E94EC15AAD7" : [
+
+    ],
+    "27A1FB55-C033-467B-ACCE-386241CB1285" : [
 
     ],
     "91E338E4-CF6D-43FA-A377-181C93E64763" : [
@@ -66,6 +68,9 @@
 
     ],
     "DFBF8934-6CF3-46D8-BFBC-157A2926796D" : [
+
+    ],
+    "EBDD8BAD-269F-4FF4-AFEF-B85CFD33B6CA" : [
 
     ],
     "F6D65C5A-4349-46D3-9603-5D6A186DBC2D" : [
@@ -558,5 +563,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/WaveJitterVMaterial.usda"
+  "selectedSceneRelativePath" : "Materials\/DigitalStripeHMaterial.usda"
 }
