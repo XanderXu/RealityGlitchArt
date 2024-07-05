@@ -207,6 +207,37 @@
       }
     ]
   },
+  "8CA23E84-0AC0-4285-A06E-19345CD8AECD" : {
+    "objectMetadataList" : [
+      [
+        "8CA23E84-0AC0-4285-A06E-19345CD8AECD",
+        "Root",
+        "DigitalStripeVMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "8CA23E84-0AC0-4285-A06E-19345CD8AECD",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "8CA23E84-0AC0-4285-A06E-19345CD8AECD",
+        "Root",
+        "DigitalStripeVMaterial",
+        "StripeNoise"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "9B9C5BF9-A6D3-4ACE-8139-CEED55847879" : {
     "objectMetadataList" : [
       [
@@ -362,6 +393,15 @@
       [
         "559FAA8C-CDBD-47A8-9E7F-45A5E3142935",
         "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559FAA8C-CDBD-47A8-9E7F-45A5E3142935",
+        "Root",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -765,6 +805,15 @@
     "objectMetadataList" : [
       [
         "DFF1A9A7-09BA-4067-9AA6-D503B6BAC0FE",
+        "Root",
+        "ScanLineJitterVMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "DFF1A9A7-09BA-4067-9AA6-D503B6BAC0FE",
         "Root"
       ],
       {
@@ -778,6 +827,16 @@
       [
         "EBDD8BAD-269F-4FF4-AFEF-B85CFD33B6CA",
         "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "EBDD8BAD-269F-4FF4-AFEF-B85CFD33B6CA",
+        "Root",
+        "DigitalStripeHMaterial",
+        "StripeNoise"
       ],
       {
         "isExpanded" : true,
@@ -875,6 +934,15 @@
   },
   "FFA8D1A5-2E8D-485F-AB4E-4543EB1740F3" : {
     "objectMetadataList" : [
+      [
+        "FFA8D1A5-2E8D-485F-AB4E-4543EB1740F3",
+        "Root",
+        "ScanLineJitterHMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
       [
         "FFA8D1A5-2E8D-485F-AB4E-4543EB1740F3",
         "Root"

@@ -2,9 +2,8 @@
   "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
     "Immersive.usda",
-    "Materials\/RGBSplitMaterial.usda",
-    "Materials\/ImageBlockMaterial.usda",
-    "Materials\/DigitalStripeHMaterial.usda"
+    "Materials\/DigitalStripeHMaterial.usda",
+    "Materials\/DigitalStripeVMaterial.usda"
   ],
   "recentIdentifiers" : {
     "0A96A8FD-F0F9-4C32-8EE1-BD9CBF83B3DD" : [
@@ -26,6 +25,9 @@
 
     ],
     "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1" : [
+
+    ],
+    "8CA23E84-0AC0-4285-A06E-19345CD8AECD" : [
 
     ],
     "9B9C5BF9-A6D3-4ACE-8139-CEED55847879" : [
@@ -337,6 +339,30 @@
         ]
       }
     ],
+    "EBDD8BAD-269F-4FF4-AFEF-B85CFD33B6CA" : [
+      {
+        "date" : 741843831.648774,
+        "title" : "Untitled",
+        "transform" : [
+          0.99999994,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071068,
+          -0.7071066,
+          0,
+          0,
+          0.7071066,
+          0.7071068,
+          0,
+          0,
+          0.13020909,
+          0.13020933,
+          1
+        ]
+      }
+    ],
     "FE3A3A42-4B1A-49E9-892B-FCFFA607076C" : [
       {
         "date" : 741755546.057733,
@@ -563,5 +589,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/DigitalStripeHMaterial.usda"
+  "selectedSceneRelativePath" : "Materials\/DigitalStripeVMaterial.usda"
 }

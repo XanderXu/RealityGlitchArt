@@ -15,8 +15,8 @@ def Xform "Root"
         float inputs:Amount = 0.023 (
             customData = {
                 dictionary realitykit = {
-                    float2 positionInSubgraph = (-840.0758, 118.28761)
-                    int stackingOrderInSubgraph = 2936
+                    float2 positionInSubgraph = (122.21091, 917.6336)
+                    int stackingOrderInSubgraph = 3009
                 }
             }
         )
@@ -39,8 +39,8 @@ def Xform "Root"
         float inputs:Threshold = 0.52 (
             customData = {
                 dictionary realitykit = {
-                    float2 positionInSubgraph = (-840.8839, 189.92332)
-                    int stackingOrderInSubgraph = 2939
+                    float2 positionInSubgraph = (-183.04417, 906.4824)
+                    int stackingOrderInSubgraph = 3011
                 }
             }
         )
@@ -252,28 +252,28 @@ def Xform "Root"
             uniform token info:id = "ND_absval_float"
             float inputs:in.connect = </Root/ScanLineJitterHMaterial/Remap_1.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-8.42017, 533.0596)
-            int ui:nodegraph:node:stackingOrder = 2955
+            float2 ui:nodegraph:node:pos = (-12.293616, 480.3946)
+            int ui:nodegraph:node:stackingOrder = 3005
         }
 
         def Shader "Step"
         {
             uniform token info:id = "ND_realitykit_step_float"
-            float inputs:edge.connect = </Root/ScanLineJitterHMaterial/Absval.outputs:out>
-            float inputs:in.connect = </Root/ScanLineJitterHMaterial.inputs:Threshold>
+            float inputs:edge.connect = </Root/ScanLineJitterHMaterial.inputs:Threshold>
+            float inputs:in.connect = </Root/ScanLineJitterHMaterial/Absval.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (147.06529, 462.30286)
-            int ui:nodegraph:node:stackingOrder = 2957
+            float2 ui:nodegraph:node:pos = (172.59048, 433.48224)
+            int ui:nodegraph:node:stackingOrder = 3003
         }
 
         def Shader "Multiply_1"
         {
             uniform token info:id = "ND_multiply_float"
-            float inputs:in1.connect = </Root/ScanLineJitterHMaterial.inputs:Amount>
-            float inputs:in2.connect = </Root/ScanLineJitterHMaterial/Step.outputs:out>
+            float inputs:in1.connect = </Root/ScanLineJitterHMaterial/Step.outputs:out>
+            float inputs:in2.connect = </Root/ScanLineJitterHMaterial.inputs:Amount>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (309.75836, 425.15613)
-            int ui:nodegraph:node:stackingOrder = 2959
+            float2 ui:nodegraph:node:pos = (288.3457, 494.52676)
+            int ui:nodegraph:node:stackingOrder = 3013
         }
 
         def Shader "Multiply_3"
