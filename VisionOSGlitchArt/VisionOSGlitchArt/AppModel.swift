@@ -42,8 +42,8 @@ enum GlitchMaterial: String, CaseIterable, Identifiable {
     case LineBlockHMaterial
     case LineBlockVMaterial
     
-    case DigitalStripeHMaterial//todo
-    case DigitalStripeVMaterial//todo
+    case DigitalStripeHMaterial
+    case DigitalStripeVMaterial
     
     case ScanLineJitterHMaterial
     case ScanLineJitterVMaterial
