@@ -1,0 +1,112 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.0.500.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Cube", "Sphere", "CellNoise3DMaterial"]
+    def Material "CellNoise3DMaterial"
+    {
+        token outputs:mtlx:surface.connect = </Root/CellNoise3DMaterial/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex.connect = </Root/CellNoise3DMaterial/GeometryModifier.outputs:out>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (923.58044, 454.48746)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 297
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/CellNoise3DMaterial/Convert_3.outputs:out>
+            float inputs:metallic
+            float3 inputs:normal
+            float inputs:opacity
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (517.3956, 348.7832)
+            int ui:nodegraph:node:stackingOrder = 381
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
+        }
+
+        def Shader "Texcoord"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-1113.9371, 290.52728)
+            int ui:nodegraph:node:stackingOrder = 377
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            float2 inputs:in1.connect = </Root/CellNoise3DMaterial/Texcoord.outputs:out>
+            float inputs:in2 = 5
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-969.60675, 300.61945)
+            int ui:nodegraph:node:stackingOrder = 377
+        }
+
+        def Shader "CellNoise3D"
+        {
+            uniform token info:id = "ND_cellnoise3d_float"
+            float3 inputs:position.connect = </Root/CellNoise3DMaterial/Combine3.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-268.72778, 600.9674)
+            int ui:nodegraph:node:stackingOrder = 268
+        }
+
+        def Shader "Convert_3"
+        {
+            uniform token info:id = "ND_convert_float_color3"
+            float inputs:in.connect = </Root/CellNoise3DMaterial/CellNoise3D.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-83.99133, 604.1397)
+            int ui:nodegraph:node:stackingOrder = 270
+        }
+
+        def Shader "Separate2"
+        {
+            uniform token info:id = "ND_separate2_vector2"
+            float2 inputs:in.connect = </Root/CellNoise3DMaterial/Multiply.outputs:out>
+            float outputs:outx
+            float outputs:outy
+            float2 ui:nodegraph:node:pos = (-928.7293, 625.2263)
+            int ui:nodegraph:node:stackingOrder = 330
+        }
+
+        def Shader "Combine3"
+        {
+            uniform token info:id = "ND_combine3_vector3"
+            float inputs:in1.connect = </Root/CellNoise3DMaterial/Separate2.outputs:outx>
+            float inputs:in2.connect = </Root/CellNoise3DMaterial/Separate2.outputs:outy>
+            float inputs:in3 = 1.9
+            float inputs:in3.connect = </Root/CellNoise3DMaterial/Multiply_1.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-674.5103, 674.1619)
+            int ui:nodegraph:node:stackingOrder = 332
+        }
+
+        def Shader "Time"
+        {
+            uniform token info:id = "ND_time_float"
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-1071.1086, 763.825)
+            int ui:nodegraph:node:stackingOrder = 355
+        }
+
+        def Shader "Multiply_1"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/CellNoise3DMaterial/Time.outputs:out>
+            float inputs:in2 = 0.1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-892.5747, 786.5431)
+            int ui:nodegraph:node:stackingOrder = 355
+        }
+    }
+}
+

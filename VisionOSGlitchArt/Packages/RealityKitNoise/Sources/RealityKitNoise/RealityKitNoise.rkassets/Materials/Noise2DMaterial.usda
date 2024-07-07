@@ -1,0 +1,65 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.0.500.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Cube", "Sphere", "Noise2DMaterial"]
+    def Material "Noise2DMaterial"
+    {
+        token outputs:mtlx:surface.connect = </Root/Noise2DMaterial/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex.connect = </Root/Noise2DMaterial/GeometryModifier.outputs:out>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (923.58044, 454.48746)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 297
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/Noise2DMaterial/Noise2D.outputs:out>
+            float inputs:metallic
+            float3 inputs:normal
+            float inputs:opacity
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (517.3956, 348.7832)
+            int ui:nodegraph:node:stackingOrder = 381
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
+        }
+
+        def Shader "Noise2D"
+        {
+            uniform token info:id = "ND_noise2d_color3"
+            float3 inputs:amplitude
+            float inputs:pivot
+            float2 inputs:texcoord.connect = </Root/Noise2DMaterial/Multiply.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-266.51788, -13.550232)
+            int ui:nodegraph:node:stackingOrder = 211
+        }
+
+        def Shader "Texcoord"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-1113.9371, 290.52728)
+            int ui:nodegraph:node:stackingOrder = 377
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            float2 inputs:in1.connect = </Root/Noise2DMaterial/Texcoord.outputs:out>
+            float inputs:in2 = 5
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-969.60675, 300.61945)
+            int ui:nodegraph:node:stackingOrder = 377
+        }
+    }
+}
+

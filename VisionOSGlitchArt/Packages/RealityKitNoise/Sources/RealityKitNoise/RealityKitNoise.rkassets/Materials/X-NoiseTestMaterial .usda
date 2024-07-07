@@ -1,0 +1,204 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.0.500.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Cube", "Sphere", "NoiseMaterial"]
+    def Material "NoiseMaterial"
+    {
+        token outputs:mtlx:surface.connect = </Root/NoiseMaterial/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex.connect = </Root/NoiseMaterial/GeometryModifier.outputs:out>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (923.58044, 454.48746)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 297
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/NoiseMaterial/Convert_1.outputs:out>
+            float inputs:metallic
+            float3 inputs:normal
+            float inputs:opacity
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (517.3956, 348.7832)
+            int ui:nodegraph:node:stackingOrder = 381
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
+        }
+
+        def Shader "Noise2D"
+        {
+            uniform token info:id = "ND_noise2d_color3"
+            float3 inputs:amplitude
+            float inputs:pivot
+            float2 inputs:texcoord.connect = </Root/NoiseMaterial/Multiply.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-266.51788, -13.550232)
+            int ui:nodegraph:node:stackingOrder = 211
+        }
+
+        def Shader "Noise3D"
+        {
+            uniform token info:id = "ND_noise3d_color3"
+            float3 inputs:amplitude
+            float inputs:pivot
+            float3 inputs:position.connect = </Root/NoiseMaterial/Combine3.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-160.20145, 466.0313)
+            int ui:nodegraph:node:stackingOrder = 243
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+        }
+
+        def Shader "CellNoise2D"
+        {
+            uniform token info:id = "ND_cellnoise2d_float"
+            float2 inputs:texcoord.connect = </Root/NoiseMaterial/Multiply.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-307.79254, 305.15997)
+            int ui:nodegraph:node:stackingOrder = 209
+        }
+
+        def Shader "Convert"
+        {
+            uniform token info:id = "ND_convert_float_color3"
+            float inputs:in.connect = </Root/NoiseMaterial/CellNoise2D.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-120.53534, 345.93524)
+            int ui:nodegraph:node:stackingOrder = 203
+        }
+
+        def Shader "WorleyNoise2D"
+        {
+            uniform token info:id = "ND_worleynoise2d_float"
+            float inputs:jitter
+            float2 inputs:texcoord.connect = </Root/NoiseMaterial/Multiply.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-303.30426, 169.29984)
+            int ui:nodegraph:node:stackingOrder = 383
+        }
+
+        def Shader "Convert_1"
+        {
+            uniform token info:id = "ND_convert_float_color3"
+            float inputs:in.connect = </Root/NoiseMaterial/WorleyNoise2D.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-131.47064, 195.10617)
+            int ui:nodegraph:node:stackingOrder = 206
+        }
+
+        def Shader "Texcoord"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-1113.9371, 290.52728)
+            int ui:nodegraph:node:stackingOrder = 377
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            float2 inputs:in1.connect = </Root/NoiseMaterial/Texcoord.outputs:out>
+            float inputs:in2 = 5
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-969.60675, 300.61945)
+            int ui:nodegraph:node:stackingOrder = 377
+        }
+
+        def Shader "CellNoise3D"
+        {
+            uniform token info:id = "ND_cellnoise3d_float"
+            float3 inputs:position.connect = </Root/NoiseMaterial/Combine3.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-268.72778, 600.9674)
+            int ui:nodegraph:node:stackingOrder = 268
+        }
+
+        def Shader "Convert_3"
+        {
+            uniform token info:id = "ND_convert_float_color3"
+            float inputs:in.connect = </Root/NoiseMaterial/CellNoise3D.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-83.99133, 604.1397)
+            int ui:nodegraph:node:stackingOrder = 270
+        }
+
+        def Shader "Fractal3D"
+        {
+            uniform token info:id = "ND_fractal3d_color3"
+            float3 inputs:amplitude
+            float inputs:diminish
+            float inputs:lacunarity
+            int inputs:octaves
+            float3 inputs:position.connect = </Root/NoiseMaterial/Combine3.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-256.67108, 770.182)
+            int ui:nodegraph:node:stackingOrder = 272
+        }
+
+        def Shader "WorleyNoise3D"
+        {
+            uniform token info:id = "ND_worleynoise3d_float"
+            float inputs:jitter
+            float3 inputs:position.connect = </Root/NoiseMaterial/Combine3.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-240.71045, 937.4349)
+            int ui:nodegraph:node:stackingOrder = 276
+        }
+
+        def Shader "Convert_4"
+        {
+            uniform token info:id = "ND_convert_float_color3"
+            float inputs:in.connect = </Root/NoiseMaterial/WorleyNoise3D.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-32.50797, 980.5161)
+            int ui:nodegraph:node:stackingOrder = 357
+        }
+
+        def Shader "Separate2"
+        {
+            uniform token info:id = "ND_separate2_vector2"
+            float2 inputs:in.connect = </Root/NoiseMaterial/Multiply.outputs:out>
+            float outputs:outx
+            float outputs:outy
+            float2 ui:nodegraph:node:pos = (-928.7293, 625.2263)
+            int ui:nodegraph:node:stackingOrder = 330
+        }
+
+        def Shader "Combine3"
+        {
+            uniform token info:id = "ND_combine3_vector3"
+            float inputs:in1.connect = </Root/NoiseMaterial/Separate2.outputs:outx>
+            float inputs:in2.connect = </Root/NoiseMaterial/Separate2.outputs:outy>
+            float inputs:in3 = 1.9
+            float inputs:in3.connect = </Root/NoiseMaterial/Multiply_1.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-674.5103, 674.1619)
+            int ui:nodegraph:node:stackingOrder = 332
+        }
+
+        def Shader "Time"
+        {
+            uniform token info:id = "ND_time_float"
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-1071.1086, 763.825)
+            int ui:nodegraph:node:stackingOrder = 355
+        }
+
+        def Shader "Multiply_1"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/NoiseMaterial/Time.outputs:out>
+            float inputs:in2 = 0.1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-892.5747, 786.5431)
+            int ui:nodegraph:node:stackingOrder = 355
+        }
+    }
+}
+

@@ -1,0 +1,73 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.0.500.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Cube", "Sphere", "WorleyNoise2DMaterial"]
+    def Material "WorleyNoise2DMaterial"
+    {
+        token outputs:mtlx:surface.connect = </Root/WorleyNoise2DMaterial/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex.connect = </Root/WorleyNoise2DMaterial/GeometryModifier.outputs:out>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (923.58044, 454.48746)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 297
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/WorleyNoise2DMaterial/Convert_1.outputs:out>
+            float inputs:metallic
+            float3 inputs:normal
+            float inputs:opacity
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (517.3956, 348.7832)
+            int ui:nodegraph:node:stackingOrder = 381
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
+        }
+
+        def Shader "WorleyNoise2D"
+        {
+            uniform token info:id = "ND_worleynoise2d_float"
+            float inputs:jitter
+            float2 inputs:texcoord.connect = </Root/WorleyNoise2DMaterial/Multiply.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-303.30426, 169.29984)
+            int ui:nodegraph:node:stackingOrder = 383
+        }
+
+        def Shader "Convert_1"
+        {
+            uniform token info:id = "ND_convert_float_color3"
+            float inputs:in.connect = </Root/WorleyNoise2DMaterial/WorleyNoise2D.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-131.47064, 195.10617)
+            int ui:nodegraph:node:stackingOrder = 206
+        }
+
+        def Shader "Texcoord"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-1113.9371, 290.52728)
+            int ui:nodegraph:node:stackingOrder = 377
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            float2 inputs:in1.connect = </Root/WorleyNoise2DMaterial/Texcoord.outputs:out>
+            float inputs:in2 = 5
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-969.60675, 300.61945)
+            int ui:nodegraph:node:stackingOrder = 377
+        }
+    }
+}
+
