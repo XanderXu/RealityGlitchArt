@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C835B8F2C2844DA00644727 /* VisionOSGlitchArtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C835B8E2C2844DA00644727 /* VisionOSGlitchArtApp.swift */; };
+		6C835B8F2C2844DA00644727 /* RealityGlitchArtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C835B8E2C2844DA00644727 /* RealityGlitchArtApp.swift */; };
 		6C835B912C2844DA00644727 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C835B902C2844DA00644727 /* ContentView.swift */; };
 		6C835B932C2844DA00644727 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C835B922C2844DA00644727 /* AppModel.swift */; };
 		6C835B952C2844DA00644727 /* ToggleImmersiveSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C835B942C2844DA00644727 /* ToggleImmersiveSpaceButton.swift */; };
@@ -28,8 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6C835B872C2844DA00644727 /* VisionOSGlitchArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionOSGlitchArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C835B8E2C2844DA00644727 /* VisionOSGlitchArtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionOSGlitchArtApp.swift; sourceTree = "<group>"; };
+		6C835B872C2844DA00644727 /* RealityGlitchArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealityGlitchArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C835B8E2C2844DA00644727 /* RealityGlitchArtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityGlitchArtApp.swift; sourceTree = "<group>"; };
 		6C835B902C2844DA00644727 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6C835B922C2844DA00644727 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		6C835B942C2844DA00644727 /* ToggleImmersiveSpaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleImmersiveSpaceButton.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		6C835B7E2C2844DA00644727 = {
 			isa = PBXGroup;
 			children = (
-				6C835B892C2844DA00644727 /* VisionOSGlitchArt */,
+				6C835B892C2844DA00644727 /* RealityGlitchArt */,
 				6C835B8A2C2844DA00644727 /* Packages */,
 				6CDB2DED2C3A875300CFB28A /* NoiseVisualization */,
 				6C835B882C2844DA00644727 /* Products */,
@@ -84,16 +84,16 @@
 		6C835B882C2844DA00644727 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C835B872C2844DA00644727 /* VisionOSGlitchArt.app */,
+				6C835B872C2844DA00644727 /* RealityGlitchArt.app */,
 				6CDB2DEC2C3A875300CFB28A /* NoiseVisualization.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6C835B892C2844DA00644727 /* VisionOSGlitchArt */ = {
+		6C835B892C2844DA00644727 /* RealityGlitchArt */ = {
 			isa = PBXGroup;
 			children = (
-				6C835B8E2C2844DA00644727 /* VisionOSGlitchArtApp.swift */,
+				6C835B8E2C2844DA00644727 /* RealityGlitchArtApp.swift */,
 				6C835B902C2844DA00644727 /* ContentView.swift */,
 				6C835B922C2844DA00644727 /* AppModel.swift */,
 				6C835B942C2844DA00644727 /* ToggleImmersiveSpaceButton.swift */,
@@ -102,7 +102,7 @@
 				6C835B9D2C2844DB00644727 /* Info.plist */,
 				6C835B9A2C2844DB00644727 /* Preview Content */,
 			);
-			path = VisionOSGlitchArt;
+			path = RealityGlitchArt;
 			sourceTree = "<group>";
 		};
 		6C835B8A2C2844DA00644727 /* Packages */ = {
@@ -155,9 +155,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C835B862C2844DA00644727 /* VisionOSGlitchArt */ = {
+		6C835B862C2844DA00644727 /* RealityGlitchArt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C835BA02C2844DB00644727 /* Build configuration list for PBXNativeTarget "VisionOSGlitchArt" */;
+			buildConfigurationList = 6C835BA02C2844DB00644727 /* Build configuration list for PBXNativeTarget "RealityGlitchArt" */;
 			buildPhases = (
 				6C835B832C2844DA00644727 /* Sources */,
 				6C835B842C2844DA00644727 /* Frameworks */,
@@ -167,12 +167,12 @@
 			);
 			dependencies = (
 			);
-			name = VisionOSGlitchArt;
+			name = RealityGlitchArt;
 			packageProductDependencies = (
 				6CDB2E0C2C3A89C800CFB28A /* RealityKitGlitchArt */,
 			);
 			productName = VisionOSGlitchArt;
-			productReference = 6C835B872C2844DA00644727 /* VisionOSGlitchArt.app */;
+			productReference = 6C835B872C2844DA00644727 /* RealityGlitchArt.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6CDB2DEB2C3A875300CFB28A /* NoiseVisualization */ = {
@@ -213,7 +213,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6C835B822C2844DA00644727 /* Build configuration list for PBXProject "VisionOSGlitchArt" */;
+			buildConfigurationList = 6C835B822C2844DA00644727 /* Build configuration list for PBXProject "RealityGlitchArt" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -226,7 +226,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C835B862C2844DA00644727 /* VisionOSGlitchArt */,
+				6C835B862C2844DA00644727 /* RealityGlitchArt */,
 				6CDB2DEB2C3A875300CFB28A /* NoiseVisualization */,
 			);
 		};
@@ -264,7 +264,7 @@
 				6C835B912C2844DA00644727 /* ContentView.swift in Sources */,
 				6C835B972C2844DA00644727 /* ImmersiveView.swift in Sources */,
 				6C835B932C2844DA00644727 /* AppModel.swift in Sources */,
-				6C835B8F2C2844DA00644727 /* VisionOSGlitchArtApp.swift in Sources */,
+				6C835B8F2C2844DA00644727 /* RealityGlitchArtApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +409,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"VisionOSGlitchArt/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"RealityGlitchArt/Preview Content\"";
 				DEVELOPMENT_TEAM = 67UBXXU7S9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -419,7 +419,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.reality.VisionOSGlitchArt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.reality.RealityGlitchArt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -435,7 +435,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"VisionOSGlitchArt/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"RealityGlitchArt/Preview Content\"";
 				DEVELOPMENT_TEAM = 67UBXXU7S9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -445,7 +445,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.reality.VisionOSGlitchArt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.reality.RealityGlitchArt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -509,7 +509,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C835B822C2844DA00644727 /* Build configuration list for PBXProject "VisionOSGlitchArt" */ = {
+		6C835B822C2844DA00644727 /* Build configuration list for PBXProject "RealityGlitchArt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C835B9E2C2844DB00644727 /* Debug */,
@@ -518,7 +518,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C835BA02C2844DB00644727 /* Build configuration list for PBXNativeTarget "VisionOSGlitchArt" */ = {
+		6C835BA02C2844DB00644727 /* Build configuration list for PBXNativeTarget "RealityGlitchArt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C835BA12C2844DB00644727 /* Debug */,

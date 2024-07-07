@@ -1,6 +1,6 @@
 //
 //  ImmersiveView.swift
-//  VisionOSGlitchArt
+//  RealityGlitchArt
 //
 //  Created by 许同学 on 2024/6/23.
 //

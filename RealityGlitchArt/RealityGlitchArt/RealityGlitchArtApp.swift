@@ -1,6 +1,6 @@
 //
-//  VisionOSGlitchArtApp.swift
-//  VisionOSGlitchArt
+//  RealityGlitchArtApp.swift
+//  RealityGlitchArt
 //
 //  Created by 许同学 on 2024/6/23.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct VisionOSGlitchArtApp: App {
+struct RealityGlitchArtApp: App {
 
     @State private var appModel = AppModel()
 
