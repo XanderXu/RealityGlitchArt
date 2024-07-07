@@ -7,7 +7,7 @@
 
 import SwiftUI
 import RealityKit
-import RealityKitContent
+import RealityKitGlitchArt
 
 struct ImmersiveView: View {
     @Environment(AppModel.self) private var model
@@ -15,7 +15,7 @@ struct ImmersiveView: View {
     var body: some View {
         RealityView { content in
             // Add the initial RealityKit content
-            if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
+            if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitGlitchArtBundle) {
                 content.add(immersiveContentEntity)
                 entity = immersiveContentEntity
             }
@@ -23,7 +23,7 @@ struct ImmersiveView: View {
         .onChange(of: model.selectedMaterial) { oldValue, newValue in
             Task {
                 do {
-                    let sgm = try await ShaderGraphMaterial(named: shaderGraphNamePrefix+newValue.rawValue, from: shaderGraphPathPrefix+newValue.rawValue, in: realityKitContentBundle)
+                    let sgm = try await ShaderGraphMaterial(named: glitchArtMaterialNamePrefix+newValue.rawValue, from: glitchArtMaterialPathPrefix+newValue.rawValue, in: realityKitGlitchArtBundle)
                     entity?.forEachDescendant(withComponent: ModelComponent.self) { modelEntity, component in
                         var modelComponent = component
                         modelComponent.materials = modelComponent.materials.map {

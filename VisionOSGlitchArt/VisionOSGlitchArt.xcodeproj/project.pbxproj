@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C835B8D2C2844DA00644727 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 6C835B8C2C2844DA00644727 /* RealityKitContent */; };
 		6C835B8F2C2844DA00644727 /* VisionOSGlitchArtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C835B8E2C2844DA00644727 /* VisionOSGlitchArtApp.swift */; };
 		6C835B912C2844DA00644727 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C835B902C2844DA00644727 /* ContentView.swift */; };
 		6C835B932C2844DA00644727 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C835B922C2844DA00644727 /* AppModel.swift */; };
@@ -15,7 +14,6 @@
 		6C835B972C2844DA00644727 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C835B962C2844DA00644727 /* ImmersiveView.swift */; };
 		6C835B992C2844DB00644727 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C835B982C2844DB00644727 /* Assets.xcassets */; };
 		6C835B9C2C2844DB00644727 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C835B9B2C2844DB00644727 /* Preview Assets.xcassets */; };
-		6CDB2DEF2C3A875300CFB28A /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 6CDB2DEE2C3A875300CFB28A /* RealityKitContent */; };
 		6CDB2DF12C3A875300CFB28A /* NoiseVisualizationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB2DF02C3A875300CFB28A /* NoiseVisualizationApp.swift */; };
 		6CDB2DF32C3A875300CFB28A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB2DF22C3A875300CFB28A /* ContentView.swift */; };
 		6CDB2DF52C3A875300CFB28A /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB2DF42C3A875300CFB28A /* AppModel.swift */; };
@@ -25,11 +23,12 @@
 		6CDB2DFE2C3A875400CFB28A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB2DFD2C3A875400CFB28A /* Preview Assets.xcassets */; };
 		6CDB2E042C3A87FB00CFB28A /* RealityKitNoise in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB2E032C3A87FB00CFB28A /* RealityKitNoise */; };
 		6CDB2E072C3A886500CFB28A /* RealityKitNoise in Frameworks */ = {isa = PBXBuildFile; productRef = 6CDB2E062C3A886500CFB28A /* RealityKitNoise */; };
+		6CDB2E092C3A894A00CFB28A /* RealityKitGlitchArt in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB2E082C3A894A00CFB28A /* RealityKitGlitchArt */; };
+		6CDB2E0D2C3A89C800CFB28A /* RealityKitGlitchArt in Frameworks */ = {isa = PBXBuildFile; productRef = 6CDB2E0C2C3A89C800CFB28A /* RealityKitGlitchArt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6C835B872C2844DA00644727 /* VisionOSGlitchArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionOSGlitchArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C835B8B2C2844DA00644727 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		6C835B8E2C2844DA00644727 /* VisionOSGlitchArtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionOSGlitchArtApp.swift; sourceTree = "<group>"; };
 		6C835B902C2844DA00644727 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6C835B922C2844DA00644727 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		6CDB2DFD2C3A875400CFB28A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6CDB2DFF2C3A875400CFB28A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CDB2E032C3A87FB00CFB28A /* RealityKitNoise */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitNoise; sourceTree = "<group>"; };
+		6CDB2E082C3A894A00CFB28A /* RealityKitGlitchArt */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitGlitchArt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C835B8D2C2844DA00644727 /* RealityKitContent in Frameworks */,
+				6CDB2E0D2C3A89C800CFB28A /* RealityKitGlitchArt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CDB2DEF2C3A875300CFB28A /* RealityKitContent in Frameworks */,
 				6CDB2E072C3A886500CFB28A /* RealityKitNoise in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,8 +108,8 @@
 		6C835B8A2C2844DA00644727 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				6CDB2E082C3A894A00CFB28A /* RealityKitGlitchArt */,
 				6CDB2E032C3A87FB00CFB28A /* RealityKitNoise */,
-				6C835B8B2C2844DA00644727 /* RealityKitContent */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -170,7 +169,7 @@
 			);
 			name = VisionOSGlitchArt;
 			packageProductDependencies = (
-				6C835B8C2C2844DA00644727 /* RealityKitContent */,
+				6CDB2E0C2C3A89C800CFB28A /* RealityKitGlitchArt */,
 			);
 			productName = VisionOSGlitchArt;
 			productReference = 6C835B872C2844DA00644727 /* VisionOSGlitchArt.app */;
@@ -190,7 +189,6 @@
 			);
 			name = NoiseVisualization;
 			packageProductDependencies = (
-				6CDB2DEE2C3A875300CFB28A /* RealityKitContent */,
 				6CDB2E062C3A886500CFB28A /* RealityKitNoise */,
 			);
 			productName = NoiseVisualization;
@@ -241,6 +239,7 @@
 			files = (
 				6C835B9C2C2844DB00644727 /* Preview Assets.xcassets in Resources */,
 				6C835B992C2844DB00644727 /* Assets.xcassets in Resources */,
+				6CDB2E092C3A894A00CFB28A /* RealityKitGlitchArt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,17 +539,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6C835B8C2C2844DA00644727 /* RealityKitContent */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RealityKitContent;
-		};
-		6CDB2DEE2C3A875300CFB28A /* RealityKitContent */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RealityKitContent;
-		};
 		6CDB2E062C3A886500CFB28A /* RealityKitNoise */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitNoise;
+		};
+		6CDB2E0C2C3A89C800CFB28A /* RealityKitGlitchArt */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RealityKitGlitchArt;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

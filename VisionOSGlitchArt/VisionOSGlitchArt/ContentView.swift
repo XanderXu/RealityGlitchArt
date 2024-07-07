@@ -7,14 +7,14 @@
 
 import SwiftUI
 import RealityKit
-import RealityKitContent
+import RealityKitGlitchArt
 
 struct ContentView: View {
     @Environment(AppModel.self) private var model
     var body: some View {
         @Bindable var model = model
         VStack {
-            Model3D(named: "Scene", bundle: realityKitContentBundle)
+            Model3D(named: "Scene", bundle: realityKitGlitchArtBundle)
                 .padding(.bottom, 50)
 
             Text("Hello, world!")
