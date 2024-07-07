@@ -17,13 +17,13 @@ def Xform "Root"
         prepend apiSchemas = ["MaterialBindingAPI"]
     )
     {
-        rel material:binding = </Root/GridMaterial/GridMaterial> (
+        rel material:binding = </Root/WaveJitterHMaterial/WaveJitterHMaterial> (
             bindMaterialAs = "weakerThanDescendants"
         )
         double radius = 0.05
         quatf xformOp:orient = (1, 0, 0, 0)
         float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0, 0, 0.0004)
+        float3 xformOp:translate = (-0.3, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         def RealityKitComponent "Collider"
@@ -47,9 +47,22 @@ def Xform "Root"
         }
     }
 
-    def "GridMaterial" (
+    def Cube "Cube" (
         active = true
-        prepend references = @Materials/GridMaterial.usda@
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/WaveJitterHMaterial/WaveJitterHMaterial> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.1
+        float3 xformOp:translate = (0.3, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "WaveJitterHMaterial" (
+        active = true
+        prepend references = @Materials/WaveJitterHMaterial.usda@
     )
     {
         float3 xformOp:scale = (1, 1, 1)

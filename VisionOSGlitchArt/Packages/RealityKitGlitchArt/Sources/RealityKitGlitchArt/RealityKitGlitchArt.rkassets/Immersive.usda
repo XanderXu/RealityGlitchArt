@@ -7,7 +7,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
+    reorder nameChildren = ["Sphere_Left", "RGBSplitMaterial", "Cube_Left", "Cube_Right", "Sphere_Right"]
     def Sphere "Sphere_Right" (
         active = true
         prepend apiSchemas = ["MaterialBindingAPI"]
@@ -40,10 +40,40 @@ def Xform "Root"
 
     def "RGBSplitMaterial" (
         active = true
-        prepend references = @Materials/RGBSplitMaterial.usda@
+        references = @Materials/RGBSplitMaterial.usda@
     )
     {
         float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Cube_Left" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/RGBSplitMaterial/RGBSplitMaterial> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        float3 xformOp:translate = (-0.5, 1, -1.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Cube_Right" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/RGBSplitMaterial/RGBSplitMaterial> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0.5, 1, -1.5)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
