@@ -12,7 +12,7 @@ def Xform "Root"
 {
     def Material "RGBSplitMaterialV2"
     {
-        float inputs:Amount = 1 (
+        float inputs:Amount = 6 (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-830.7552, 257.3182)
@@ -20,7 +20,7 @@ def Xform "Root"
                 }
             }
         )
-        float inputs:Amplitude = 3 (
+        float inputs:Amplitude = 1 (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-836.1436, 365.5903)
@@ -36,7 +36,7 @@ def Xform "Root"
                 }
             }
         )
-        float inputs:Speed = 2 (
+        float inputs:Speed = 5 (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-870.96826, 727.2542)

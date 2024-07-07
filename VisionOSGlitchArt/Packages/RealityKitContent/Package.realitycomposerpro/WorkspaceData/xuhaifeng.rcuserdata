@@ -1,8 +1,7 @@
 {
-  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
+  "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
-    "Immersive.usda",
-    "Materials\/ScreenJumpVMaterial.usda"
+    "Immersive.usda"
   ],
   "recentIdentifiers" : {
     "0CC2D925-5E5B-448E-9FEF-856048816302" : [
@@ -637,5 +636,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/ScreenJumpVMaterial.usda"
+  "selectedSceneRelativePath" : "Immersive.usda"
 }
