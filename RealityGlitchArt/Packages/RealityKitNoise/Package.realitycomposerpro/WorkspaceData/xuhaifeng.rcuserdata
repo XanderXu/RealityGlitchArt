@@ -1,9 +1,7 @@
 {
-  "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
+  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
   "openSceneRelativePaths" : [
-    "Immersive.usda",
-    "Materials\/CellNoise2DMaterial.usda",
-    "Materials\/X-NoiseTestMaterial .usda"
+    "Immersive.usda"
   ],
   "recentIdentifiers" : {
     "6F5EF9F7-A19A-4254-B08D-4CDDC06AAB2F" : [
@@ -359,5 +357,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Materials\/X-NoiseTestMaterial .usda"
+  "selectedSceneRelativePath" : "Immersive.usda"
 }

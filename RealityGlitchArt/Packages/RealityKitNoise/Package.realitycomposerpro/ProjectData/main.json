@@ -17,6 +17,10 @@
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/WorleyNoise2DMaterial 1.usda" : "120620CB-7030-45FA-AACD-1DF1D41F9D48",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/WorleyNoise3DMaterial.usda" : "57BFC2AA-97E0-48A5-B0BF-AAA469CA7D43",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Materials\/X-NoiseTestMaterial .usda" : "56C1699E-A1BE-4C18-8D4B-8DEE0BF7EA37",
-    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "D66134B1-3681-4A8E-AFE5-29F257229F3B"
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+    "RealityKitNoise\/Sources\/RealityKitNoise\/RealityKitNoise.rkassets\/Immersive.usda" : "499C8F4F-D0B1-4564-95A2-76E392D52F63",
+    "RealityKitNoise\/Sources\/RealityKitNoise\/RealityKitNoise.rkassets\/Materials\/CellNoise2DMaterial.usda" : "0B8E579A-7C10-45F8-8C00-0F4C1A341D78",
+    "RealityKitNoise\/Sources\/RealityKitNoise\/RealityKitNoise.rkassets\/Materials\/X-NoiseTestMaterial .usda" : "9D768441-09CB-4745-AC54-DF312C38A424",
+    "RealityKitNoise\/Sources\/RealityKitNoise\/RealityKitNoise.rkassets\/Scene.usda" : "A9FA43D0-11C0-4328-9F35-15A0D30C85E0"
   }
 }

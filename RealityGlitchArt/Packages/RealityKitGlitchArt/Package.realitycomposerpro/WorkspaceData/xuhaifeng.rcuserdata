@@ -1,8 +1,11 @@
 {
-  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
+  "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
     "Immersive.usda",
-    "Scene.usda"
+    "Scene.usda",
+    "Materials\/AnalogNoiseMaterial.usda",
+    "Materials\/LineBlockVMaterial.usda",
+    "Materials\/ImageBlockMaterialV3.usda"
   ],
   "recentIdentifiers" : {
     "0CC2D925-5E5B-448E-9FEF-856048816302" : [
@@ -732,8 +735,5 @@
       }
     ]
   },
-  "sceneViewportBackgroundColors" : {
-
-  },
-  "selectedSceneRelativePath" : "Scene.usda"
+  "selectedSceneRelativePath" : "Materials\/ImageBlockMaterialV3.usda"
 }
