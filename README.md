@@ -70,7 +70,7 @@ The built-in noise node in Reality Composer Pro was also tested and visualized i
 
 在 Demo 中，也对 Reality Composer Pro 中自带的噪声生成节点进行了测试，并进行了可视化展示。
 
-![](./Resource/Simulator Screen Recording -Noise.gif)
+![](./Resource/Simulator-Noise.gif)
 
 
 ## Reference 参考
