@@ -17,47 +17,47 @@
 
 * AnalogNoise：模拟噪点
 
-  <img src="./Resource/GlitchArt/AnalogNoise.gif" width=180/>
+  <img src="./Resource/GlitchArt/AnalogNoise.gif"  width=250 />
 
 * DigitalStrpe(H/V)：数字条纹（水平/竖直）
 
-  <img src="./Resource/GlitchArt/DigitalStripeH.gif" width=180/> <img src="./Resource/GlitchArt/DigitalStripeV.gif" width=180/>
+  <img src="./Resource/GlitchArt/DigitalStripeH.gif"  width=250 /> <img src="./Resource/GlitchArt/DigitalStripeV.gif"  width=250 />
 
 * ImageBlock(V1/V2/V3/V4)：图块错位（(V1/V2/V3/V4)）
 
-  <img src="./Resource/GlitchArt/ImageBlock.gif" width=180/> <img src="./Resource/GlitchArt/ImageBlockV2.gif" width=180/>
+  <img src="./Resource/GlitchArt/ImageBlock.gif"  width=250 /> <img src="./Resource/GlitchArt/ImageBlockV2.gif"  width=250 />
   
-  <img src="./Resource/GlitchArt/ImageBlockV3.gif" width=180/> <img src="./Resource/GlitchArt/ImageBlockV4.gif" width=180/> 
+  <img src="./Resource/GlitchArt/ImageBlockV3.gif"  width=250 /> <img src="./Resource/GlitchArt/ImageBlockV4.gif"  width=250 /> 
 
 * LineBlock(H/V)：线条错位（水平/竖直）
 
-  <img src="./Resource/GlitchArt/LineBlockH.gif" width=180/> <img src="./Resource/GlitchArt/LineBlockV.gif" width=180/>
+  <img src="./Resource/GlitchArt/LineBlockH.gif"  width=250 /> <img src="./Resource/GlitchArt/LineBlockV.gif"  width=250 />
 
 * RGBSplit(V1/V2/V3/V4/V5)：RGB 色调分离（V1/V2/V3/V4/V5）
 
-  <img src="./Resource/GlitchArt/RGBSplit.gif" width=180/> <img src="./Resource/GlitchArt/RGBSplitV2.gif" width=180/>
+  <img src="./Resource/GlitchArt/RGBSplit.gif"  width=250 /> <img src="./Resource/GlitchArt/RGBSplitV2.gif"  width=250 />
   
-  <img src="./Resource/GlitchArt/RGBSplitV3.gif" width=180/> <img src="./Resource/GlitchArt/RGBSplitV4.gif" width=180/> <img src="./Resource/GlitchArt/RGBSplitV5.gif" width=180/> 
+  <img src="./Resource/GlitchArt/RGBSplitV3.gif"  width=250 /> <img src="./Resource/GlitchArt/RGBSplitV4.gif"  width=250 /> <img src="./Resource/GlitchArt/RGBSplitV5.gif"  width=250 /> 
 
 * ScanLineJitter(H/V)：扫描线故障（水平/竖直）
 
-  <img src="./Resource/GlitchArt/ScanLineJitterH.gif" width=180/> <img src="./Resource/GlitchArt/ScanLineJitterV.gif" width=180/>
+  <img src="./Resource/GlitchArt/ScanLineJitterH.gif"  width=250 /> <img src="./Resource/GlitchArt/ScanLineJitterV.gif"  width=250 />
 
 * ScreenJump(H/V)：屏幕跳跃（水平/竖直）
 
-  <img src="./Resource/GlitchArt/ScreenJumpH.gif" width=180/> <img src="./Resource/GlitchArt/ScreenJumpV.gif" width=180/>
+  <img src="./Resource/GlitchArt/ScreenJumpH.gif"  width=250 /> <img src="./Resource/GlitchArt/ScreenJumpV.gif"  width=250 />
 
 * ScreenShake(H/V)：屏幕抖动（水平/竖直）
 
-  <img src="./Resource/GlitchArt/ScreenShakeH.gif" width=180/> <img src="./Resource/GlitchArt/ScreenShakeV.gif" width=180/>
+  <img src="./Resource/GlitchArt/ScreenShakeH.gif"  width=250 /> <img src="./Resource/GlitchArt/ScreenShakeV.gif"  width=250 />
 
 * TileJitter(H/V)：图块抖动（水平/竖直）
 
-  <img src="./Resource/GlitchArt/TileJitterH.gif" width=180/> <img src="./Resource/GlitchArt/TileJitterV.gif" width=180/>
+  <img src="./Resource/GlitchArt/TileJitterH.gif"  width=250 /> <img src="./Resource/GlitchArt/TileJitterV.gif"  width=250 />
 
 * WaveJitter(H/V)：波动抖动（水平/竖直）
 
-  <img src="./Resource/GlitchArt/WaveJitterH.gif" width=180/> <img src="./Resource/GlitchArt/WaveJitterV.gif" width=180/>
+  <img src="./Resource/GlitchArt/WaveJitterH.gif"  width=250 /> <img src="./Resource/GlitchArt/WaveJitterV.gif"  width=250 />
 
 
 
