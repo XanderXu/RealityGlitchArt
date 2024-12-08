@@ -297,8 +297,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/ImageBlockMaterialV3/Subtract_2.outputs:out>
             float inputs:in2.connect = </Root/ImageBlockMaterialV3/Subtract_2.outputs:out>
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (232.76884, 227.26013)
-            int ui:nodegraph:node:stackingOrder = 4443
+            float2 ui:nodegraph:node:pos = (232.63115, 239.25233)
+            int ui:nodegraph:node:stackingOrder = 4639
         }
 
         def Shader "Mix"
@@ -344,7 +344,7 @@ def Xform "Root"
             prepend float inputs:Time.connect = </Root/ImageBlockMaterialV3/Multiply.outputs:out>
             float outputs:Power_3_out.connect = </Root/ImageBlockMaterialV3/LineNoise/Power_3.outputs:out>
             float2 ui:nodegraph:node:pos = (-556.71735, 46.728138)
-            int ui:nodegraph:node:stackingOrder = 4620
+            int ui:nodegraph:node:stackingOrder = 4641
             float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1133.5, 143.375)
             int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 4526
 
@@ -420,10 +420,20 @@ def Xform "Root"
                 prepend references = </Root/ImageBlockMaterialV3/RandomNoise>
             )
             {
-                float2 inputs:seed.connect = </Root/ImageBlockMaterialV3/LineNoise/Multiply_8.outputs:out>
+                float2 inputs:seed.connect = </Root/ImageBlockMaterialV3/LineNoise/Multiply.outputs:out>
                 float outputs:noise.connect = </Root/ImageBlockMaterialV3/LineNoise/RandomNoise_3/Fractional.outputs:out>
                 float2 ui:nodegraph:node:pos = (717.6836, 101.81055)
                 int ui:nodegraph:node:stackingOrder = 4627
+            }
+
+            def Shader "Multiply"
+            {
+                uniform token info:id = "ND_multiply_vector2FA"
+                prepend float2 inputs:in1.connect = </Root/ImageBlockMaterialV3/LineNoise/Multiply_8.outputs:out>
+                float inputs:in2 = 0.1
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (605.03906, 188.2461)
+                int ui:nodegraph:node:stackingOrder = 4628
             }
         }
 
@@ -548,6 +558,30 @@ def Xform "Root"
             float2 inputs:seed.connect = </Root/ImageBlockMaterialV3/ConstantFloat2_2.outputs:out>
             float2 ui:nodegraph:node:pos = (-469.47324, 286.86884)
             int ui:nodegraph:node:stackingOrder = 4626
+        }
+    }
+
+    def Cube "Cube" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/ImageBlockMaterialV3> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+
+        def Material "DefaultMaterial"
+        {
+            prepend token outputs:surface.connect = </Root/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
         }
     }
 }

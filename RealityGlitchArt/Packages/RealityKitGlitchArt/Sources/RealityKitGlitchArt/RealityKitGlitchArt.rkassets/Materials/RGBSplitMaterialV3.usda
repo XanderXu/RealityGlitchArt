@@ -20,7 +20,7 @@ def Xform "Root"
                 }
             }
         )
-        asset inputs:ConstantImageFile = @@ (
+        asset inputs:ConstantImageFile = @number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-261.46362, -331.84515)
@@ -318,6 +318,30 @@ def Xform "Root"
             float outputs:out
             float2 ui:nodegraph:node:pos = (-644.9153, 460.00702)
             int ui:nodegraph:node:stackingOrder = 2566
+        }
+    }
+
+    def Cube "Cube" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/RGBSplitMaterialV3> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+
+        def Material "DefaultMaterial"
+        {
+            prepend token outputs:surface.connect = </Root/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
         }
     }
 }

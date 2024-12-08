@@ -47,25 +47,13 @@ def Xform "Root"
         }
     }
 
-    def Cube "Cube" (
-        active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
-    )
-    {
-        rel material:binding = </Root/WaveJitterHMaterial/WaveJitterHMaterial> (
-            bindMaterialAs = "weakerThanDescendants"
-        )
-        double size = 0.1
-        float3 xformOp:translate = (0.2, 0, 0)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
     def "WaveJitterHMaterial" (
         active = true
         prepend references = @Materials/WaveJitterHMaterial.usda@
     )
     {
-        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:scale = (0.5, 0.5, 0.5)
+        float3 xformOp:translate = (0.2, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }

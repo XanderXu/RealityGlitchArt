@@ -304,7 +304,7 @@ def Xform "Root"
                     }
                 }
             )
-            float2 inputs:seed.connect = </Root/ImageBlockMaterialV2/Multiply_2.outputs:out>
+            float2 inputs:seed.connect = </Root/ImageBlockMaterialV2/Multiply_8.outputs:out>
             float outputs:noise (
                 customData = {
                     dictionary realitykit = {
@@ -466,6 +466,40 @@ def Xform "Root"
             float2 inputs:seed.connect = </Root/ImageBlockMaterialV2/ConstantFloat2_2.outputs:out>
             float2 ui:nodegraph:node:pos = (-360.587, 592.2474)
             int ui:nodegraph:node:stackingOrder = 3383
+        }
+
+        def Shader "Multiply_8"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            prepend float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/Multiply_2.outputs:out>
+            float inputs:in2 = 0.1
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-382.46484, 466.875)
+            int ui:nodegraph:node:stackingOrder = 3386
+        }
+    }
+
+    def Cube "Cube" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/ImageBlockMaterialV2> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+
+        def Material "DefaultMaterial"
+        {
+            prepend token outputs:surface.connect = </Root/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
         }
     }
 }
