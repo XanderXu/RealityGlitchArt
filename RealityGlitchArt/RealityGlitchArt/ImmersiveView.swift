@@ -21,6 +21,7 @@ struct ImmersiveView: View {
                 content.add(immersiveContentEntity)
                 entity = immersiveContentEntity
             }
+//            textureResource = try? await TextureResource(named: "numberR")
             textureResource = try? await TextureResource(named: "number")
         }
         .onChange(of: model.selectedMaterial) { oldValue, newValue in
@@ -30,16 +31,14 @@ struct ImmersiveView: View {
                     entity?.forEachDescendant(withComponent: ModelComponent.self) { modelEntity, component in
                         var modelComponent = component
                         modelComponent.materials = modelComponent.materials.map {_ in 
-//                            do {
-//                                if sgm.parameterNames.contains("ConstantImageFile") {
-//                                    
-//                                    try sgm.setParameter(name: "ConstantImageFile",
-//                                                              value: MaterialParameters.Value.textureResource(textureResource!))
-//                                }
-//                                
-//                            } catch {
-//                                print("Error setting ride_running material parameter: \(error.localizedDescription)")
-//                            }
+                            do {
+                                if sgm.parameterNames.contains("ConstantImageFile") {
+                                    try sgm.setParameter(name: "ConstantImageFile", value: MaterialParameters.Value.textureResource(textureResource!))
+                                }
+                                
+                            } catch {
+                                print("Error setting ride_running material parameter: \(error.localizedDescription)")
+                            }
                             return sgm
                         }
                         modelEntity.modelComponent = modelComponent

@@ -28,6 +28,13 @@ def Xform "Root"
                 }
             }
         )
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-775.6635, -291.16263)
+                }
+            }
+        )
         float2 inputs:Direction = (1, 0) (
             customData = {
                 dictionary realitykit = {
@@ -216,16 +223,20 @@ def Xform "Root"
         def Shader "UsdUVTexture"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV2.inputs:ConstantImageFile>
+            color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterialV2/Texcoord.outputs:out>
+            string inputs:wrapS
             string inputs:wrapT
             float outputs:b
             float outputs:g
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (244.28383, -49.92037)
-            int ui:nodegraph:node:stackingOrder = 2100
+            float2 ui:nodegraph:node:pos = (326.2704, -108.0488)
+            int ui:nodegraph:node:stackingOrder = 2282
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
         }
 
@@ -255,6 +266,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV2.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterialV2/Add.outputs:out>
             float outputs:g
@@ -289,8 +301,14 @@ def Xform "Root"
         def Shader "UsdUVTexture_2"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV2.inputs:ConstantImageFile>
+            color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterialV2/Subtract.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
             float outputs:b
             float outputs:g
             float outputs:r

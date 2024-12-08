@@ -37,6 +37,14 @@ def Xform "Root"
                 }
             }
         )
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-817.24084, -694.23804)
+                    int stackingOrderInSubgraph = 4628
+                }
+            }
+        )
         float inputs:Fade = 1 (
             customData = {
                 dictionary realitykit = {
@@ -109,8 +117,8 @@ def Xform "Root"
         {
             uniform token info:id = "ND_texcoord_vector2"
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-453.26886, -179.10143)
-            int ui:nodegraph:node:stackingOrder = 4601
+            float2 ui:nodegraph:node:pos = (-360.07755, -234.88762)
+            int ui:nodegraph:node:stackingOrder = 4637
         }
 
         def Shader "Combine3"
@@ -130,6 +138,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/ImageBlockMaterialV3.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/ImageBlockMaterialV3/Add.outputs:out>
             string inputs:wrapS
@@ -139,8 +148,8 @@ def Xform "Root"
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (693.45685, -188.25813)
-            int ui:nodegraph:node:stackingOrder = 4624
+            float2 ui:nodegraph:node:pos = (904.8645, -313.86218)
+            int ui:nodegraph:node:stackingOrder = 4633
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
         }
 
@@ -150,6 +159,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/ImageBlockMaterialV3.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/ImageBlockMaterialV3/Texcoord.outputs:out>
             string inputs:wrapS
@@ -158,8 +168,8 @@ def Xform "Root"
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (918.89264, -392.14685)
-            int ui:nodegraph:node:stackingOrder = 4622
+            float2 ui:nodegraph:node:pos = (877.81885, -747.0983)
+            int ui:nodegraph:node:stackingOrder = 4631
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba"]
         }
 
@@ -186,14 +196,18 @@ def Xform "Root"
         def Shader "UsdUVTexture_2"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/ImageBlockMaterialV3.inputs:ConstantImageFile>
+            color4f inputs:scale
             float2 inputs:st.connect = </Root/ImageBlockMaterialV3/Subtract.outputs:out>
             float outputs:b
             float outputs:g
             float outputs:r
             color3f outputs:rgb
-            float2 ui:nodegraph:node:pos = (900.1655, 190.12778)
-            int ui:nodegraph:node:stackingOrder = 3343
+            float2 ui:nodegraph:node:pos = (935.4905, 104.362015)
+            int ui:nodegraph:node:stackingOrder = 4635
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba"]
         }
 

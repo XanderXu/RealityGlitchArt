@@ -20,6 +20,13 @@ def Xform "Root"
                 }
             }
         )
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-544.7192, -372.8833)
+                }
+            }
+        )
         float inputs:Frenquency = 5 (
             customData = {
                 dictionary realitykit = {
@@ -139,7 +146,9 @@ def Xform "Root"
         def Shader "UsdUVTexture"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/WaveJitterHMaterial.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/WaveJitterHMaterial/Combine2_2.outputs:out>
             string inputs:wrapS
@@ -160,6 +169,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/WaveJitterHMaterial.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/WaveJitterHMaterial/Combine2_3.outputs:out>
             string inputs:wrapS
@@ -400,8 +410,8 @@ def Xform "Root"
             float inputs:in1.connect = </Root/WaveJitterHMaterial/Add_1.outputs:out>
             float inputs:in2.connect = </Root/WaveJitterHMaterial/Separate2.outputs:outy>
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (723.49023, 355.09048)
-            int ui:nodegraph:node:stackingOrder = 3594
+            float2 ui:nodegraph:node:pos = (649.3733, 453.33524)
+            int ui:nodegraph:node:stackingOrder = 3626
         }
 
         def Shader "Add_1"

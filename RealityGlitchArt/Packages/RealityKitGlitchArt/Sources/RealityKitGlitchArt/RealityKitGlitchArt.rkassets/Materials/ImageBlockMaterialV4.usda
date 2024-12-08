@@ -53,6 +53,14 @@ def Xform "Root"
                 }
             }
         )
+        asset inputs:ConstantImageFile = @@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-625.6425, -317.0736)
+                    int stackingOrderInSubgraph = 4716
+                }
+            }
+        )
         float inputs:RGBSplitIntensity = 2 (
             customData = {
                 dictionary realitykit = {
@@ -116,9 +124,10 @@ def Xform "Root"
         def Shader "Texcoord"
         {
             uniform token info:id = "ND_texcoord_vector2"
+            int inputs:index
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-340.02234, -197.59186)
-            int ui:nodegraph:node:stackingOrder = 4575
+            float2 ui:nodegraph:node:pos = (-289.1391, -121.10875)
+            int ui:nodegraph:node:stackingOrder = 4716
         }
 
         def Shader "Combine3"
@@ -138,6 +147,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/ImageBlockMaterialV4.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/ImageBlockMaterialV4/Add.outputs:out>
             string inputs:wrapS
@@ -147,8 +157,8 @@ def Xform "Root"
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (687.5121, 5.652763)
-            int ui:nodegraph:node:stackingOrder = 3344
+            float2 ui:nodegraph:node:pos = (687.9444, -259.67963)
+            int ui:nodegraph:node:stackingOrder = 4712
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
         }
 
@@ -158,6 +168,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/ImageBlockMaterialV4.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/ImageBlockMaterialV4/Texcoord.outputs:out>
             string inputs:wrapS
@@ -166,8 +177,8 @@ def Xform "Root"
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (908.71826, -267.44995)
-            int ui:nodegraph:node:stackingOrder = 4300
+            float2 ui:nodegraph:node:pos = (899.76294, -559.7101)
+            int ui:nodegraph:node:stackingOrder = 4710
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba"]
         }
 
@@ -194,14 +205,18 @@ def Xform "Root"
         def Shader "UsdUVTexture_2"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/ImageBlockMaterialV4.inputs:ConstantImageFile>
+            color4f inputs:scale
             float2 inputs:st.connect = </Root/ImageBlockMaterialV4/Subtract.outputs:out>
             float outputs:b
             float outputs:g
             float outputs:r
             color3f outputs:rgb
-            float2 ui:nodegraph:node:pos = (900.1655, 190.12778)
-            int ui:nodegraph:node:stackingOrder = 3343
+            float2 ui:nodegraph:node:pos = (933.97186, 22.887089)
+            int ui:nodegraph:node:stackingOrder = 4714
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba"]
         }
 
@@ -317,15 +332,6 @@ def Xform "Root"
                 float2 ui:nodegraph:node:pos = (462.96948, 56.369812)
                 int ui:nodegraph:node:stackingOrder = 2666
             }
-        }
-
-        def Shader "Fade"
-        {
-            uniform token info:id = "ND_constant_float"
-            float inputs:value = 1
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-649.67883, -445.22598)
-            int ui:nodegraph:node:stackingOrder = 4303
         }
 
         def Shader "Power_4"

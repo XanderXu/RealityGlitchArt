@@ -44,6 +44,13 @@ def Xform "Root"
                 }
             }
         )
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-11.984397, -460.11813)
+                }
+            }
+        )
         float inputs:Fading = 0.5 (
             customData = {
                 dictionary realitykit = {
@@ -227,21 +234,11 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 1148
         }
 
-        def Shader "Distance"
-        {
-            uniform token info:id = "ND_distance_vector2_float"
-            float2 inputs:x.connect = </Root/RGBSplitMaterial/Texcoord.outputs:out>
-            float2 inputs:y = (0.5, 0.5)
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-74.55903, 308.84396)
-            int ui:nodegraph:node:stackingOrder = 1344
-        }
-
         def Shader "Mix"
         {
             uniform token info:id = "ND_mix_float"
             float inputs:bg = 1
-            float inputs:bg.connect = </Root/RGBSplitMaterial/Distance.outputs:out>
+            float inputs:bg.connect = </Root/RGBSplitMaterial/MTLDistance.outputs:out>
             float inputs:fg = 1
             float inputs:fg.connect = None
             float inputs:mix.connect = </Root/RGBSplitMaterial.inputs:CenterFading>
@@ -286,8 +283,13 @@ def Xform "Root"
         def Shader "UsdUVTexture"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterial.inputs:ConstantImageFile>
+            color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterial/Texcoord.outputs:out>
+            string inputs:wrapS
             string inputs:wrapT
             float outputs:b
             float outputs:g
@@ -325,6 +327,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterial.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterial/Add.outputs:out>
             float outputs:g
@@ -359,7 +362,11 @@ def Xform "Root"
         def Shader "UsdUVTexture_2"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterial.inputs:ConstantImageFile>
+            color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterial/Subtract.outputs:out>
             float outputs:b
             float outputs:g
@@ -368,6 +375,16 @@ def Xform "Root"
             float2 ui:nodegraph:node:pos = (914.2823, 123.98069)
             int ui:nodegraph:node:stackingOrder = 1550
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba"]
+        }
+
+        def Shader "MTLDistance"
+        {
+            uniform token info:id = "ND_MTL_distance_vector2_float"
+            float2 inputs:x.connect = </Root/RGBSplitMaterial/Texcoord.outputs:out>
+            float2 inputs:y = (0.5, 0.5)
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-162.9732, 272.23383)
+            int ui:nodegraph:node:stackingOrder = 1632
         }
     }
 }

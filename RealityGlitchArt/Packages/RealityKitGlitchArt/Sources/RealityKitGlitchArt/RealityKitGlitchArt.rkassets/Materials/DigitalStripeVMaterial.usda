@@ -12,6 +12,13 @@ def Xform "Root"
 {
     def Material "DigitalStripeVMaterial"
     {
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-632.4989, -97.86006)
+                }
+            }
+        )
         float inputs:Intensity = 0.1 (
             customData = {
                 dictionary realitykit = {
@@ -86,6 +93,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/DigitalStripeVMaterial.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/DigitalStripeVMaterial/Fractional.outputs:out>
             string inputs:wrapS = "clamp"
@@ -135,8 +143,8 @@ def Xform "Root"
             float inputs:edge.connect = </Root/DigitalStripeVMaterial/Multiply_1.outputs:out>
             float inputs:in.connect = </Root/DigitalStripeVMaterial/Power.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (152.82518, 127.65193)
-            int ui:nodegraph:node:stackingOrder = 4167
+            float2 ui:nodegraph:node:pos = (52.199413, 171.44658)
+            int ui:nodegraph:node:stackingOrder = 4225
         }
 
         def Shader "Combine2"

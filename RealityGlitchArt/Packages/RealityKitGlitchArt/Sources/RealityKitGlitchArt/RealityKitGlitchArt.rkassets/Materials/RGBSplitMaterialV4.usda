@@ -12,6 +12,14 @@ def Xform "Root"
 {
     def Material "RGBSplitMaterialV4"
     {
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-792.7457, -271.08823)
+                    int stackingOrderInSubgraph = 2747
+                }
+            }
+        )
         float2 inputs:Direction = (1, 0) (
             customData = {
                 dictionary realitykit = {
@@ -102,8 +110,13 @@ def Xform "Root"
         def Shader "UsdUVTexture"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV4.inputs:ConstantImageFile>
+            color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterialV4/Texcoord.outputs:out>
+            string inputs:wrapS
             string inputs:wrapT
             float outputs:b
             float outputs:g
@@ -141,6 +154,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV4.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterialV4/Add.outputs:out>
             float outputs:g
@@ -175,8 +189,14 @@ def Xform "Root"
         def Shader "UsdUVTexture_2"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV4.inputs:ConstantImageFile>
+            color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterialV4/Subtract.outputs:out>
+            string inputs:wrapS
+            string inputs:wrapT
             float outputs:b
             float outputs:g
             float outputs:r

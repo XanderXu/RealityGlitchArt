@@ -21,6 +21,13 @@ def Xform "Root"
                 }
             }
         )
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-577.59576, -808.4731)
+                }
+            }
+        )
         float inputs:Fading = 0.5 (
             customData = {
                 dictionary realitykit = {
@@ -136,7 +143,11 @@ def Xform "Root"
         def Shader "UsdUVTexture"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/LineBlockVMaterial.inputs:ConstantImageFile>
+            color4f inputs:scale
             float2 inputs:st.connect = </Root/LineBlockVMaterial/Texcoord.outputs:out>
             string inputs:wrapS
             string inputs:wrapT
@@ -153,7 +164,9 @@ def Xform "Root"
         def Shader "UsdUVTexture_2"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/LineBlockVMaterial.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/LineBlockVMaterial/Clamp_1.outputs:out>
             string inputs:wrapS

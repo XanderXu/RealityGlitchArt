@@ -12,6 +12,13 @@ def Xform "Root"
 {
     def Material "ScreenShakeVMaterial"
     {
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-47.19173, 125.37779)
+                }
+            }
+        )
         float inputs:Intensity = 0.125 (
             customData = {
                 dictionary realitykit = {
@@ -87,6 +94,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/ScreenShakeVMaterial.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/ScreenShakeVMaterial/Fractional.outputs:out>
             string inputs:wrapS

@@ -28,6 +28,14 @@ def Xform "Root" (
                 }
             }
         )
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-805.2851, -457.25156)
+                    int stackingOrderInSubgraph = 3745
+                }
+            }
+        )
         float inputs:Speed = 10 (
             customData = {
                 dictionary realitykit = {
@@ -105,6 +113,7 @@ def Xform "Root" (
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/ImageBlockMaterial.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/ImageBlockMaterial/Add.outputs:out>
             string inputs:wrapS
@@ -125,6 +134,7 @@ def Xform "Root" (
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/ImageBlockMaterial.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/ImageBlockMaterial/Texcoord.outputs:out>
             string inputs:wrapS
@@ -161,7 +171,10 @@ def Xform "Root" (
         def Shader "UsdUVTexture_2"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/ImageBlockMaterial.inputs:ConstantImageFile>
+            color4f inputs:scale
             float2 inputs:st.connect = </Root/ImageBlockMaterial/Subtract.outputs:out>
             float outputs:b
             float outputs:g

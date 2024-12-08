@@ -20,6 +20,13 @@ def Xform "Root"
                 }
             }
         )
+        asset inputs:ConstantImageFile = @@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-261.46362, -331.84515)
+                }
+            }
+        )
         float2 inputs:Direction = (1, 0) (
             customData = {
                 dictionary realitykit = {
@@ -149,16 +156,20 @@ def Xform "Root"
         def Shader "UsdUVTexture"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV3.inputs:ConstantImageFile>
             float2 inputs:st.connect = </Root/RGBSplitMaterialV3/Texcoord.outputs:out>
+            string inputs:wrapS
             string inputs:wrapT
             float outputs:b
             float outputs:g
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (628.52057, 69.72865)
-            int ui:nodegraph:node:stackingOrder = 2460
+            float2 ui:nodegraph:node:pos = (685.0216, 53.091118)
+            int ui:nodegraph:node:stackingOrder = 2584
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
         }
 
@@ -168,8 +179,8 @@ def Xform "Root"
             float2 inputs:in1.connect = </Root/RGBSplitMaterialV3.inputs:Direction>
             float inputs:in2.connect = </Root/RGBSplitMaterialV3/Multiply_2.outputs:out>
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (490.8178, -186.60042)
-            int ui:nodegraph:node:stackingOrder = 2458
+            float2 ui:nodegraph:node:pos = (489.0512, -233.94781)
+            int ui:nodegraph:node:stackingOrder = 2592
         }
 
         def Shader "Add"
@@ -178,8 +189,8 @@ def Xform "Root"
             float2 inputs:in1.connect = </Root/RGBSplitMaterialV3/Texcoord.outputs:out>
             float2 inputs:in2.connect = </Root/RGBSplitMaterialV3/Multiply_4.outputs:out>
             float2 outputs:out
-            float2 ui:nodegraph:node:pos = (733.4959, -187.67902)
-            int ui:nodegraph:node:stackingOrder = 2456
+            float2 ui:nodegraph:node:pos = (805.4548, -246.14029)
+            int ui:nodegraph:node:stackingOrder = 2590
         }
 
         def Shader "UsdUVTexture_1"
@@ -188,14 +199,15 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV3.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterialV3/Add.outputs:out>
             float outputs:g
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (908.71826, -267.44995)
-            int ui:nodegraph:node:stackingOrder = 2187
+            float2 ui:nodegraph:node:pos = (1024.6729, -384.42694)
+            int ui:nodegraph:node:stackingOrder = 2588
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
         }
 
@@ -222,14 +234,18 @@ def Xform "Root"
         def Shader "UsdUVTexture_2"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV3.inputs:ConstantImageFile>
+            color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterialV3/Subtract.outputs:out>
+            string inputs:wrapS
             float outputs:b
             float outputs:g
             float outputs:r
             color3f outputs:rgb
-            float2 ui:nodegraph:node:pos = (900.1655, 247.57101)
-            int ui:nodegraph:node:stackingOrder = 2232
+            float2 ui:nodegraph:node:pos = (966.5342, 378.05768)
+            int ui:nodegraph:node:stackingOrder = 2586
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba"]
         }
 

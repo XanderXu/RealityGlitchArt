@@ -20,6 +20,13 @@ def Xform "Root"
                 }
             }
         )
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-212.90352, 13.224488)
+                }
+            }
+        )
         float2 inputs:Direction = (0, 1) (
             customData = {
                 dictionary realitykit = {
@@ -124,6 +131,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/TileJitterVMaterial.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/TileJitterVMaterial/Ifgreater.outputs:out>
             string inputs:wrapT

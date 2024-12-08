@@ -12,6 +12,13 @@ def Xform "Root"
 {
     def Material "RGBSplitMaterialV5"
     {
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (842.4089, -373.64215)
+                }
+            }
+        )
         float inputs:Intensity = 3 (
             customData = {
                 dictionary realitykit = {
@@ -94,7 +101,10 @@ def Xform "Root"
         def Shader "UsdUVTexture"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV5.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterialV5/Add_1.outputs:out>
             string inputs:wrapS
@@ -125,6 +135,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV5.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterialV5/Add.outputs:out>
             float outputs:g
@@ -139,7 +150,10 @@ def Xform "Root"
         def Shader "UsdUVTexture_2"
         {
             uniform token info:id = "ND_UsdUVTexture"
+            color4f inputs:bias
+            color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/RGBSplitMaterialV5.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/RGBSplitMaterialV5/Add_2.outputs:out>
             string inputs:wrapS

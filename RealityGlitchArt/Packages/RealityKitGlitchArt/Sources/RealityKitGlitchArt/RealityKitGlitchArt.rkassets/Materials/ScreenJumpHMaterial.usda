@@ -12,6 +12,13 @@ def Xform "Root"
 {
     def Material "ScreenJumpHMaterial"
     {
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (242.9961, 170.91797)
+                }
+            }
+        )
         float inputs:JumpIntensity = 0.35 (
             customData = {
                 dictionary realitykit = {
@@ -87,6 +94,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/ScreenJumpHMaterial.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/ScreenJumpHMaterial/Fractional.outputs:out>
             string inputs:wrapS = "periodic"
