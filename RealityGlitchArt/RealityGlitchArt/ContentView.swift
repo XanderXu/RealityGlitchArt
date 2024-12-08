@@ -23,7 +23,7 @@ struct ContentView: View {
             ToggleImmersiveSpaceButton()
             
             Picker(selection: $model.selectedMaterial) {
-                ForEach(GlitchMaterial.allCases) {m in
+                ForEach(GlitchArtMaterial.allCases) {m in
                     Text(m.rawValue)
                         .tag(m)
                 }
