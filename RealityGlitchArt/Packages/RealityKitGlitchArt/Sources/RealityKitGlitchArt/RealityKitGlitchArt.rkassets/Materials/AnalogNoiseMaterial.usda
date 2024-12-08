@@ -12,6 +12,14 @@ def Xform "Root"
 {
     def Material "AnalogNoiseMaterial"
     {
+        asset inputs:ConstantImageFile = @number.jpeg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-783.3867, 13.523928)
+                    int stackingOrderInSubgraph = 3995
+                }
+            }
+        )
         float inputs:Fading = 1 (
             customData = {
                 dictionary realitykit = {
@@ -32,7 +40,7 @@ def Xform "Root"
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-847.3788, 529.46893)
-                    int stackingOrderInSubgraph = 2994
+                    int stackingOrderInSubgraph = 3988
                 }
             }
         )
@@ -48,19 +56,6 @@ def Xform "Root"
         {
             uniform token info:id = "UsdPreviewSurface"
             token outputs:surface
-        }
-
-        def Shader "PreviewSurface"
-        {
-            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
-            color3f inputs:diffuseColor.connect = </Root/AnalogNoiseMaterial/Mix.outputs:out>
-            float inputs:metallic
-            float inputs:opacity
-            float inputs:roughness
-            token outputs:out
-            float2 ui:nodegraph:node:pos = (1744.5751, 148.28413)
-            int ui:nodegraph:node:stackingOrder = 3626
-            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
         }
 
         def Shader "Time"
@@ -87,7 +82,7 @@ def Xform "Root"
             uniform token info:id = "ND_texcoord_vector2"
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (-840.6583, 284.1583)
-            int ui:nodegraph:node:stackingOrder = 2941
+            int ui:nodegraph:node:stackingOrder = 3987
         }
 
         def Shader "UsdUVTexture_1"
@@ -96,6 +91,7 @@ def Xform "Root"
             color4f inputs:bias
             color4f inputs:fallback
             asset inputs:file = @number.jpeg@
+            asset inputs:file.connect = </Root/AnalogNoiseMaterial.inputs:ConstantImageFile>
             color4f inputs:scale
             float2 inputs:st.connect = </Root/AnalogNoiseMaterial/Texcoord.outputs:out>
             string inputs:wrapS
@@ -105,7 +101,7 @@ def Xform "Root"
             color3f outputs:rgb
             color4f outputs:rgba
             float2 ui:nodegraph:node:pos = (-434.34238, 26.44971)
-            int ui:nodegraph:node:stackingOrder = 3950
+            int ui:nodegraph:node:stackingOrder = 3981
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba", "outputs:rgba"]
         }
 
@@ -370,6 +366,20 @@ def Xform "Root"
             float2 inputs:seed.connect = </Root/AnalogNoiseMaterial/Combine2.outputs:out>
             float2 ui:nodegraph:node:pos = (184.20679, -208.24648)
             int ui:nodegraph:node:stackingOrder = 3976
+        }
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/AnalogNoiseMaterial/Mix.outputs:out>
+            float inputs:metallic
+            float inputs:occlusion
+            float inputs:opacityThreshold
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (1743.5781, 92.890625)
+            int ui:nodegraph:node:stackingOrder = 3998
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
         }
     }
 }

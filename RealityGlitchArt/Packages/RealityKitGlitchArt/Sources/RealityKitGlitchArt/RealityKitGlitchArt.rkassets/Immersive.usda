@@ -9,7 +9,7 @@ def Xform "Root"
 {
     reorder nameChildren = ["Sphere_Left", "RGBSplitMaterial", "Cube_Left", "Cube_Right", "Sphere_Right"]
     def Sphere "Sphere_Right" (
-        active = true
+        active = false
         prepend apiSchemas = ["MaterialBindingAPI"]
     )
     {
@@ -24,8 +24,9 @@ def Xform "Root"
     }
 
     def Sphere "Sphere_Left" (
-        active = true
+        active = false
         prepend apiSchemas = ["MaterialBindingAPI"]
+        references = None
     )
     {
         rel material:binding = </Root/RGBSplitMaterial/RGBSplitMaterial> (
@@ -35,15 +36,6 @@ def Xform "Root"
         quatf xformOp:orient = (1, 0, 0, 0)
         float3 xformOp:scale = (1, 1, 1)
         float3 xformOp:translate = (-0.5, 1.5, -1.5)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
-    def "RGBSplitMaterial" (
-        active = true
-        references = @Materials/RGBSplitMaterial.usda@
-    )
-    {
-        float3 xformOp:scale = (1, 1, 1)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 
@@ -74,6 +66,50 @@ def Xform "Root"
         quatf xformOp:orient = (1, 0, 0, 0)
         float3 xformOp:scale = (1, 1, 1)
         float3 xformOp:translate = (0.5, 1, -1.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "RGBSplitMaterial" (
+        active = true
+        prepend references = @Materials/RGBSplitMaterial.usda@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "RGBSplitMaterial"
+        {
+            over "Distance" (
+                active = false
+            )
+            {
+                float2 ui:nodegraph:node:pos = (-263.59027, 287.95334)
+                int ui:nodegraph:node:stackingOrder = 1636
+            }
+
+            def Shader "MTLDistance"
+            {
+                uniform token info:id = "ND_MTL_distance_vector2_float"
+                float2 inputs:x.connect = </Root/RGBSplitMaterial/RGBSplitMaterial/Texcoord.outputs:out>
+                float2 inputs:y = (0.5, 0.5)
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-326.2578, 264.35547)
+                int ui:nodegraph:node:stackingOrder = 1637
+            }
+
+            over "Mix"
+            {
+                float inputs:bg.connect = </Root/RGBSplitMaterial/RGBSplitMaterial/MTLDistance.outputs:out>
+            }
+        }
+    }
+
+    def "AnalogNoiseMaterial" (
+        active = true
+        prepend references = @Materials/AnalogNoiseMaterial.usda@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }

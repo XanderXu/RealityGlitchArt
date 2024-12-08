@@ -89,14 +89,14 @@ def Xform "Root"
             asset inputs:file = @number.jpeg@
             color4f inputs:scale
             float2 inputs:st.connect = </Root/ScreenJumpHMaterial/Fractional.outputs:out>
-            string inputs:wrapS
+            string inputs:wrapS = "periodic"
             string inputs:wrapT
             float outputs:g
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
             float2 ui:nodegraph:node:pos = (791.7292, 307.51117)
-            int ui:nodegraph:node:stackingOrder = 3027
+            int ui:nodegraph:node:stackingOrder = 3038
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba", "outputs:rgba"]
         }
 

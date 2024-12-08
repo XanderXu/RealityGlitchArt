@@ -12,6 +12,8 @@ import RealityKitGlitchArt
 struct ImmersiveView: View {
     @Environment(AppModel.self) private var model
     @State private var entity: Entity? = nil
+    
+    @State private var textureResource: TextureResource?
     var body: some View {
         RealityView { content in
             // Add the initial RealityKit content
@@ -19,16 +21,25 @@ struct ImmersiveView: View {
                 content.add(immersiveContentEntity)
                 entity = immersiveContentEntity
             }
+            textureResource = try? await TextureResource(named: "number")
         }
         .onChange(of: model.selectedMaterial) { oldValue, newValue in
             Task {
                 do {
-                    let sgm = try await ShaderGraphMaterial(named: glitchArtMaterialNamePrefix+newValue.rawValue, from: glitchArtMaterialPathPrefix+newValue.rawValue, in: realityKitGlitchArtBundle)
+                    var sgm = try await ShaderGraphMaterial(named: glitchArtMaterialNamePrefix+newValue.rawValue, from: glitchArtMaterialPathPrefix+newValue.rawValue, in: realityKitGlitchArtBundle)
                     entity?.forEachDescendant(withComponent: ModelComponent.self) { modelEntity, component in
                         var modelComponent = component
-                        modelComponent.materials = modelComponent.materials.map {
-                            guard var material = $0 as? ShaderGraphMaterial else { return $0 }
-                            
+                        modelComponent.materials = modelComponent.materials.map {_ in 
+//                            do {
+//                                if sgm.parameterNames.contains("ConstantImageFile") {
+//                                    
+//                                    try sgm.setParameter(name: "ConstantImageFile",
+//                                                              value: MaterialParameters.Value.textureResource(textureResource!))
+//                                }
+//                                
+//                            } catch {
+//                                print("Error setting ride_running material parameter: \(error.localizedDescription)")
+//                            }
                             return sgm
                         }
                         modelEntity.modelComponent = modelComponent

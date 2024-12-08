@@ -114,8 +114,8 @@ def Xform "Root" (
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (822.43536, -220.41376)
-            int ui:nodegraph:node:stackingOrder = 3723
+            float2 ui:nodegraph:node:pos = (899.6131, -229.70705)
+            int ui:nodegraph:node:stackingOrder = 3741
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
         }
 
@@ -133,8 +133,8 @@ def Xform "Root" (
             float outputs:r
             color3f outputs:rgb
             color4f outputs:rgba
-            float2 ui:nodegraph:node:pos = (1023.36676, -383.06296)
-            int ui:nodegraph:node:stackingOrder = 3720
+            float2 ui:nodegraph:node:pos = (816.5853, -671.155)
+            int ui:nodegraph:node:stackingOrder = 3739
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
         }
 

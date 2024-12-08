@@ -2,7 +2,7 @@
   "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
     "Immersive.usda",
-    "Materials\/WaveJitterVMaterial.usda"
+    "Materials\/AnalogNoiseMaterial.usda"
   ],
   "recentIdentifiers" : {
     "0CC2D925-5E5B-448E-9FEF-856048816302" : [
@@ -48,6 +48,12 @@
 
     ],
     "AF09ED6F-1707-48FD-8720-65B998362C09" : [
+
+    ],
+    "C0CE55B6-4819-4FB8-9D24-B518878B42FA" : [
+
+    ],
+    "CDCC13C0-640E-4584-87C2-416654F669C7" : [
 
     ],
     "CF1A7027-DE10-408F-BB8A-46AA0543861E" : [
@@ -479,6 +485,52 @@
         ]
       }
     ],
+    "C0CE55B6-4819-4FB8-9D24-B518878B42FA" : [
+      {
+        "date" : 755325705.439641,
+        "title" : "Untitled",
+        "transform" : [
+          0.99603856,
+          2.4060722e-09,
+          0.08892257,
+          0,
+          0.014215257,
+          0.9871396,
+          -0.15922779,
+          0,
+          -0.08777899,
+          0.15986107,
+          0.9832291,
+          0,
+          -0.042394724,
+          0.07720829,
+          0.47487137,
+          1
+        ]
+      },
+      {
+        "date" : 755325700.790275,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          0.3415122,
+          0.3415123,
+          1
+        ]
+      }
+    ],
     "CDCC13C0-640E-4584-87C2-416654F669C7" : [
       {
         "date" : 755318973.422447,
@@ -709,6 +761,28 @@
     ],
     "F402F52E-C78F-497F-A47C-6919ED611ED7" : [
       {
+        "date" : 755325317.061456,
+        "title" : "Untitled",
+        "transform" : [
+          0.9996896,
+          0,
+          0.024915025,
+          0,
+          0.017617583,
+          0.7071069,
+          -0.70688725,
+          0,
+          -0.017617585,
+          0.70710677,
+          0.70688736,
+          0,
+          -0.35853684,
+          1.9605014,
+          -0.81682456,
+          1
+        ]
+      },
+      {
         "date" : 742035678.235648,
         "title" : "Untitled",
         "transform" : [
@@ -800,5 +874,5 @@
       }
     ]
   },
-  "selectedSceneRelativePath" : "Materials\/WaveJitterVMaterial.usda"
+  "selectedSceneRelativePath" : "Immersive.usda"
 }
