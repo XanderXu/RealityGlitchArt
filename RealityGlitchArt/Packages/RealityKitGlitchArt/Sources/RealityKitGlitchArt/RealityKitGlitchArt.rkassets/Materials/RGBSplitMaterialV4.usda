@@ -12,7 +12,7 @@ def Xform "Root"
 {
     def Material "RGBSplitMaterialV4"
     {
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-792.7457, -271.08823)
@@ -82,7 +82,7 @@ def Xform "Root"
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/RGBSplitMaterialV4.inputs:Speed>
-            float inputs:in2.connect = </Root/RGBSplitMaterialV4/Time.outputs:out>
+            float inputs:in2.connect = </Root/RGBSplitMaterialV4/Modulo.outputs:out>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-688.86084, 631.131)
             int ui:nodegraph:node:stackingOrder = 2573
@@ -292,6 +292,16 @@ def Xform "Root"
                 float2 ui:nodegraph:node:pos = (82, 27.5)
                 int ui:nodegraph:node:stackingOrder = 3052
             }
+        }
+
+        def Shader "Modulo"
+        {
+            uniform token info:id = "ND_modulo_float"
+            float inputs:in1.connect = </Root/RGBSplitMaterialV4/Time.outputs:out>
+            float inputs:in2 = 1000
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-701.375, 728.2617)
+            int ui:nodegraph:node:stackingOrder = 2749
         }
     }
 

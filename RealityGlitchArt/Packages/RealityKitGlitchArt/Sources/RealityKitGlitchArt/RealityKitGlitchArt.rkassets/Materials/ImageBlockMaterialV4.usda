@@ -53,7 +53,7 @@ def Xform "Root"
                 }
             }
         )
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-625.6425, -317.0736)
@@ -115,10 +115,10 @@ def Xform "Root"
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/ImageBlockMaterialV4.inputs:Speed>
-            float inputs:in2.connect = </Root/ImageBlockMaterialV4/Time.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV4/Modulo.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-783.1507, 161.60379)
-            int ui:nodegraph:node:stackingOrder = 4490
+            float2 ui:nodegraph:node:pos = (-740.7281, 140.06874)
+            int ui:nodegraph:node:stackingOrder = 4719
         }
 
         def Shader "Texcoord"
@@ -652,6 +652,16 @@ def Xform "Root"
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (-630.6664, 317.70453)
             int ui:nodegraph:node:stackingOrder = 4679
+        }
+
+        def Shader "Modulo"
+        {
+            uniform token info:id = "ND_modulo_float"
+            float inputs:in1.connect = </Root/ImageBlockMaterialV4/Time.outputs:out>
+            float inputs:in2 = 1000
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-751.74615, 224.36047)
+            int ui:nodegraph:node:stackingOrder = 4720
         }
     }
 

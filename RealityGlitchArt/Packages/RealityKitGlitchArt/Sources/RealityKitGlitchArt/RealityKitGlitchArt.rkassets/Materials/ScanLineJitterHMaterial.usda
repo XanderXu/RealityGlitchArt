@@ -20,7 +20,7 @@ def Xform "Root"
                 }
             }
         )
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (327.3027, -73.85482)
@@ -90,10 +90,10 @@ def Xform "Root"
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/ScanLineJitterHMaterial.inputs:Speed>
-            float inputs:in2.connect = </Root/ScanLineJitterHMaterial/Time.outputs:out>
+            float inputs:in2.connect = </Root/ScanLineJitterHMaterial/Modulo.outputs:out>
             float outputs:out
-            float2 ui:nodegraph:node:pos = (-669.9318, 546.22076)
-            int ui:nodegraph:node:stackingOrder = 2757
+            float2 ui:nodegraph:node:pos = (-639.2087, 520.1974)
+            int ui:nodegraph:node:stackingOrder = 3020
         }
 
         def Shader "Remap"
@@ -331,6 +331,16 @@ def Xform "Root"
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (775.17883, 172.95776)
             int ui:nodegraph:node:stackingOrder = 2986
+        }
+
+        def Shader "Modulo"
+        {
+            uniform token info:id = "ND_modulo_float"
+            float inputs:in1.connect = </Root/ScanLineJitterHMaterial/Time.outputs:out>
+            float inputs:in2 = 1000
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-714.0238, 563.771)
+            int ui:nodegraph:node:stackingOrder = 3022
         }
     }
 

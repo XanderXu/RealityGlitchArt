@@ -12,10 +12,11 @@ def Xform "Root"
 {
     def Material "DigitalStripeHMaterial"
     {
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-708.5603, -140.90544)
+                    int stackingOrderInSubgraph = 4230
                 }
             }
         )
@@ -31,7 +32,7 @@ def Xform "Root"
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-817.1054, -262.07205)
-                    int stackingOrderInSubgraph = 3356
+                    int stackingOrderInSubgraph = 4230
                 }
             }
         )
@@ -261,31 +262,31 @@ def Xform "Root"
 
         def NodeGraph "StripeNoise"
         {
-            float2 inputs:ScaleFactor = (102, 102) (
+            float2 inputs:ScaleFactor = (51, 51) (
                 customData = {
                     dictionary realitykit = {
                         float2 positionInSubgraph = (283.9598, 376.7597)
-                        int stackingOrderInSubgraph = 4465
+                        int stackingOrderInSubgraph = 4497
                     }
                 }
             )
             prepend color4f outputs:Image_out.connect = </Root/DigitalStripeHMaterial/StripeNoise/Image.outputs:out>
             float2 ui:nodegraph:node:pos = (-852.3904, 129.3992)
-            int ui:nodegraph:node:stackingOrder = 4221
+            int ui:nodegraph:node:stackingOrder = 4232
             float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1730.5371, 296.07407)
             int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 4425
 
             def Shader "Image"
             {
                 uniform token info:id = "ND_image_color4"
-                asset inputs:file = @X-StripeNoise1024.png@
+                asset inputs:file = @Texture/X-StripeNoise1024.png@
                 string inputs:filtertype = "closest"
                 float2 inputs:texcoord.connect = </Root/DigitalStripeHMaterial/StripeNoise/Add_1.outputs:out>
                 string inputs:uaddressmode
                 string inputs:vaddressmode
                 color4f outputs:out
                 float2 ui:nodegraph:node:pos = (1379, 218.75)
-                int ui:nodegraph:node:stackingOrder = 4139
+                int ui:nodegraph:node:stackingOrder = 4496
                 string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out", "inputs:default"]
             }
 
@@ -511,7 +512,7 @@ def Xform "Root"
                 float inputs:in2 = 5
                 float2 outputs:out
                 float2 ui:nodegraph:node:pos = (-175.52844, 91.54487)
-                int ui:nodegraph:node:stackingOrder = 4454
+                int ui:nodegraph:node:stackingOrder = 4489
             }
 
             def Shader "Ifgreater"
@@ -529,11 +530,11 @@ def Xform "Root"
             def Shader "Multiply_2"
             {
                 uniform token info:id = "ND_multiply_float"
-                float inputs:in1.connect = </Root/DigitalStripeHMaterial/StripeNoise/Time.outputs:out>
-                float inputs:in2 = 1
+                float inputs:in1.connect = </Root/DigitalStripeHMaterial/StripeNoise/Modulo.outputs:out>
+                float inputs:in2 = 2
                 float outputs:out
                 float2 ui:nodegraph:node:pos = (-314.03064, 214.34517)
-                int ui:nodegraph:node:stackingOrder = 4486
+                int ui:nodegraph:node:stackingOrder = 4490
             }
 
             def Shader "Floor"
@@ -553,6 +554,16 @@ def Xform "Root"
                 float outputs:out
                 float2 ui:nodegraph:node:pos = (-17.548111, 219.13658)
                 int ui:nodegraph:node:stackingOrder = 4485
+            }
+
+            def Shader "Modulo"
+            {
+                uniform token info:id = "ND_modulo_float"
+                float inputs:in1.connect = </Root/DigitalStripeHMaterial/StripeNoise/Time.outputs:out>
+                float inputs:in2 = 1000
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-393.0229, 189.1534)
+                int ui:nodegraph:node:stackingOrder = 4495
             }
         }
 

@@ -12,10 +12,11 @@ def Xform "Root"
 {
     def Material "DigitalStripeVMaterial"
     {
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-632.4989, -97.86006)
+                    int stackingOrderInSubgraph = 4227
                 }
             }
         )
@@ -31,7 +32,7 @@ def Xform "Root"
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-817.1054, -262.07205)
-                    int stackingOrderInSubgraph = 3356
+                    int stackingOrderInSubgraph = 4227
                 }
             }
         )
@@ -265,27 +266,27 @@ def Xform "Root"
                 customData = {
                     dictionary realitykit = {
                         float2 positionInSubgraph = (283.9598, 376.7597)
-                        int stackingOrderInSubgraph = 4465
+                        int stackingOrderInSubgraph = 4502
                     }
                 }
             )
             prepend color4f outputs:Image_out.connect = </Root/DigitalStripeVMaterial/StripeNoise/Image.outputs:out>
             float2 ui:nodegraph:node:pos = (-852.3904, 129.3992)
-            int ui:nodegraph:node:stackingOrder = 4223
+            int ui:nodegraph:node:stackingOrder = 4230
             float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1730.5371, 296.07407)
             int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 4425
 
             def Shader "Image"
             {
                 uniform token info:id = "ND_image_color4"
-                asset inputs:file = @X-StripeNoise1024.png@
+                asset inputs:file = @Texture/X-StripeNoise1024.png@
                 string inputs:filtertype = "closest"
                 float2 inputs:texcoord.connect = </Root/DigitalStripeVMaterial/StripeNoise/Add_1.outputs:out>
                 string inputs:uaddressmode
                 string inputs:vaddressmode
                 color4f outputs:out
                 float2 ui:nodegraph:node:pos = (1379, 218.75)
-                int ui:nodegraph:node:stackingOrder = 4139
+                int ui:nodegraph:node:stackingOrder = 4504
                 string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out", "inputs:default"]
             }
 
@@ -481,8 +482,8 @@ def Xform "Root"
             {
                 uniform token info:id = "ND_time_float"
                 float outputs:out
-                float2 ui:nodegraph:node:pos = (-521.78906, 146.46849)
-                int ui:nodegraph:node:stackingOrder = 4466
+                float2 ui:nodegraph:node:pos = (-561.0178, 142.7206)
+                int ui:nodegraph:node:stackingOrder = 4500
             }
 
             def Shader "Combine2"
@@ -529,11 +530,11 @@ def Xform "Root"
             def Shader "Multiply_2"
             {
                 uniform token info:id = "ND_multiply_float"
-                float inputs:in1.connect = </Root/DigitalStripeVMaterial/StripeNoise/Time.outputs:out>
-                float inputs:in2 = 1
+                float inputs:in1.connect = </Root/DigitalStripeVMaterial/StripeNoise/Modulo.outputs:out>
+                float inputs:in2 = 2
                 float outputs:out
                 float2 ui:nodegraph:node:pos = (-314.03064, 214.34517)
-                int ui:nodegraph:node:stackingOrder = 4486
+                int ui:nodegraph:node:stackingOrder = 4490
             }
 
             def Shader "Floor"
@@ -563,6 +564,16 @@ def Xform "Root"
                 float2 outputs:out
                 float2 ui:nodegraph:node:pos = (706.5781, 271.95355)
                 int ui:nodegraph:node:stackingOrder = 4489
+            }
+
+            def Shader "Modulo"
+            {
+                uniform token info:id = "ND_modulo_float"
+                float inputs:in1.connect = </Root/DigitalStripeVMaterial/StripeNoise/Time.outputs:out>
+                float inputs:in2 = 1000
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-399.83325, 203.90323)
+                int ui:nodegraph:node:stackingOrder = 4496
             }
         }
 

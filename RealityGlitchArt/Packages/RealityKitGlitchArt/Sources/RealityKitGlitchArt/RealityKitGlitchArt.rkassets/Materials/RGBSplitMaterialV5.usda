@@ -12,7 +12,7 @@ def Xform "Root"
 {
     def Material "RGBSplitMaterialV5"
     {
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (842.4089, -373.64215)

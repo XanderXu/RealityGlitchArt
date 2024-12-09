@@ -12,7 +12,7 @@ def Xform "Root"
 {
     def Material "ScreenShakeHMaterial"
     {
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-374.0614, 94.22249)
@@ -74,7 +74,7 @@ def Xform "Root"
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/ScreenShakeHMaterial/Divide.outputs:out>
-            float inputs:in2.connect = </Root/ScreenShakeHMaterial/Time.outputs:out>
+            float inputs:in2.connect = </Root/ScreenShakeHMaterial/Modulo.outputs:out>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-620.9182, 566.4032)
             int ui:nodegraph:node:stackingOrder = 3203
@@ -251,7 +251,17 @@ def Xform "Root"
             float inputs:in2 = 40000
             float outputs:out
             float2 ui:nodegraph:node:pos = (-711.45465, 548.0704)
-            int ui:nodegraph:node:stackingOrder = 3211
+            int ui:nodegraph:node:stackingOrder = 3216
+        }
+
+        def Shader "Modulo"
+        {
+            uniform token info:id = "ND_modulo_float"
+            float inputs:in1.connect = </Root/ScreenShakeHMaterial/Time.outputs:out>
+            float inputs:in2 = 1000
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-709.59766, 606.71094)
+            int ui:nodegraph:node:stackingOrder = 3215
         }
     }
 

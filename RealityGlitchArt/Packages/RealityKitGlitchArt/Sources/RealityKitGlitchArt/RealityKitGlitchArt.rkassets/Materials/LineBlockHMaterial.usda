@@ -21,7 +21,7 @@ def Xform "Root"
                 }
             }
         )
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-730.47363, -782.9859)

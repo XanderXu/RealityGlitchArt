@@ -12,7 +12,7 @@ def Xform "Root"
 {
     def Material "ScreenJumpHMaterial"
     {
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (242.9961, 170.91797)

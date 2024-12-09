@@ -28,7 +28,7 @@ def Xform "Root" (
                 }
             }
         )
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-805.2851, -457.25156)
@@ -82,7 +82,7 @@ def Xform "Root" (
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/ImageBlockMaterial.inputs:Speed>
-            float inputs:in2.connect = </Root/ImageBlockMaterial/Time.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterial/Modulo.outputs:out>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-684.72626, 416.24182)
             int ui:nodegraph:node:stackingOrder = 2742
@@ -334,7 +334,7 @@ def Xform "Root" (
                     }
                 }
             )
-            float2 inputs:seed.connect = </Root/ImageBlockMaterial/Multiply_7.outputs:out>
+            float2 inputs:seed.connect = </Root/ImageBlockMaterial/Multiply_2.outputs:out>
             prepend float outputs:Fractional_out.connect = </Root/ImageBlockMaterial/RandomNoise/Fractional.outputs:out>
             float2 ui:nodegraph:node:pos = (-269.24338, 374.46576)
             int ui:nodegraph:node:stackingOrder = 3758
@@ -411,14 +411,15 @@ def Xform "Root" (
             int ui:nodegraph:node:stackingOrder = 3714
         }
 
-        def Shader "Multiply_7"
+        def Shader "Modulo"
         {
-            uniform token info:id = "ND_multiply_vector2FA"
-            prepend float2 inputs:in1.connect = </Root/ImageBlockMaterial/Multiply_2.outputs:out>
-            float inputs:in2 = 0.1
-            float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-371.89062, 539.8008)
-            int ui:nodegraph:node:stackingOrder = 3772
+            uniform token info:id = "ND_modulo_float"
+            float inputs:in1.connect = </Root/ImageBlockMaterial/Time.outputs:out>
+            float inputs:in2 = 1000
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-712.1252, 477.8873)
+            int ui:nodegraph:node:stackingOrder = 3782
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:in1"]
         }
     }
 

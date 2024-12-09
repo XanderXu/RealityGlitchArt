@@ -12,11 +12,11 @@ def Xform "Root"
 {
     def Material "AnalogNoiseMaterial"
     {
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-783.3867, 13.523928)
-                    int stackingOrderInSubgraph = 3995
+                    int stackingOrderInSubgraph = 4003
                 }
             }
         )
@@ -70,7 +70,7 @@ def Xform "Root"
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/AnalogNoiseMaterial.inputs:Speed>
-            float inputs:in2.connect = </Root/AnalogNoiseMaterial/Time.outputs:out>
+            float inputs:in2.connect = </Root/AnalogNoiseMaterial/Modulo.outputs:out>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-722.36884, 553.001)
             int ui:nodegraph:node:stackingOrder = 3047
@@ -380,6 +380,16 @@ def Xform "Root"
             float2 ui:nodegraph:node:pos = (1743.5781, 92.890625)
             int ui:nodegraph:node:stackingOrder = 3998
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
+        }
+
+        def Shader "Modulo"
+        {
+            uniform token info:id = "ND_modulo_float"
+            float inputs:in1.connect = </Root/AnalogNoiseMaterial/Time.outputs:out>
+            float inputs:in2 = 1000
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-737.2078, 678.2773)
+            int ui:nodegraph:node:stackingOrder = 4001
         }
     }
 

@@ -20,7 +20,7 @@ def Xform "Root"
                 }
             }
         )
-        asset inputs:ConstantImageFile = @number.jpeg@ (
+        asset inputs:ConstantImageFile = @Texture/number.jpeg@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-779.21686, -314.58807)
@@ -82,7 +82,7 @@ def Xform "Root"
         {
             uniform token info:id = "ND_multiply_float"
             float inputs:in1.connect = </Root/ImageBlockMaterialV2.inputs:Speed>
-            float inputs:in2.connect = </Root/ImageBlockMaterialV2/Time.outputs:out>
+            float inputs:in2.connect = </Root/ImageBlockMaterialV2/Modulo.outputs:out>
             float outputs:out
             float2 ui:nodegraph:node:pos = (-684.72626, 416.24182)
             int ui:nodegraph:node:stackingOrder = 2742
@@ -304,7 +304,7 @@ def Xform "Root"
                     }
                 }
             )
-            float2 inputs:seed.connect = </Root/ImageBlockMaterialV2/Multiply_8.outputs:out>
+            float2 inputs:seed.connect = </Root/ImageBlockMaterialV2/Multiply_2.outputs:out>
             float outputs:noise (
                 customData = {
                     dictionary realitykit = {
@@ -468,13 +468,13 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 3383
         }
 
-        def Shader "Multiply_8"
+        def Shader "Modulo"
         {
-            uniform token info:id = "ND_multiply_vector2FA"
-            prepend float2 inputs:in1.connect = </Root/ImageBlockMaterialV2/Multiply_2.outputs:out>
-            float inputs:in2 = 0.1
-            float2 outputs:out
-            float2 ui:nodegraph:node:pos = (-382.46484, 466.875)
+            uniform token info:id = "ND_modulo_float"
+            float inputs:in1.connect = </Root/ImageBlockMaterialV2/Time.outputs:out>
+            float inputs:in2 = 1000
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-675.85156, 489.96875)
             int ui:nodegraph:node:stackingOrder = 3386
         }
     }
