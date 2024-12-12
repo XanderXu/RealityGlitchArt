@@ -1,7 +1,7 @@
 import Foundation
 
-/// Bundle for the RealityKitGlitchArt project
-public let realityKitGlitchArtBundle = Bundle.module
+/// Bundle for the RealityGlitchArt project
+public let realityGlitchArtBundle = Bundle.module
 public let glitchArtMaterialNamePrefix = "/Root/"
 public let glitchArtMaterialPathPrefix = "Materials/"
 

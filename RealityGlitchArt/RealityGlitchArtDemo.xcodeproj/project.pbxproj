@@ -23,12 +23,11 @@
 		6CDB2DFE2C3A875400CFB28A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB2DFD2C3A875400CFB28A /* Preview Assets.xcassets */; };
 		6CDB2E042C3A87FB00CFB28A /* RealityKitNoise in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB2E032C3A87FB00CFB28A /* RealityKitNoise */; };
 		6CDB2E072C3A886500CFB28A /* RealityKitNoise in Frameworks */ = {isa = PBXBuildFile; productRef = 6CDB2E062C3A886500CFB28A /* RealityKitNoise */; };
-		6CDB2E092C3A894A00CFB28A /* RealityKitGlitchArt in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB2E082C3A894A00CFB28A /* RealityKitGlitchArt */; };
-		6CDB2E0D2C3A89C800CFB28A /* RealityKitGlitchArt in Frameworks */ = {isa = PBXBuildFile; productRef = 6CDB2E0C2C3A89C800CFB28A /* RealityKitGlitchArt */; };
+		6CE0ED852D0B292A00F10A1A /* RealityGlitchArt in Frameworks */ = {isa = PBXBuildFile; productRef = 6CE0ED842D0B292A00F10A1A /* RealityGlitchArt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6C835B872C2844DA00644727 /* RealityGlitchArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealityGlitchArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C835B872C2844DA00644727 /* RealityGlitchArtDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealityGlitchArtDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C835B8E2C2844DA00644727 /* RealityGlitchArtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityGlitchArtApp.swift; sourceTree = "<group>"; };
 		6C835B902C2844DA00644727 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6C835B922C2844DA00644727 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
@@ -47,7 +46,7 @@
 		6CDB2DFD2C3A875400CFB28A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6CDB2DFF2C3A875400CFB28A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CDB2E032C3A87FB00CFB28A /* RealityKitNoise */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitNoise; sourceTree = "<group>"; };
-		6CDB2E082C3A894A00CFB28A /* RealityKitGlitchArt */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitGlitchArt; sourceTree = "<group>"; };
+		6CE0ED832D0B28EF00F10A1A /* RealityGlitchArt */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityGlitchArt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CDB2E0D2C3A89C800CFB28A /* RealityKitGlitchArt in Frameworks */,
+				6CE0ED852D0B292A00F10A1A /* RealityGlitchArt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +72,7 @@
 		6C835B7E2C2844DA00644727 = {
 			isa = PBXGroup;
 			children = (
-				6C835B892C2844DA00644727 /* RealityGlitchArt */,
+				6C835B892C2844DA00644727 /* RealityGlitchArtDemo */,
 				6C835B8A2C2844DA00644727 /* Packages */,
 				6CDB2DED2C3A875300CFB28A /* NoiseVisualization */,
 				6C835B882C2844DA00644727 /* Products */,
@@ -84,13 +83,13 @@
 		6C835B882C2844DA00644727 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C835B872C2844DA00644727 /* RealityGlitchArt.app */,
+				6C835B872C2844DA00644727 /* RealityGlitchArtDemo.app */,
 				6CDB2DEC2C3A875300CFB28A /* NoiseVisualization.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6C835B892C2844DA00644727 /* RealityGlitchArt */ = {
+		6C835B892C2844DA00644727 /* RealityGlitchArtDemo */ = {
 			isa = PBXGroup;
 			children = (
 				6C835B8E2C2844DA00644727 /* RealityGlitchArtApp.swift */,
@@ -102,13 +101,13 @@
 				6C835B9D2C2844DB00644727 /* Info.plist */,
 				6C835B9A2C2844DB00644727 /* Preview Content */,
 			);
-			path = RealityGlitchArt;
+			path = RealityGlitchArtDemo;
 			sourceTree = "<group>";
 		};
 		6C835B8A2C2844DA00644727 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				6CDB2E082C3A894A00CFB28A /* RealityKitGlitchArt */,
+				6CE0ED832D0B28EF00F10A1A /* RealityGlitchArt */,
 				6CDB2E032C3A87FB00CFB28A /* RealityKitNoise */,
 			);
 			path = Packages;
@@ -155,9 +154,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C835B862C2844DA00644727 /* RealityGlitchArt */ = {
+		6C835B862C2844DA00644727 /* RealityGlitchArtDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C835BA02C2844DB00644727 /* Build configuration list for PBXNativeTarget "RealityGlitchArt" */;
+			buildConfigurationList = 6C835BA02C2844DB00644727 /* Build configuration list for PBXNativeTarget "RealityGlitchArtDemo" */;
 			buildPhases = (
 				6C835B832C2844DA00644727 /* Sources */,
 				6C835B842C2844DA00644727 /* Frameworks */,
@@ -167,12 +166,12 @@
 			);
 			dependencies = (
 			);
-			name = RealityGlitchArt;
+			name = RealityGlitchArtDemo;
 			packageProductDependencies = (
-				6CDB2E0C2C3A89C800CFB28A /* RealityKitGlitchArt */,
+				6CE0ED842D0B292A00F10A1A /* RealityGlitchArt */,
 			);
 			productName = VisionOSGlitchArt;
-			productReference = 6C835B872C2844DA00644727 /* RealityGlitchArt.app */;
+			productReference = 6C835B872C2844DA00644727 /* RealityGlitchArtDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6CDB2DEB2C3A875300CFB28A /* NoiseVisualization */ = {
@@ -213,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6C835B822C2844DA00644727 /* Build configuration list for PBXProject "RealityGlitchArt" */;
+			buildConfigurationList = 6C835B822C2844DA00644727 /* Build configuration list for PBXProject "RealityGlitchArtDemo" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -226,7 +225,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C835B862C2844DA00644727 /* RealityGlitchArt */,
+				6C835B862C2844DA00644727 /* RealityGlitchArtDemo */,
 				6CDB2DEB2C3A875300CFB28A /* NoiseVisualization */,
 			);
 		};
@@ -239,7 +238,6 @@
 			files = (
 				6C835B9C2C2844DB00644727 /* Preview Assets.xcassets in Resources */,
 				6C835B992C2844DB00644727 /* Assets.xcassets in Resources */,
-				6CDB2E092C3A894A00CFB28A /* RealityKitGlitchArt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +407,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"RealityGlitchArt/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"RealityGlitchArtDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = 67UBXXU7S9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -435,7 +433,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"RealityGlitchArt/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"RealityGlitchArtDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = 67UBXXU7S9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -509,7 +507,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C835B822C2844DA00644727 /* Build configuration list for PBXProject "RealityGlitchArt" */ = {
+		6C835B822C2844DA00644727 /* Build configuration list for PBXProject "RealityGlitchArtDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C835B9E2C2844DB00644727 /* Debug */,
@@ -518,7 +516,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C835BA02C2844DB00644727 /* Build configuration list for PBXNativeTarget "RealityGlitchArt" */ = {
+		6C835BA02C2844DB00644727 /* Build configuration list for PBXNativeTarget "RealityGlitchArtDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C835BA12C2844DB00644727 /* Debug */,
@@ -543,9 +541,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitNoise;
 		};
-		6CDB2E0C2C3A89C800CFB28A /* RealityKitGlitchArt */ = {
+		6CE0ED842D0B292A00F10A1A /* RealityGlitchArt */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = RealityKitGlitchArt;
+			productName = RealityGlitchArt;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

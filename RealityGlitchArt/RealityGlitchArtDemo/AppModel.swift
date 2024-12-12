@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import RealityKitGlitchArt
+import RealityGlitchArt
 /// Maintains app-wide state
 @MainActor
 @Observable
