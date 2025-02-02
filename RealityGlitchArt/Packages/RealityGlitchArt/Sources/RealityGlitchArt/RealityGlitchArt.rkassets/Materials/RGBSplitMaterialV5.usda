@@ -23,7 +23,7 @@ def Xform "Root"
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-835.846, 369.30478)
-                    int stackingOrderInSubgraph = 3080
+                    int stackingOrderInSubgraph = 3085
                 }
             }
         )
@@ -31,7 +31,7 @@ def Xform "Root"
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-843.2238, 564.22375)
-                    int stackingOrderInSubgraph = 3082
+                    int stackingOrderInSubgraph = 3086
                 }
             }
         )
@@ -57,7 +57,7 @@ def Xform "Root"
             float inputs:roughness
             token outputs:out
             float2 ui:nodegraph:node:pos = (2448.3684, -165.28508)
-            int ui:nodegraph:node:stackingOrder = 2927
+            int ui:nodegraph:node:stackingOrder = 3081
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
         }
 
@@ -95,7 +95,7 @@ def Xform "Root"
             float inputs:in3.connect = </Root/RGBSplitMaterialV5/UsdUVTexture_2.outputs:b>
             color3f outputs:out
             float2 ui:nodegraph:node:pos = (2085.8794, -93.32771)
-            int ui:nodegraph:node:stackingOrder = 2927
+            int ui:nodegraph:node:stackingOrder = 3082
         }
 
         def Shader "UsdUVTexture"
@@ -143,7 +143,7 @@ def Xform "Root"
             color3f outputs:rgb
             color4f outputs:rgba
             float2 ui:nodegraph:node:pos = (1759.6302, -274.06503)
-            int ui:nodegraph:node:stackingOrder = 2948
+            int ui:nodegraph:node:stackingOrder = 3083
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
         }
 
@@ -353,16 +353,14 @@ def Xform "Root"
         {
             uniform token info:id = "ND_image_color4"
             color4f inputs:default
-            asset inputs:file = @X-Noise256.png@ (
-                colorSpace = "srgb_texture"
-            )
+            asset inputs:file = @Texture/number.jpeg@
             string inputs:filtertype
             float2 inputs:texcoord.connect = </Root/RGBSplitMaterialV5/Combine2.outputs:out>
             string inputs:uaddressmode
             string inputs:vaddressmode
             color4f outputs:out
             float2 ui:nodegraph:node:pos = (-31.646946, 555.9739)
-            int ui:nodegraph:node:stackingOrder = 3078
+            int ui:nodegraph:node:stackingOrder = 3088
         }
     }
 

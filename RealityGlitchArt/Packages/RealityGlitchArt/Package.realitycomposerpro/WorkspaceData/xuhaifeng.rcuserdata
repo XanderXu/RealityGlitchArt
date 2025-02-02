@@ -1,10 +1,12 @@
 {
-  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
+  "advancedEditorSelectedIdentifier" : "ShaderGraphEditorPluginID",
   "openSceneRelativePaths" : [
     "Immersive.usda",
     "Scene.usda",
-    "Materials\/DigitalStripeHMaterial.usda",
-    "Materials\/DigitalStripeVMaterial.usda"
+    "Materials\/RGBSplitMaterialV5.usda",
+    "Materials\/TileJitterHMaterial.usda",
+    "Materials\/TileJitterVMaterial.usda",
+    "Materials\/ScreenJumpHMaterial.usda"
   ],
   "recentIdentifiers" : {
     "0885712B-2386-46E4-BEB6-C5C6BC2D2FEB" : [
@@ -50,6 +52,9 @@
 
     ],
     "4DB19BE9-10EE-4379-9A2C-BDCB03E9FDD1" : [
+
+    ],
+    "527EEBB0-B337-45AA-ADC8-ACD16BE4BEA9" : [
 
     ],
     "5665844D-2976-452C-8C14-7033FAEAC625" : [
@@ -113,6 +118,9 @@
 
     ],
     "CA82D119-A92A-4387-A19C-46FBD01994C6" : [
+
+    ],
+    "CDC107A2-CE14-4CB0-8944-D8006C1F6E23" : [
 
     ],
     "CDCC13C0-640E-4584-87C2-416654F669C7" : [
@@ -375,6 +383,54 @@
           0,
           0.72310275,
           0.7231028,
+          1
+        ]
+      }
+    ],
+    "32A56793-652A-40DC-ADB9-655AA77A247B" : [
+      {
+        "date" : 760156326.053457,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          1.0149415,
+          1.0149416,
+          1
+        ]
+      }
+    ],
+    "3486605D-2413-46E3-A6D9-01CD8BD38CFC" : [
+      {
+        "date" : 760156193.933134,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          0.2081179,
+          0.20811792,
           1
         ]
       }
@@ -769,6 +825,30 @@
           0,
           0.69369537,
           0.6936954,
+          1
+        ]
+      }
+    ],
+    "7D4D3327-1FBC-47A8-AA31-EA1956232C07" : [
+      {
+        "date" : 760156371.95667,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          1.0060767,
+          1.0060768,
           1
         ]
       }
@@ -1387,6 +1467,30 @@
         ]
       }
     ],
+    "CDC107A2-CE14-4CB0-8944-D8006C1F6E23" : [
+      {
+        "date" : 760156337.548532,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          0.3591207,
+          0.35912073,
+          1
+        ]
+      }
+    ],
     "CDCC13C0-640E-4584-87C2-416654F669C7" : [
       {
         "date" : 755318973.422447,
@@ -1778,5 +1882,5 @@
       }
     ]
   },
-  "selectedSceneRelativePath" : "Materials\/DigitalStripeHMaterial.usda"
+  "selectedSceneRelativePath" : "Materials\/TileJitterHMaterial.usda"
 }
