@@ -353,14 +353,14 @@ def Xform "Root"
         {
             uniform token info:id = "ND_image_color4"
             color4f inputs:default
-            asset inputs:file = @Texture/number.jpeg@
+            asset inputs:file = @Texture/X-Noise256.png@
             string inputs:filtertype
             float2 inputs:texcoord.connect = </Root/RGBSplitMaterialV5/Combine2.outputs:out>
             string inputs:uaddressmode
             string inputs:vaddressmode
             color4f outputs:out
             float2 ui:nodegraph:node:pos = (-31.646946, 555.9739)
-            int ui:nodegraph:node:stackingOrder = 3088
+            int ui:nodegraph:node:stackingOrder = 3089
         }
     }
 
@@ -376,6 +376,8 @@ def Xform "Root"
 
         def Material "DefaultMaterial"
         {
+            token outputs:mtlx:surface
+            token outputs:realitykit:vertex
             prepend token outputs:surface.connect = </Root/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
 
             def Shader "DefaultSurfaceShader"
